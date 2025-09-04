@@ -117,20 +117,29 @@ const CourseManagement = () => {
         <div className="container mx-auto px-6 py-12">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
-              <GraduationCap className="h-12 w-12" />
-              <div>
-                <h1 className="text-4xl font-bold">SkillBridge</h1>
-                <p className="text-primary-foreground/80 text-lg">
-                  Manage courses, track enrollments, and grow your learning platform
-                </p>
-              </div>
+              <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <GraduationCap className="h-8 w-8" />
+                <div>
+                  <span className="text-2xl font-bold">SkillBridge</span>
+                  <p className="text-primary-foreground/80 text-sm">
+                    Manage courses, track enrollments, and grow your learning platform
+                  </p>
+                </div>
+              </Link>
             </div>
-            <Link to="/">
-              <Button variant="secondary" size="sm" className="gap-2">
-                <Home className="h-4 w-4" />
-                Home
-              </Button>
-            </Link>
+            <nav className="flex items-center gap-4">
+              <Link to="/">
+                <Button variant="secondary" size="sm" className="gap-2">
+                  <Home className="h-4 w-4" />
+                  Home
+                </Button>
+              </Link>
+              <Link to="/about">
+                <Button variant="outline" size="sm" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
+                  About Us
+                </Button>
+              </Link>
+            </nav>
           </div>
           
           {/* Stats */}

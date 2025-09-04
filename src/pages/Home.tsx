@@ -51,6 +51,9 @@ const Home = () => {
             <span className="text-2xl font-bold text-foreground">SkillBridge</span>
           </div>
           <nav className="flex items-center gap-6">
+            <Link to="/about" className="text-foreground hover:text-primary transition-colors">
+              About Us
+            </Link>
             <Link to="/courses" className="text-foreground hover:text-primary transition-colors">
               Courses
             </Link>
