@@ -5,8 +5,9 @@ import { CourseCard } from "@/components/CourseCard";
 import { CourseForm } from "@/components/CourseForm";
 import { EnrollmentModal } from "@/components/EnrollmentModal";
 import { Course, Student } from "@/types/course";
-import { Search, Plus, GraduationCap, BookOpen, Users } from "lucide-react";
+import { Search, Plus, GraduationCap, BookOpen, Users, Home } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
 
 const mockCourses: Course[] = [
   {
@@ -114,14 +115,22 @@ const CourseManagement = () => {
       {/* Header */}
       <div className="bg-gradient-primary text-primary-foreground">
         <div className="container mx-auto px-6 py-12">
-          <div className="flex items-center gap-4 mb-6">
-            <GraduationCap className="h-12 w-12" />
-            <div>
-              <h1 className="text-4xl font-bold">SkillBridge</h1>
-              <p className="text-primary-foreground/80 text-lg">
-                Manage courses, track enrollments, and grow your learning platform
-              </p>
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-4">
+              <GraduationCap className="h-12 w-12" />
+              <div>
+                <h1 className="text-4xl font-bold">SkillBridge</h1>
+                <p className="text-primary-foreground/80 text-lg">
+                  Manage courses, track enrollments, and grow your learning platform
+                </p>
+              </div>
             </div>
+            <Link to="/">
+              <Button variant="secondary" size="sm" className="gap-2">
+                <Home className="h-4 w-4" />
+                Home
+              </Button>
+            </Link>
           </div>
           
           {/* Stats */}
