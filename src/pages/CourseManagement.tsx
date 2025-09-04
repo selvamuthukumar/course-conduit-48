@@ -117,7 +117,7 @@ const CourseManagement = () => {
           <div className="flex items-center gap-4 mb-6">
             <GraduationCap className="h-12 w-12" />
             <div>
-              <h1 className="text-4xl font-bold">Course Management System</h1>
+              <h1 className="text-4xl font-bold">SkillBridge</h1>
               <p className="text-primary-foreground/80 text-lg">
                 Manage courses, track enrollments, and grow your learning platform
               </p>
