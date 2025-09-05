@@ -8,9 +8,12 @@ import { Course, Student } from "@/types/course";
 import { Search, Plus, GraduationCap, BookOpen, Users, Home, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCourses } from "@/hooks/useCourses";
+import { useAuth } from "@/hooks/useAuth";
+import { Navigate } from "react-router-dom";
 
 const CourseManagement = () => {
   const { courses, loading, createCourse, enrollStudent } = useCourses();
+  const { user, canManageCourses, loading: authLoading, signOut } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
@@ -45,6 +48,19 @@ const CourseManagement = () => {
       // Error is handled in the hook
     }
   };
+
+  // Redirect if not authenticated
+  if (!user && !authLoading) {
+    return <Navigate to="/auth" replace />;
+  }
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
 
   if (showForm) {
     return (
@@ -81,11 +97,19 @@ const CourseManagement = () => {
                   Home
                 </Button>
               </Link>
-              <Link to="/about">
+              <Link to="/profile">
                 <Button variant="outline" size="sm" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
-                  About Us
+                  Profile
                 </Button>
               </Link>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={signOut}
+                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+              >
+                Sign Out
+              </Button>
             </nav>
           </div>
           
@@ -137,13 +161,15 @@ const CourseManagement = () => {
               className="pl-10"
             />
           </div>
-          <Button 
-            onClick={() => setShowForm(true)}
-            className="bg-gradient-primary hover:opacity-90 shadow-primary"
-          >
-            <Plus className="h-4 w-4 mr-2" />
-            Create Course
-          </Button>
+          {canManageCourses() && (
+            <Button 
+              onClick={() => setShowForm(true)}
+              className="bg-gradient-primary hover:opacity-90 shadow-primary"
+            >
+              <Plus className="h-4 w-4 mr-2" />
+              Create Course
+            </Button>
+          )}
         </div>
 
         {/* Loading State */}
@@ -165,7 +191,7 @@ const CourseManagement = () => {
                 : 'Create your first course to get started'
               }
             </p>
-            {!searchTerm && (
+            {!searchTerm && canManageCourses() && (
               <Button 
                 onClick={() => setShowForm(true)}
                 className="bg-gradient-primary hover:opacity-90 shadow-primary"

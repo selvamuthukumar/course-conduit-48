@@ -11,8 +11,10 @@ import {
   CheckCircle
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const Home = () => {
+  const { user, profile } = useAuth();
   const steps = [
     {
       icon: UserPlus,
@@ -57,7 +59,20 @@ const Home = () => {
             <Link to="/courses" className="text-foreground hover:text-primary transition-colors">
               Courses
             </Link>
-            <Button variant="outline" size="sm">Sign In</Button>
+            {user ? (
+              <div className="flex items-center gap-4">
+                <span className="text-sm text-muted-foreground">
+                  Welcome, {profile?.full_name || profile?.email}
+                </span>
+                <Link to="/profile">
+                  <Button variant="outline" size="sm">Profile</Button>
+                </Link>
+              </div>
+            ) : (
+              <Link to="/auth">
+                <Button variant="outline" size="sm">Sign In</Button>
+              </Link>
+            )}
           </nav>
         </div>
       </header>
@@ -91,9 +106,9 @@ const Home = () => {
             </div>
           </div>
 
-          <Link to="/courses">
+          <Link to={user ? "/courses" : "/auth"}>
             <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:shadow-primary">
-              Get Started
+              {user ? "Browse Courses" : "Get Started"}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
