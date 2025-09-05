@@ -7,9 +7,10 @@ import { Calendar, Clock, Users, BookOpen } from "lucide-react";
 interface CourseCardProps {
   course: Course;
   onEnroll: (courseId: string) => void;
+  isAuthenticated?: boolean;
 }
 
-export const CourseCard = ({ course, onEnroll }: CourseCardProps) => {
+export const CourseCard = ({ course, onEnroll, isAuthenticated = false }: CourseCardProps) => {
   const enrolledCount = course.enrollmentCount || course.enrolledStudents.length;
   const enrollmentPercentage = (enrolledCount / course.maxStudents) * 100;
 
@@ -82,7 +83,7 @@ export const CourseCard = ({ course, onEnroll }: CourseCardProps) => {
             className="w-full bg-gradient-primary hover:opacity-90 shadow-primary"
             disabled={enrolledCount >= course.maxStudents}
           >
-            {enrolledCount >= course.maxStudents ? 'Course Full' : 'Enroll Now'}
+            {enrolledCount >= course.maxStudents ? 'Course Full' : isAuthenticated ? 'Enroll Now' : 'Sign In to Enroll'}
           </Button>
         </div>
       </div>

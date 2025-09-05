@@ -106,9 +106,9 @@ const Home = () => {
             </div>
           </div>
 
-          <Link to={user ? "/courses" : "/auth"}>
+          <Link to="/courses">
             <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:shadow-primary">
-              {user ? "Browse Courses" : "Get Started"}
+              Browse Courses
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

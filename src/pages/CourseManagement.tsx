@@ -35,6 +35,11 @@ const CourseManagement = () => {
   };
 
   const handleEnrollClick = (courseId: string) => {
+    if (!user) {
+      // Redirect to auth page if not authenticated
+      window.location.href = '/auth';
+      return;
+    }
     const course = courses.find(c => c.id === courseId);
     setSelectedCourse(course || null);
     setShowEnrollmentModal(true);
@@ -48,11 +53,6 @@ const CourseManagement = () => {
       // Error is handled in the hook
     }
   };
-
-  // Redirect if not authenticated
-  if (!user && !authLoading) {
-    return <Navigate to="/auth" replace />;
-  }
 
   if (authLoading) {
     return (
@@ -85,7 +85,7 @@ const CourseManagement = () => {
                 <div>
                   <span className="text-2xl font-bold">SkillBridge</span>
                   <p className="text-primary-foreground/80 text-sm">
-                    Manage courses, track enrollments, and grow your learning platform
+                    {user ? 'Manage courses, track enrollments, and grow your learning platform' : 'Explore our comprehensive course catalog and start learning today'}
                   </p>
                 </div>
               </Link>
@@ -97,19 +97,29 @@ const CourseManagement = () => {
                   Home
                 </Button>
               </Link>
-              <Link to="/profile">
-                <Button variant="outline" size="sm" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
-                  Profile
-                </Button>
-              </Link>
-              <Button 
-                variant="outline" 
-                size="sm" 
-                onClick={signOut}
-                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
-              >
-                Sign Out
-              </Button>
+              {user ? (
+                <>
+                  <Link to="/profile">
+                    <Button variant="outline" size="sm" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
+                      Profile
+                    </Button>
+                  </Link>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={signOut}
+                    className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+                  >
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <Link to="/auth">
+                  <Button variant="outline" size="sm" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
+                    Sign In
+                  </Button>
+                </Link>
+              )}
             </nav>
           </div>
           
@@ -161,7 +171,7 @@ const CourseManagement = () => {
               className="pl-10"
             />
           </div>
-          {canManageCourses() && (
+          {user && canManageCourses() && (
             <Button 
               onClick={() => setShowForm(true)}
               className="bg-gradient-primary hover:opacity-90 shadow-primary"
@@ -191,7 +201,7 @@ const CourseManagement = () => {
                 : 'Create your first course to get started'
               }
             </p>
-            {!searchTerm && canManageCourses() && (
+            {!searchTerm && user && canManageCourses() && (
               <Button 
                 onClick={() => setShowForm(true)}
                 className="bg-gradient-primary hover:opacity-90 shadow-primary"
@@ -208,6 +218,7 @@ const CourseManagement = () => {
                 key={course.id}
                 course={course}
                 onEnroll={handleEnrollClick}
+                isAuthenticated={!!user}
               />
             ))}
           </div>
