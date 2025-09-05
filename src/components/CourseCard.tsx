@@ -10,7 +10,8 @@ interface CourseCardProps {
 }
 
 export const CourseCard = ({ course, onEnroll }: CourseCardProps) => {
-  const enrollmentPercentage = (course.enrolledStudents.length / course.maxStudents) * 100;
+  const enrolledCount = course.enrollmentCount || course.enrolledStudents.length;
+  const enrollmentPercentage = (enrolledCount / course.maxStudents) * 100;
 
   return (
     <Card className="group relative overflow-hidden bg-gradient-card shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
@@ -56,7 +57,7 @@ export const CourseCard = ({ course, onEnroll }: CourseCardProps) => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <Users className="h-4 w-4" />
-              {course.enrolledStudents.length}/{course.maxStudents} enrolled
+              {enrolledCount}/{course.maxStudents} enrolled
             </div>
             <div className="text-lg font-bold text-primary">
               ${course.price}
@@ -79,9 +80,9 @@ export const CourseCard = ({ course, onEnroll }: CourseCardProps) => {
           <Button 
             onClick={() => onEnroll(course.id)}
             className="w-full bg-gradient-primary hover:opacity-90 shadow-primary"
-            disabled={course.enrolledStudents.length >= course.maxStudents}
+            disabled={enrolledCount >= course.maxStudents}
           >
-            {course.enrolledStudents.length >= course.maxStudents ? 'Course Full' : 'Enroll Now'}
+            {enrolledCount >= course.maxStudents ? 'Course Full' : 'Enroll Now'}
           </Button>
         </div>
       </div>

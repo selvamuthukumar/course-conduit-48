@@ -11,6 +11,7 @@ export interface Course {
   maxStudents: number;
   startDate: string;
   imageUrl?: string;
+  enrollmentCount?: number;
 }
 
 export interface Student {

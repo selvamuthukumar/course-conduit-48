@@ -5,59 +5,16 @@ import { CourseCard } from "@/components/CourseCard";
 import { CourseForm } from "@/components/CourseForm";
 import { EnrollmentModal } from "@/components/EnrollmentModal";
 import { Course, Student } from "@/types/course";
-import { Search, Plus, GraduationCap, BookOpen, Users, Home } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Search, Plus, GraduationCap, BookOpen, Users, Home, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const mockCourses: Course[] = [
-  {
-    id: '1',
-    title: 'Introduction to React',
-    description: 'Learn the fundamentals of React including components, state management, and modern hooks. Perfect for beginners looking to start their React journey.',
-    instructor: 'Sarah Johnson',
-    duration: '8 weeks',
-    level: 'Beginner',
-    category: 'Programming',
-    price: 99,
-    enrolledStudents: ['1', '2', '3'],
-    maxStudents: 25,
-    startDate: '2024-02-15'
-  },
-  {
-    id: '2',
-    title: 'Advanced JavaScript Patterns',
-    description: 'Master advanced JavaScript concepts including closures, prototypes, async programming, and design patterns used in modern web development.',
-    instructor: 'Mike Chen',
-    duration: '10 weeks',
-    level: 'Advanced',
-    category: 'Programming',
-    price: 149,
-    enrolledStudents: ['4', '5'],
-    maxStudents: 20,
-    startDate: '2024-03-01'
-  },
-  {
-    id: '3',
-    title: 'UI/UX Design Fundamentals',
-    description: 'Comprehensive course covering user interface and user experience design principles, tools, and best practices for creating engaging digital products.',
-    instructor: 'Emily Rodriguez',
-    duration: '12 weeks',
-    level: 'Intermediate',
-    category: 'Design',
-    price: 129,
-    enrolledStudents: ['6', '7', '8', '9'],
-    maxStudents: 30,
-    startDate: '2024-02-20'
-  }
-];
+import { useCourses } from "@/hooks/useCourses";
 
 const CourseManagement = () => {
-  const [courses, setCourses] = useState<Course[]>(mockCourses);
+  const { courses, loading, createCourse, enrollStudent } = useCourses();
   const [searchTerm, setSearchTerm] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [showEnrollmentModal, setShowEnrollmentModal] = useState(false);
-  const { toast } = useToast();
 
   const filteredCourses = courses.filter(course =>
     course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -65,18 +22,13 @@ const CourseManagement = () => {
     course.category.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleCreateCourse = (courseData: Omit<Course, 'id' | 'enrolledStudents'>) => {
-    const newCourse: Course = {
-      ...courseData,
-      id: Date.now().toString(),
-      enrolledStudents: []
-    };
-    setCourses(prev => [...prev, newCourse]);
-    setShowForm(false);
-    toast({
-      title: "Course Created",
-      description: `${courseData.title} has been successfully created.`,
-    });
+  const handleCreateCourse = async (courseData: Omit<Course, 'id' | 'enrolledStudents'>) => {
+    try {
+      await createCourse(courseData);
+      setShowForm(false);
+    } catch (error) {
+      // Error is handled in the hook
+    }
   };
 
   const handleEnrollClick = (courseId: string) => {
@@ -85,18 +37,13 @@ const CourseManagement = () => {
     setShowEnrollmentModal(true);
   };
 
-  const handleEnrollStudent = (courseId: string, studentData: Omit<Student, 'id'>) => {
-    const studentId = Date.now().toString();
-    setCourses(prev => prev.map(course => 
-      course.id === courseId 
-        ? { ...course, enrolledStudents: [...course.enrolledStudents, studentId] }
-        : course
-    ));
-    setShowEnrollmentModal(false);
-    toast({
-      title: "Enrollment Successful",
-      description: `${studentData.name} has been enrolled in the course.`,
-    });
+  const handleEnrollStudent = async (courseId: string, studentData: Omit<Student, 'id'>) => {
+    try {
+      await enrollStudent(courseId, studentData.name, studentData.email);
+      setShowEnrollmentModal(false);
+    } catch (error) {
+      // Error is handled in the hook
+    }
   };
 
   if (showForm) {
@@ -108,7 +55,7 @@ const CourseManagement = () => {
     );
   }
 
-  const totalStudents = courses.reduce((sum, course) => sum + course.enrolledStudents.length, 0);
+  const totalStudents = courses.reduce((sum, course) => sum + (course.enrollmentCount || course.enrolledStudents.length), 0);
 
   return (
     <div className="min-h-screen bg-gradient-bg">
@@ -199,8 +146,14 @@ const CourseManagement = () => {
           </Button>
         </div>
 
-        {/* Course Grid */}
-        {filteredCourses.length === 0 ? (
+        {/* Loading State */}
+        {loading ? (
+          <div className="flex justify-center items-center py-12">
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            <span className="ml-2 text-muted-foreground">Loading courses...</span>
+          </div>
+        ) : /* Course Grid */
+        filteredCourses.length === 0 ? (
           <div className="text-center py-12">
             <BookOpen className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-2">
