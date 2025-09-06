@@ -58,7 +58,7 @@ export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: Enrollmen
                 {course.enrolledStudents.length}/{course.maxStudents} enrolled
               </span>
               <span className="text-lg font-bold text-primary">
-                ${course.price}
+                ₹{course.price}
               </span>
             </div>
           </div>

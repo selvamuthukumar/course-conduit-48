@@ -61,7 +61,7 @@ export const CourseCard = ({ course, onEnroll, isAuthenticated = false }: Course
               {enrolledCount}/{course.maxStudents} enrolled
             </div>
             <div className="text-lg font-bold text-primary">
-              ${course.price}
+              ₹{course.price}
             </div>
           </div>
 

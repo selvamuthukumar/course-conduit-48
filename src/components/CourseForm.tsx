@@ -126,7 +126,7 @@ export const CourseForm = ({ onSubmit, onCancel }: CourseFormProps) => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="space-y-2">
-                <Label htmlFor="price">Price ($)</Label>
+                <Label htmlFor="price">Price (₹)</Label>
                 <Input
                   id="price"
                   type="number"
