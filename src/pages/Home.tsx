@@ -8,11 +8,11 @@ import {
   Briefcase, 
   ArrowRight,
   Play,
-  CheckCircle,
-  Building2,
-  Users,
-  Zap
+  CheckCircle
 } from "lucide-react";
+import vvdnLogo from "@/assets/vvdn_site_logo.svg";
+import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
+import essiLogo from "@/assets/logo_essi.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -246,20 +246,20 @@ const Home = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
-            <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-              <img src="https://www.vvdntech.com/images/logo.png" alt="VVDN Technologies" className="max-w-full max-h-full object-contain" />
+            <div className="w-20 h-16 mx-auto mb-4 flex items-center justify-center">
+              <img src={vvdnLogo} alt="VVDN Technologies" className="max-w-full max-h-full object-contain" />
             </div>
             <h3 className="text-lg font-semibold text-foreground">VVDN Technologies</h3>
           </div>
           <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
-            <div className="bg-gradient-secondary rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
-              <Users className="h-6 w-6 text-secondary-foreground" />
+            <div className="w-20 h-16 mx-auto mb-4 flex items-center justify-center">
+              <img src={naanMudhalvanLogo} alt="Naan Mudhalvan" className="max-w-full max-h-full object-contain" />
             </div>
             <h3 className="text-lg font-semibold text-foreground">Naan Mudhalvan</h3>
           </div>
           <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
-            <div className="bg-gradient-primary rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 shadow-primary">
-              <Zap className="h-6 w-6 text-primary-foreground" />
+            <div className="w-20 h-16 mx-auto mb-4 flex items-center justify-center">
+              <img src={essiLogo} alt="Electronics Sector Skill Council of India" className="max-w-full max-h-full object-contain" />
             </div>
             <h3 className="text-lg font-semibold text-foreground">Electronics Sector Skill Council of India</h3>
           </div>
