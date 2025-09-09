@@ -230,6 +230,30 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Partners Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+            Our Trusted Partners
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Collaborating with industry leaders to provide you with the best learning experience
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
+            <h3 className="text-lg font-semibold text-foreground">VVDN Technologies</h3>
+          </div>
+          <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
+            <h3 className="text-lg font-semibold text-foreground">Naan Mudhalvan</h3>
+          </div>
+          <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
+            <h3 className="text-lg font-semibold text-foreground">Electronics Sector Skill Council of India</h3>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="container mx-auto px-4 py-8 border-t border-border">
         <div className="text-center">
