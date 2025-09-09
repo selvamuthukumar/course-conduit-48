@@ -8,7 +8,10 @@ import {
   Briefcase, 
   ArrowRight,
   Play,
-  CheckCircle
+  CheckCircle,
+  Building2,
+  Users,
+  Zap
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
@@ -243,12 +246,21 @@ const Home = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
+            <div className="bg-gradient-primary rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 shadow-primary">
+              <Building2 className="h-6 w-6 text-primary-foreground" />
+            </div>
             <h3 className="text-lg font-semibold text-foreground">VVDN Technologies</h3>
           </div>
           <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
+            <div className="bg-gradient-secondary rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+              <Users className="h-6 w-6 text-secondary-foreground" />
+            </div>
             <h3 className="text-lg font-semibold text-foreground">Naan Mudhalvan</h3>
           </div>
           <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
+            <div className="bg-gradient-primary rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 shadow-primary">
+              <Zap className="h-6 w-6 text-primary-foreground" />
+            </div>
             <h3 className="text-lg font-semibold text-foreground">Electronics Sector Skill Council of India</h3>
           </div>
         </div>
