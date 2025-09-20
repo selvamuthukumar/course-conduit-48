@@ -42,9 +42,6 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
             {course.title}
           </h3>
           
-          <p className="text-muted-foreground text-sm line-clamp-2">
-            {course.description}
-          </p>
         </div>
 
         <div className="space-y-3">
