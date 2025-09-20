@@ -45,7 +45,10 @@ export const useCourses = () => {
         maxStudents: course.max_students,
         startDate: course.start_date,
         imageUrl: course.image_url,
-        enrollmentCount: enrollmentCounts[course.id] || 0
+        enrollmentCount: enrollmentCounts[course.id] || 0,
+        jobDescription: course.job_description,
+        eligibilityCriteria: course.eligibility_criteria,
+        curriculumUrl: course.curriculum_url
       }));
 
       setCourses(transformedCourses);
@@ -75,7 +78,10 @@ export const useCourses = () => {
           price: courseData.price,
           max_students: courseData.maxStudents,
           start_date: courseData.startDate,
-          image_url: courseData.imageUrl
+          image_url: courseData.imageUrl,
+          job_description: courseData.jobDescription,
+          eligibility_criteria: courseData.eligibilityCriteria,
+          curriculum_url: courseData.curriculumUrl
         })
         .select()
         .single();
