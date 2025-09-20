@@ -77,7 +77,7 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
 
         <div className="pt-2">
           <p className="text-sm text-muted-foreground mb-3">
-            Instructor: <span className="font-medium text-foreground">VVDN Technologies</span>
+            Instructor: <span className="font-medium text-foreground">{course.instructor}</span>
           </p>
           
           <div className="space-y-2">
