@@ -18,11 +18,14 @@ export type Database = {
         Row: {
           category: string
           created_at: string
+          curriculum_url: string | null
           description: string | null
           duration: string
+          eligibility_criteria: string[] | null
           id: string
           image_url: string | null
           instructor: string
+          job_description: string | null
           level: string
           max_students: number
           price: number
@@ -33,11 +36,14 @@ export type Database = {
         Insert: {
           category: string
           created_at?: string
+          curriculum_url?: string | null
           description?: string | null
           duration: string
+          eligibility_criteria?: string[] | null
           id?: string
           image_url?: string | null
           instructor: string
+          job_description?: string | null
           level: string
           max_students?: number
           price?: number
@@ -48,11 +54,14 @@ export type Database = {
         Update: {
           category?: string
           created_at?: string
+          curriculum_url?: string | null
           description?: string | null
           duration?: string
+          eligibility_criteria?: string[] | null
           id?: string
           image_url?: string | null
           instructor?: string
+          job_description?: string | null
           level?: string
           max_students?: number
           price?: number
