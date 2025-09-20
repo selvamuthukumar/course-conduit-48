@@ -12,6 +12,9 @@ export interface Course {
   startDate: string;
   imageUrl?: string;
   enrollmentCount?: number;
+  jobDescription?: string;
+  eligibilityCriteria?: string[];
+  curriculumUrl?: string;
 }
 
 export interface Student {

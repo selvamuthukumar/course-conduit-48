@@ -39,7 +39,7 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
           </div>
           
           <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-            Printed Circuit Board- Assembly Specialist
+            {course.title}
           </h3>
           
         </div>
@@ -63,7 +63,7 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
 
         <div className="pt-2">
           <p className="text-sm text-muted-foreground mb-3">
-            Instructor: <span className="font-medium text-foreground">VVDN Technologies</span>
+            Instructor: <span className="font-medium text-foreground">{course.instructor}</span>
           </p>
           
           <div className="space-y-2">
@@ -89,31 +89,40 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Job Description</h4>
                   <p className="text-muted-foreground">
-                    PCB assembly operator is responsible for manually placing different types of components on the PCB as per the design requirements and then soldering them.
+                    {course.jobDescription || "Job description not available for this course."}
                   </p>
                 </div>
                 
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Eligibility Criteria</h4>
-                  <p className="text-muted-foreground mb-2">Applicants must meet any one of the following qualifications:</p>
-                  <ul className="text-muted-foreground space-y-1 list-disc list-inside">
-                    <li>Completed 8th Grade with 2 years of NTC (plus 2 years of NAC / relevant experience)</li>
-                    <li>Completed 10th Grade with 2 years of NTC / NAC / relevant experience</li>
-                    <li>Completed 12th Grade</li>
-                    <li>Certificate – NSQF (Level 3 in Maintenance Technician) with 2 years of experience</li>
-                  </ul>
-                </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-2">Eligibility Criteria</h4>
+                    {course.eligibilityCriteria && course.eligibilityCriteria.length > 0 ? (
+                      <>
+                        <p className="text-muted-foreground mb-2">Applicants must meet any one of the following qualifications:</p>
+                        <ul className="text-muted-foreground space-y-1 list-disc list-inside">
+                          {course.eligibilityCriteria.map((criteria, index) => (
+                            <li key={index}>{criteria}</li>
+                          ))}
+                        </ul>
+                      </>
+                    ) : (
+                      <p className="text-muted-foreground">Eligibility criteria not specified for this course.</p>
+                    )}
+                  </div>
 
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Course Curriculum</h4>
-                  <a 
-                    href="https://nqr.gov.in/qualification/document/EMS%20Technician%20-%20ELE_Q5315_v3.0.pdf" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary/80 underline transition-colors"
-                  >
-                    View Complete Curriculum (PDF)
-                  </a>
+                  {course.curriculumUrl ? (
+                    <a 
+                      href={course.curriculumUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-primary/80 underline transition-colors"
+                    >
+                      View Complete Curriculum (PDF)
+                    </a>
+                  ) : (
+                    <p className="text-muted-foreground">Curriculum link not available for this course.</p>
+                  )}
                 </div>
               </div>
             )}
