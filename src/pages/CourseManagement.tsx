@@ -113,37 +113,16 @@ const CourseManagement = () => {
           </div>
           
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+          <div className="grid grid-cols-1 gap-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
               <div className="flex items-center gap-3">
-                <BookOpen className="h-8 w-8" />
+                <BookOpen className="h-10 w-10" />
                 <div>
-                  <div className="text-2xl font-bold">{courses.length}</div>
-                  <div className="text-sm opacity-80">Total Courses</div>
+                  <div className="text-3xl font-bold">{courses.length}</div>
+                  <div className="text-base opacity-80">Total Courses Available</div>
                 </div>
               </div>
             </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-              <div className="flex items-center gap-3">
-                <Users className="h-8 w-8" />
-                <div>
-                  <div className="text-2xl font-bold">{totalStudents}</div>
-                  <div className="text-sm opacity-80">Total Students</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-              <div className="flex items-center gap-3">
-                <GraduationCap className="h-8 w-8" />
-                <div>
-                  <div className="text-2xl font-bold">{new Set(courses.map(c => c.instructor)).size}</div>
-                  <div className="text-sm opacity-80">Active Instructors</div>
-                </div>
-              </div>
-            </div>
-            
           </div>
         </div>
       </div>
