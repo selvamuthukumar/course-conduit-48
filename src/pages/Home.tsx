@@ -1,15 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  GraduationCap, 
-  UserPlus, 
-  BookOpen, 
-  Award, 
-  Briefcase, 
-  ArrowRight,
-  Play,
-  CheckCircle
-} from "lucide-react";
+import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, Play, CheckCircle } from "lucide-react";
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
 import essiLogo from "@/assets/logo_essi.png";
@@ -18,39 +9,33 @@ import paceLogo from "@/assets/pace-logo-new.png";
 import chamberLogo from "@/assets/chamber-logo-new.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
-
 const Home = () => {
-  const { user, profile } = useAuth();
-  const steps = [
-    {
-      icon: UserPlus,
-      title: "Sign up via SkillBridge",
-      description: "Create your account and join our learning community"
-    },
-    {
-      icon: BookOpen,
-      title: "Opt for a course",
-      description: "Choose from our comprehensive range of skill-building courses"
-    },
-    {
-      icon: GraduationCap,
-      title: "Attend training",
-      description: "Engage in interactive learning with expert instructors"
-    },
-    {
-      icon: Award,
-      title: "Earn certification",
-      description: "Receive industry-recognized certificates upon completion"
-    },
-    {
-      icon: Briefcase,
-      title: "Apply for jobs/internships",
-      description: "Leverage your new skills for career opportunities"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-bg">
+  const {
+    user,
+    profile
+  } = useAuth();
+  const steps = [{
+    icon: UserPlus,
+    title: "Sign up via SkillBridge",
+    description: "Create your account and join our learning community"
+  }, {
+    icon: BookOpen,
+    title: "Opt for a course",
+    description: "Choose from our comprehensive range of skill-building courses"
+  }, {
+    icon: GraduationCap,
+    title: "Attend training",
+    description: "Engage in interactive learning with expert instructors"
+  }, {
+    icon: Award,
+    title: "Earn certification",
+    description: "Receive industry-recognized certificates upon completion"
+  }, {
+    icon: Briefcase,
+    title: "Apply for jobs/internships",
+    description: "Leverage your new skills for career opportunities"
+  }];
+  return <div className="min-h-screen bg-gradient-bg">
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
@@ -65,20 +50,16 @@ const Home = () => {
             <Link to="/courses" className="text-foreground hover:text-primary transition-colors">
               Courses
             </Link>
-            {user ? (
-              <div className="flex items-center gap-4">
+            {user ? <div className="flex items-center gap-4">
                 <span className="text-sm text-muted-foreground">
                   Welcome, {profile?.full_name || profile?.email}
                 </span>
                 <Link to="/profile">
                   <Button variant="outline" size="sm">Profile</Button>
                 </Link>
-              </div>
-            ) : (
-              <Link to="/auth">
+              </div> : <Link to="/auth">
                 <Button variant="outline" size="sm">Sign In</Button>
-              </Link>
-            )}
+              </Link>}
           </nav>
         </div>
       </header>
@@ -138,9 +119,8 @@ const Home = () => {
             <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-secondary to-primary opacity-30"></div>
             
             {steps.map((step, index) => {
-              const IconComponent = step.icon;
-              return (
-                <div key={index} className="relative">
+            const IconComponent = step.icon;
+            return <div key={index} className="relative">
                   <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2">
                     <CardHeader className="text-center pb-4">
                       <div className="bg-gradient-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-primary">
@@ -161,14 +141,11 @@ const Home = () => {
                   </Card>
 
                   {/* Arrow for mobile */}
-                  {index < steps.length - 1 && (
-                    <div className="md:hidden flex justify-center my-4">
+                  {index < steps.length - 1 && <div className="md:hidden flex justify-center my-4">
                       <ArrowRight className="h-6 w-6 text-primary" />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                    </div>}
+                </div>;
+          })}
           </div>
         </div>
       </section>
@@ -224,11 +201,7 @@ const Home = () => {
             Join thousands of learners who have successfully bridged their skills gap and achieved their career goals.
           </p>
           <Link to="/courses">
-            <Button 
-              size="lg" 
-              variant="secondary"
-              className="text-lg px-8 py-6 hover:scale-105 transition-transform"
-            >
+            <Button size="lg" variant="secondary" className="text-lg px-8 py-6 hover:scale-105 transition-transform">
               Explore Courses
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -252,13 +225,13 @@ const Home = () => {
             <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
               <img src={vvdnLogo} alt="VVDN Technologies" className="max-w-full max-h-full object-contain" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground">VVDN Technologies</h3>
+            <h3 className="font-semibold text-foreground text-sm">VVDN Technologies</h3>
           </div>
           <div className="text-center">
             <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
               <img src={naanMudhalvanLogo} alt="Naan Mudhalvan" className="max-w-full max-h-full object-contain" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground">Naan Mudhalvan</h3>
+            <h3 className="font-semibold text-foreground text-sm">Naan Mudhalvan</h3>
           </div>
           <div className="text-center">
             <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
@@ -282,7 +255,7 @@ const Home = () => {
             <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
               <img src={chamberLogo} alt="Chamber of Commerce" className="max-w-full max-h-full object-contain" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground">Chamber of Commerce</h3>
+            <h3 className="text-lg font-semibold text-foreground">Pollachi Chamber of Commerce</h3>
           </div>
         </div>
       </section>
@@ -299,8 +272,6 @@ const Home = () => {
           </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
