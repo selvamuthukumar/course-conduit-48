@@ -124,6 +124,25 @@ const CourseManagement = () => {
               </div>
             </div>
             
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="flex items-center gap-3">
+                <Users className="h-8 w-8" />
+                <div>
+                  <div className="text-2xl font-bold">{totalStudents}</div>
+                  <div className="text-sm opacity-80">Total Students</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="flex items-center gap-3">
+                <GraduationCap className="h-8 w-8" />
+                <div>
+                  <div className="text-2xl font-bold">{new Set(courses.map(c => c.instructor)).size}</div>
+                  <div className="text-sm opacity-80">Active Instructors</div>
+                </div>
+              </div>
+            </div>
             
           </div>
         </div>
