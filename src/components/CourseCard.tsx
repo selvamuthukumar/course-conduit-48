@@ -119,6 +119,18 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
                     <li>Certificate – NSQF (Level 3 in Maintenance Technician) with 2 years of experience</li>
                   </ul>
                 </div>
+
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Course Curriculum</h4>
+                  <a 
+                    href="https://nqr.gov.in/qualification/document/EMS%20Technician%20-%20ELE_Q5315_v3.0.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 underline transition-colors"
+                  >
+                    View Complete Curriculum (PDF)
+                  </a>
+                </div>
               </div>
             )}
             
