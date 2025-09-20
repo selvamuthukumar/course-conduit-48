@@ -15,7 +15,7 @@ import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
 import essiLogo from "@/assets/logo_essi.png";
 import mcetLogo from "@/assets/mcet-logo.png";
 import paceLogo from "@/assets/pace-logo.png";
-import chamberLogo from "@/assets/chamber-logo.png";
+import chamberLogo from "@/assets/chamber-logo-new.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 
