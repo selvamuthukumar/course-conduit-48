@@ -118,10 +118,17 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
                       rel="noopener noreferrer"
                       className="text-primary hover:text-primary/80 underline transition-colors"
                     >
-                      View Complete Curriculum (PDF)
+                      View NQR Qualification Details
                     </a>
                   ) : (
-                    <p className="text-muted-foreground">Curriculum link not available for this course.</p>
+                    <a 
+                      href="https://nqr.gov.in/qualifications/2283" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-primary/80 underline transition-colors"
+                    >
+                      View NQR Qualification Details
+                    </a>
                   )}
                 </div>
               </div>
