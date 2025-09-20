@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { CourseCard } from "@/components/CourseCard";
 import { CourseForm } from "@/components/CourseForm";
 import { EnrollmentModal } from "@/components/EnrollmentModal";
+import { EnrollmentDetailsModal } from "@/components/EnrollmentDetailsModal";
 import { Course, Student } from "@/types/course";
 import { Search, Plus, GraduationCap, BookOpen, Users, Home, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -12,12 +13,15 @@ import { useAuth } from "@/hooks/useAuth";
 import { Navigate } from "react-router-dom";
 
 const CourseManagement = () => {
-  const { courses, loading, createCourse, enrollStudent } = useCourses();
+  const { courses, loading, createCourse, enrollStudent, fetchEnrollments } = useCourses();
   const { user, canManageCourses, loading: authLoading, signOut } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [showEnrollmentModal, setShowEnrollmentModal] = useState(false);
+  const [showEnrollmentDetails, setShowEnrollmentDetails] = useState(false);
+  const [enrollmentDetails, setEnrollmentDetails] = useState<Student[]>([]);
+  const [loadingEnrollments, setLoadingEnrollments] = useState(false);
 
   const filteredCourses = courses.filter(course =>
     course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -47,6 +51,17 @@ const CourseManagement = () => {
     } catch (error) {
       // Error is handled in the hook
     }
+  };
+
+  const handleViewEnrollments = async (courseId: string) => {
+    const course = courses.find(c => c.id === courseId);
+    setSelectedCourse(course || null);
+    setLoadingEnrollments(true);
+    setShowEnrollmentDetails(true);
+    
+    const enrollments = await fetchEnrollments(courseId);
+    setEnrollmentDetails(enrollments);
+    setLoadingEnrollments(false);
   };
 
   if (authLoading) {
@@ -213,6 +228,8 @@ const CourseManagement = () => {
                 key={course.id}
                 course={course}
                 onEnroll={handleEnrollClick}
+                onViewEnrollments={canManageCourses() ? handleViewEnrollments : undefined}
+                canManage={canManageCourses()}
               />
             ))}
           </div>
@@ -224,6 +241,18 @@ const CourseManagement = () => {
           isOpen={showEnrollmentModal}
           onClose={() => setShowEnrollmentModal(false)}
           onEnroll={handleEnrollStudent}
+        />
+
+        {/* Enrollment Details Modal */}
+        <EnrollmentDetailsModal
+          course={selectedCourse}
+          enrollments={enrollmentDetails}
+          isOpen={showEnrollmentDetails}
+          onClose={() => {
+            setShowEnrollmentDetails(false);
+            setEnrollmentDetails([]);
+          }}
+          loading={loadingEnrollments}
         />
       </div>
     </div>

@@ -7,10 +7,12 @@ import { Calendar, Clock, Users, BookOpen } from "lucide-react";
 interface CourseCardProps {
   course: Course;
   onEnroll: (courseId: string) => void;
+  onViewEnrollments?: (courseId: string) => void;
   isAuthenticated?: boolean;
+  canManage?: boolean;
 }
 
-export const CourseCard = ({ course, onEnroll, isAuthenticated = false }: CourseCardProps) => {
+export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticated = false, canManage = false }: CourseCardProps) => {
   const enrolledCount = course.enrollmentCount || course.enrolledStudents.length;
   const enrollmentPercentage = (enrolledCount / course.maxStudents) * 100;
 
@@ -78,13 +80,26 @@ export const CourseCard = ({ course, onEnroll, isAuthenticated = false }: Course
             Instructor: <span className="font-medium text-foreground">{course.instructor}</span>
           </p>
           
-          <Button 
-            onClick={() => onEnroll(course.id)}
-            className="w-full bg-gradient-primary hover:opacity-90 shadow-primary"
-            disabled={enrolledCount >= course.maxStudents}
-          >
-            {enrolledCount >= course.maxStudents ? 'Course Full' : 'Enroll Now'}
-          </Button>
+          <div className="space-y-2">
+            <Button 
+              onClick={() => onEnroll(course.id)}
+              className="w-full bg-gradient-primary hover:opacity-90 shadow-primary"
+              disabled={enrolledCount >= course.maxStudents}
+            >
+              {enrolledCount >= course.maxStudents ? 'Course Full' : 'Enroll Now'}
+            </Button>
+            
+            {canManage && onViewEnrollments && (
+              <Button 
+                onClick={() => onViewEnrollments(course.id)}
+                variant="outline"
+                className="w-full"
+                size="sm"
+              >
+                View Enrollments ({enrolledCount})
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </Card>

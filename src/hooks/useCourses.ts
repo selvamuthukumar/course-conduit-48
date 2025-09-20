@@ -133,6 +133,34 @@ export const useCourses = () => {
     }
   };
 
+  const fetchEnrollments = async (courseId: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('enrollments')
+        .select('*')
+        .eq('course_id', courseId)
+        .order('enrolled_at', { ascending: false });
+
+      if (error) throw error;
+
+      // Transform to Student interface
+      return data.map(enrollment => ({
+        id: enrollment.id,
+        name: enrollment.student_name,
+        email: enrollment.student_email,
+        phone: enrollment.student_phone || ''
+      }));
+    } catch (error) {
+      console.error('Error fetching enrollments:', error);
+      toast({
+        title: "Error",
+        description: "Failed to fetch enrollment details",
+        variant: "destructive"
+      });
+      return [];
+    }
+  };
+
   useEffect(() => {
     fetchCourses();
   }, []);
@@ -142,6 +170,7 @@ export const useCourses = () => {
     loading,
     createCourse,
     enrollStudent,
+    fetchEnrollments,
     refetch: fetchCourses
   };
 };
