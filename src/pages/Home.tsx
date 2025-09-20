@@ -197,9 +197,7 @@ const Home = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
             Ready to Transform Your Career?
           </h2>
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Join thousands of learners who have successfully bridged their skills gap and achieved their career goals.
-          </p>
+          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">Join learners who have successfully bridged their skills gap and achieved their career goals.</p>
           <Link to="/courses">
             <Button size="lg" variant="secondary" className="text-lg px-8 py-6 hover:scale-105 transition-transform">
               Explore Courses
