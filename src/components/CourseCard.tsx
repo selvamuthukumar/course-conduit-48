@@ -94,6 +94,8 @@ export const CourseCard = ({
                       ? (course.curriculumUrl || "https://nqr.gov.in/qualifications/2283")
                       : course.title === "Printed Circuit Board"
                       ? "https://nqr.gov.in/qualifications/2283"
+                      : course.title === "In-Process And Final Quality Engineer"
+                      ? (course.curriculumUrl || "https://nqr.gov.in/qualifications/2283")
                       : "https://nqr.gov.in/qualifications/2283"
                   } target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline transition-colors">
                     View NQR Qualification Details
