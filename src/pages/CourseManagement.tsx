@@ -94,9 +94,21 @@ const CourseManagement = () => {
                 <GraduationCap className="h-8 w-8" />
                 <div>
                   <span className="text-2xl font-bold">SkillBridge</span>
-                  <p className="text-primary-foreground/80 text-sm">
-                    {user ? 'Manage courses, track enrollments, and grow your learning platform' : 'Explore our comprehensive course catalog and start learning today'}
-                  </p>
+                  <div className="text-primary-foreground/90 text-sm space-y-2">
+                    <p className="font-medium">Electronics Manufacturing Services Technician</p>
+                    <p className="text-primary-foreground/80">
+                      Work on SMT machines, circuit boards and soldering equipment. Responsible for maintenance and troubleshooting of SMT equipment and assists in assembly and programming.
+                    </p>
+                    <div className="text-primary-foreground/70 text-xs">
+                      <p className="font-medium mb-1">Eligibility: Any one of the following:</p>
+                      <ul className="space-y-0.5 ml-4 list-disc">
+                        <li>8th Grade + 2 years NTC (plus 2 years NAC/experience)</li>
+                        <li>10th Grade + 2 years NTC/NAC/experience</li>
+                        <li>12th Grade</li>
+                        <li>Certificate NSQF Level 3 + 2 years experience</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </Link>
             </div>
