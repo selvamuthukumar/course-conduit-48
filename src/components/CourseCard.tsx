@@ -111,25 +111,14 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
 
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Course Curriculum</h4>
-                  {course.curriculumUrl ? (
-                    <a 
-                      href={course.curriculumUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-primary/80 underline transition-colors"
-                    >
-                      View NQR Qualification Details
-                    </a>
-                  ) : (
-                    <a 
-                      href="https://nqr.gov.in/qualifications/2283" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-primary/80 underline transition-colors"
-                    >
-                      View NQR Qualification Details
-                    </a>
-                  )}
+                  <a 
+                    href="https://nqr.gov.in/qualifications/2283" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 underline transition-colors"
+                  >
+                    View NQR Qualification Details
+                  </a>
                 </div>
               </div>
             )}
