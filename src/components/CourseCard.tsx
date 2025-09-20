@@ -47,10 +47,6 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
         <div className="space-y-3">
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-1">
-              <Clock className="h-4 w-4" />
-              {course.duration}
-            </div>
-            <div className="flex items-center gap-1">
               <Calendar className="h-4 w-4" />
               {new Date(course.startDate).toLocaleDateString()}
             </div>
