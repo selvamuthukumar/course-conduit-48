@@ -229,6 +229,7 @@ const CourseManagement = () => {
                 course={course}
                 onEnroll={handleEnrollClick}
                 onViewEnrollments={canManageCourses() ? handleViewEnrollments : undefined}
+                isAuthenticated={!!user}
                 canManage={canManageCourses()}
               />
             ))}
