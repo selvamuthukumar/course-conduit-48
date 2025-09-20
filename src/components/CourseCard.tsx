@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Course } from "@/types/course";
-import { Calendar, Clock, Users, BookOpen } from "lucide-react";
+import { Calendar, Clock, Users, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
 
 interface CourseCardProps {
   course: Course;
@@ -13,6 +14,7 @@ interface CourseCardProps {
 }
 
 export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticated = false, canManage = false }: CourseCardProps) => {
+  const [showDetails, setShowDetails] = useState(false);
   const enrolledCount = course.enrollmentCount || course.enrolledStudents.length;
   const enrollmentPercentage = (enrolledCount / course.maxStudents) * 100;
 
@@ -81,6 +83,45 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
           </p>
           
           <div className="space-y-2">
+            <Button 
+              onClick={() => setShowDetails(!showDetails)}
+              variant="outline"
+              className="w-full"
+              size="sm"
+            >
+              {showDetails ? (
+                <>
+                  Hide Details <ChevronUp className="ml-1 h-4 w-4" />
+                </>
+              ) : (
+                <>
+                  View More Details <ChevronDown className="ml-1 h-4 w-4" />
+                </>
+              )}
+            </Button>
+
+            {showDetails && (
+              <div className="bg-muted/50 rounded-lg p-4 space-y-3 text-sm">
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Job Description</h4>
+                  <p className="text-muted-foreground">
+                    Electronics Manufacturing Services Technician in this job works on SMT machines, circuit boards and soldering equipment. The individual is responsible for the maintenance and troubleshooting of SMT equipment and also assists in the assembly and programming of SMT equipment.
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Eligibility Criteria</h4>
+                  <p className="text-muted-foreground mb-2">Applicants must meet any one of the following qualifications:</p>
+                  <ul className="text-muted-foreground space-y-1 list-disc list-inside">
+                    <li>Completed 8th Grade with 2 years of NTC (plus 2 years of NAC / relevant experience)</li>
+                    <li>Completed 10th Grade with 2 years of NTC / NAC / relevant experience</li>
+                    <li>Completed 12th Grade</li>
+                    <li>Certificate – NSQF (Level 3 in Maintenance Technician) with 2 years of experience</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+            
             <Button 
               onClick={() => onEnroll(course.id)}
               className="w-full bg-gradient-primary hover:opacity-90 shadow-primary"
