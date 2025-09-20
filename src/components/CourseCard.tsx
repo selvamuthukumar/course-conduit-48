@@ -89,7 +89,7 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Job Description</h4>
                   <p className="text-muted-foreground">
-                    Electronics Manufacturing Services Technician in this job works on SMT machines, circuit boards and soldering equipment. The individual is responsible for the maintenance and troubleshooting of SMT equipment and also assists in the assembly and programming of SMT equipment.
+                    PCB assembly operator is responsible for manually placing different types of components on the PCB as per the design requirements and then soldering them.
                   </p>
                 </div>
                 
