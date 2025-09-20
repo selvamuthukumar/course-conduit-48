@@ -56,15 +56,6 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1 text-sm text-muted-foreground">
-              <Users className="h-4 w-4" />
-              {enrolledCount}/{course.maxStudents} enrolled
-            </div>
-            <div className="text-lg font-bold text-primary">
-              ₹{course.price}
-            </div>
-          </div>
 
           <div className="w-full bg-muted rounded-full h-2">
             <div 
