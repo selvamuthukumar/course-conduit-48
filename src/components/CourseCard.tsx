@@ -39,7 +39,7 @@ export const CourseCard = ({ course, onEnroll, onViewEnrollments, isAuthenticate
           </div>
           
           <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-            {course.title}
+            Printed Circuit Board- Assembly Specialist
           </h3>
           
         </div>
