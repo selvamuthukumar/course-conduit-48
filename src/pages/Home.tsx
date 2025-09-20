@@ -13,6 +13,9 @@ import {
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
 import essiLogo from "@/assets/logo_essi.png";
+import mcetLogo from "@/assets/mcet-logo.png";
+import paceLogo from "@/assets/pace-logo.png";
+import chamberLogo from "@/assets/chamber-logo.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -244,7 +247,7 @@ const Home = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
             <div className="w-20 h-16 mx-auto mb-4 flex items-center justify-center">
               <img src={vvdnLogo} alt="VVDN Technologies" className="max-w-full max-h-full object-contain" />
@@ -262,6 +265,24 @@ const Home = () => {
               <img src={essiLogo} alt="Electronics Sector Skill Council of India" className="max-w-full max-h-full object-contain" />
             </div>
             <h3 className="text-lg font-semibold text-foreground">Electronics Sector Skill Council of India</h3>
+          </div>
+          <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
+            <div className="w-20 h-16 mx-auto mb-4 flex items-center justify-center">
+              <img src={mcetLogo} alt="Mahalingam College of Engineering" className="max-w-full max-h-full object-contain" />
+            </div>
+            <h3 className="text-lg font-semibold text-foreground">Mahalingam College of Engineering</h3>
+          </div>
+          <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
+            <div className="w-20 h-16 mx-auto mb-4 flex items-center justify-center">
+              <img src={paceLogo} alt="PA College of Engineering and Technology" className="max-w-full max-h-full object-contain" />
+            </div>
+            <h3 className="text-lg font-semibold text-foreground">PA College of Engineering and Technology</h3>
+          </div>
+          <div className="bg-gradient-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
+            <div className="w-20 h-16 mx-auto mb-4 flex items-center justify-center">
+              <img src={chamberLogo} alt="Chamber of Commerce" className="max-w-full max-h-full object-contain" />
+            </div>
+            <h3 className="text-lg font-semibold text-foreground">Chamber of Commerce</h3>
           </div>
         </div>
       </section>
