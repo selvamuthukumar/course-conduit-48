@@ -237,25 +237,25 @@ const Home = () => {
             <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
               <img src={essiLogo} alt="Electronics Sector Skill Council of India" className="max-w-full max-h-full object-contain" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground">Electronics Sector Skill Council of India</h3>
+            <h3 className="text-sm font-semibold text-foreground">Electronics Sector Skill Council of India</h3>
           </div>
           <div className="text-center">
             <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
               <img src={mcetLogo} alt="Mahalingam College of Engineering" className="max-w-full max-h-full object-contain" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground">Mahalingam College of Engineering</h3>
+            <h3 className="text-sm font-semibold text-foreground">Mahalingam College of Engineering</h3>
           </div>
           <div className="text-center">
             <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
               <img src={paceLogo} alt="PA College of Engineering and Technology" className="max-w-full max-h-full object-contain" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground">PA College of Engineering and Technology</h3>
+            <h3 className="text-sm font-semibold text-foreground">PA College of Engineering and Technology</h3>
           </div>
           <div className="text-center">
             <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
               <img src={chamberLogo} alt="Chamber of Commerce" className="max-w-full max-h-full object-contain" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground">Pollachi Chamber of Commerce</h3>
+            <h3 className="text-sm font-semibold text-foreground">Pollachi Chamber of Commerce</h3>
           </div>
         </div>
       </section>
