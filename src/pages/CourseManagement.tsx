@@ -35,11 +35,6 @@ const CourseManagement = () => {
   };
 
   const handleEnrollClick = (courseId: string) => {
-    if (!user) {
-      // Redirect to auth page if not authenticated
-      window.location.href = '/auth';
-      return;
-    }
     const course = courses.find(c => c.id === courseId);
     setSelectedCourse(course || null);
     setShowEnrollmentModal(true);
@@ -47,7 +42,7 @@ const CourseManagement = () => {
 
   const handleEnrollStudent = async (courseId: string, studentData: Omit<Student, 'id'>) => {
     try {
-      await enrollStudent(courseId, studentData.name, studentData.email);
+      await enrollStudent(courseId, studentData.name, studentData.email, studentData.phone);
       setShowEnrollmentModal(false);
     } catch (error) {
       // Error is handled in the hook
@@ -218,7 +213,6 @@ const CourseManagement = () => {
                 key={course.id}
                 course={course}
                 onEnroll={handleEnrollClick}
-                isAuthenticated={!!user}
               />
             ))}
           </div>

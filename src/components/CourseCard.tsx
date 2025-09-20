@@ -83,7 +83,7 @@ export const CourseCard = ({ course, onEnroll, isAuthenticated = false }: Course
             className="w-full bg-gradient-primary hover:opacity-90 shadow-primary"
             disabled={enrolledCount >= course.maxStudents}
           >
-            {enrolledCount >= course.maxStudents ? 'Course Full' : isAuthenticated ? 'Enroll Now' : 'Sign In to Enroll'}
+            {enrolledCount >= course.maxStudents ? 'Course Full' : 'Enroll Now'}
           </Button>
         </div>
       </div>

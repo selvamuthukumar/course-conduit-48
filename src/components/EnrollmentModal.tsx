@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Course, Student } from "@/types/course";
-import { UserPlus, Mail, User } from "lucide-react";
+import { UserPlus, Mail, User, Phone } from "lucide-react";
 
 interface EnrollmentModalProps {
   course: Course | null;
@@ -16,19 +16,20 @@ interface EnrollmentModalProps {
 export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: EnrollmentModalProps) => {
   const [studentData, setStudentData] = useState({
     name: '',
-    email: ''
+    email: '',
+    phone: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (course) {
       onEnroll(course.id, studentData);
-      setStudentData({ name: '', email: '' });
+      setStudentData({ name: '', email: '', phone: '' });
     }
   };
 
   const handleClose = () => {
-    setStudentData({ name: '', email: '' });
+    setStudentData({ name: '', email: '', phone: '' });
     onClose();
   };
 
@@ -89,6 +90,21 @@ export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: Enrollmen
                 value={studentData.email}
                 onChange={(e) => setStudentData(prev => ({ ...prev, email: e.target.value }))}
                 placeholder="student@example.com"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="studentPhone" className="flex items-center gap-2">
+                <Phone className="h-4 w-4" />
+                Phone Number
+              </Label>
+              <Input
+                id="studentPhone"
+                type="tel"
+                value={studentData.phone}
+                onChange={(e) => setStudentData(prev => ({ ...prev, phone: e.target.value }))}
+                placeholder="+91 9876543210"
                 required
               />
             </div>

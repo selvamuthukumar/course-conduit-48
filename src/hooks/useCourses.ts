@@ -100,14 +100,15 @@ export const useCourses = () => {
     }
   };
 
-  const enrollStudent = async (courseId: string, studentName: string, studentEmail: string) => {
+  const enrollStudent = async (courseId: string, studentName: string, studentEmail: string, studentPhone: string) => {
     try {
       const { data, error } = await supabase
         .from('enrollments')
         .insert({
           course_id: courseId,
           student_name: studentName,
-          student_email: studentEmail
+          student_email: studentEmail,
+          student_phone: studentPhone
         })
         .select()
         .single();
