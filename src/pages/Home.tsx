@@ -221,12 +221,6 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="text-center">
             <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
-              <img src={vvdnLogo} alt="VVDN Technologies" className="max-w-full max-h-full object-contain" />
-            </div>
-            <h3 className="font-semibold text-foreground text-sm">VVDN Technologies</h3>
-          </div>
-          <div className="text-center">
-            <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
               <img src={naanMudhalvanLogo} alt="Naan Mudhalvan" className="max-w-full max-h-full object-contain" />
             </div>
             <h3 className="font-semibold text-foreground text-sm">Naan Mudhalvan</h3>
@@ -236,6 +230,12 @@ const Home = () => {
               <img src={essiLogo} alt="Electronics Sector Skill Council of India" className="max-w-full max-h-full object-contain" />
             </div>
             <h3 className="text-sm font-semibold text-foreground">Electronics Sector Skill Council of India</h3>
+          </div>
+          <div className="text-center">
+            <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
+              <img src={chamberLogo} alt="Chamber of Commerce" className="max-w-full max-h-full object-contain" />
+            </div>
+            <h3 className="text-sm font-semibold text-foreground">Pollachi Chamber of Commerce</h3>
           </div>
           <div className="text-center">
             <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
@@ -251,9 +251,9 @@ const Home = () => {
           </div>
           <div className="text-center">
             <div className="w-28 h-24 mx-auto mb-4 flex items-center justify-center">
-              <img src={chamberLogo} alt="Chamber of Commerce" className="max-w-full max-h-full object-contain" />
+              <img src={vvdnLogo} alt="VVDN Technologies" className="max-w-full max-h-full object-contain" />
             </div>
-            <h3 className="text-sm font-semibold text-foreground">Pollachi Chamber of Commerce</h3>
+            <h3 className="font-semibold text-foreground text-sm">VVDN Technologies</h3>
           </div>
         </div>
       </section>
