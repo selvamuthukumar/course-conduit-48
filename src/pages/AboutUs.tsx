@@ -1,19 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  GraduationCap, 
-  Target, 
-  Heart, 
-  Users, 
-  MapPin, 
-  Zap,
-  ArrowRight
-} from "lucide-react";
+import { GraduationCap, Target, Heart, Users, MapPin, Zap, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const AboutUs = () => {
-  return (
-    <div className="min-h-screen bg-gradient-bg">
+  return <div className="min-h-screen bg-gradient-bg">
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
@@ -73,9 +63,7 @@ const AboutUs = () => {
                   I'm Priyansh Agarwal, a national-level tennis player and student from Gurugram, passionate about technology and community building.
                 </p>
                 
-                <p className="text-lg leading-relaxed">
-                  I started SkillBridge to close the gap between students and skill opportunities. Many talented students miss out because no one shows them the path.
-                </p>
+                
                 
                 <p className="text-lg leading-relaxed">
                   SkillBridge raises awareness, simplifies enrollment, and helps students access government-backed training that's <span className="text-foreground font-medium">accessible, visible, and actionable</span>.
@@ -89,13 +77,11 @@ const AboutUs = () => {
                   <div className="bg-gradient-secondary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
                     <Users className="h-12 w-12 text-secondary-foreground" />
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4">Bridging the Gap</h3>
-                  <p className="text-muted-foreground text-lg">
-                    "No student should be left behind because of lack of awareness or access to opportunities."
-                  </p>
+                  
+                  <p className="text-muted-foreground text-3xl">“Great opportunities almost never fit your schedule.”</p>
                   <div className="mt-6 pt-6 border-t border-border">
-                    <p className="text-sm font-medium text-foreground">— Priyansh Agarwal</p>
-                    <p className="text-sm text-muted-foreground">Founder, SkillBridge</p>
+                    <p className="text-sm font-medium text-foreground">— Reid Hoffman</p>
+                    <p className="text-sm text-muted-foreground">Founder, LinkedIn</p>
                   </div>
                 </div>
               </CardContent>
@@ -186,8 +172,6 @@ const AboutUs = () => {
           </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default AboutUs;
