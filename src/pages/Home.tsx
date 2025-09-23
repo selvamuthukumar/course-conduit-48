@@ -243,55 +243,46 @@ const Home = () => {
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem value="item-1" className="bg-gradient-card border-0 rounded-lg px-6">
               <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
-                How do I enroll in a course?
+                Do the students need to pay for enrolling in the course?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pt-4">
-                Simply browse our course catalog, select the course you're interested in, and click the "Enroll Now" button. Fill out the enrollment form with your details including name, email, phone number, school/college name, and current grade/year of study. Our team will contact you with further instructions.
+                No. Students do not need to pay any fees as the training is fully supported under the government scheme. In fact, participants also receive a small stipend during their training period, making it easier to focus on learning without financial burden.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-2" className="bg-gradient-card border-0 rounded-lg px-6">
               <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
-                Are the courses free?
+                What is the duration of the course?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pt-4">
-                Yes! SkillBridge partners with government initiatives and industry leaders to provide free skill development training. Our courses are backed by programs like Naan Mudhalvan and supported by organizations like VVDN Technologies.
+                The course duration varies depending on the specific program. Please check the individual course details for specific duration information, or contact our support team for more details about your chosen course.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-3" className="bg-gradient-card border-0 rounded-lg px-6">
               <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
-                What kind of certification will I receive?
+                Which organisation would provide the certificate on completion of the course?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pt-4">
-                Upon successful completion of your course, you'll receive industry-recognized certificates that are valued by employers. Our certifications are backed by government initiatives and endorsed by our industry partners.
+                The Electronic Skills Council of India would provide the certificates to the enrollees.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-4" className="bg-gradient-card border-0 rounded-lg px-6">
               <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
-                Do you provide job placement assistance?
+                What are the placement opportunities?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pt-4">
-                Absolutely! We have an active Industry Connect Program that provides direct placement assistance and internship opportunities. With over 200 successful placements in the last year, we work closely with our industry partners to help you find relevant employment.
+                Students who train with dedication and successfully complete their certification will be supported by SkillBridge in connecting with reputed firms. While no program can guarantee a job, our focus is on preparing you for real industry needs and aiding you in securing strong placement opportunities.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-5" className="bg-gradient-card border-0 rounded-lg px-6">
               <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
-                What are the eligibility criteria?
+                What is the medium of the course?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pt-4">
-                Our courses are designed for students and recent graduates looking to enhance their skills. Most programs are open to anyone with basic educational qualifications. Specific requirements may vary by course, and our team will guide you during the enrollment process.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-6" className="bg-gradient-card border-0 rounded-lg px-6">
-              <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
-                How long are the training programs?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground pt-4">
-                Training duration varies by course, typically ranging from 2 weeks to 3 months. Each course is designed to provide comprehensive skill development while being flexible enough to accommodate students' schedules. Detailed duration information is available on each course page.
+                Courses are delivered in English along with regional language support to ensure easy understanding. For example, in Tamil Nadu, sessions are conducted in both English and Tamil, so that every student can learn comfortably and confidently.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
