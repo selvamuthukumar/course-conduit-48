@@ -48,13 +48,6 @@ export const CourseCard = ({
               Pollachi, Tamil Nadu
             </div>
           </div>
-
-
-          <div className="w-full bg-muted rounded-full h-2">
-            <div className="bg-gradient-secondary h-2 rounded-full transition-all duration-500" style={{
-            width: `${enrollmentPercentage}%`
-          }} />
-          </div>
         </div>
 
         <div className="pt-2">
@@ -94,8 +87,8 @@ export const CourseCard = ({
                 </div>
               </div>}
             
-            <Button onClick={() => onEnroll(course.id)} className="w-full bg-gradient-primary hover:opacity-90 shadow-primary" disabled={enrolledCount >= course.maxStudents}>
-              {enrolledCount >= course.maxStudents ? 'Course Full' : 'Enroll Now'}
+            <Button onClick={() => onEnroll(course.id)} className="w-full bg-gradient-primary hover:opacity-90 shadow-primary">
+              Enroll Now
             </Button>
             
             {canManage && onViewEnrollments && <Button onClick={() => onViewEnrollments(course.id)} variant="outline" className="w-full" size="sm">
