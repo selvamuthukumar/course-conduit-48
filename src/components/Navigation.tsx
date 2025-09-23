@@ -63,7 +63,7 @@ const Navigation = () => {
             onClick={handleContactClick}
             className="text-foreground hover:text-primary transition-colors"
           >
-            Contact Us
+            Contact
           </button>
         </nav>
       </div>
