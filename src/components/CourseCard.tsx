@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Course } from "@/types/course";
-import { Users, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
+import { Users, BookOpen, ChevronDown, ChevronUp, MapPin } from "lucide-react";
 interface CourseCardProps {
   course: Course;
   onEnroll: (courseId: string) => void;
@@ -44,6 +44,10 @@ export const CourseCard = ({
             <div className="flex items-center gap-1">
               <Users className="h-4 w-4" />
               {course.instructor}
+            </div>
+            <div className="flex items-center gap-1">
+              <MapPin className="h-4 w-4" />
+              Pollachi, Tamil Nadu
             </div>
           </div>
 
