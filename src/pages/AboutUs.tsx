@@ -157,12 +157,12 @@ const AboutUs = () => {
             We are here to turn talent into impact, creating a bridge between where students are and where they want to be. Together, we're not just building careers—we're building futures.
           </p>
           
-          <Link to="/courses">
+          <a href="https://forms.gle/vTmobjGSr2kWs3hs9" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:shadow-primary">
               Join Our Mission
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-          </Link>
+          </a>
         </div>
       </section>
 
