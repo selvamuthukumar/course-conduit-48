@@ -27,6 +27,22 @@ const Navigation = () => {
     }
   };
 
+  const handlePartnersClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      // Already on home page, just scroll to partners section
+      const partnersSection = document.getElementById("partners-section");
+      partnersSection?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to home page then scroll to partners section
+      navigate("/");
+      setTimeout(() => {
+        const partnersSection = document.getElementById("partners-section");
+        partnersSection?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
   return (
     <header className="container mx-auto px-4 py-6">
       <div className="flex items-center justify-between">
@@ -59,6 +75,12 @@ const Navigation = () => {
           >
             About Us
           </Link>
+          <button 
+            onClick={handlePartnersClick}
+            className="text-foreground hover:text-primary transition-colors"
+          >
+            Partners
+          </button>
           <button 
             onClick={handleContactClick}
             className="text-foreground hover:text-primary transition-colors"
