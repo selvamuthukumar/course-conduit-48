@@ -158,7 +158,7 @@ const Home = () => {
               <div className="bg-gradient-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6 shadow-primary">
                 <CheckCircle className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Electronics Sector Certifications</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-4">Certifications</h3>
               <p className="text-muted-foreground">
                 Earn electronics industry certificates that employers value and trust, backed by our industry partnerships.
               </p>
