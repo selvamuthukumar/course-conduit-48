@@ -52,17 +52,6 @@ export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: Enrollmen
             <p className="text-sm text-muted-foreground">
               Instructor: {course.instructor}
             </p>
-            <p className="text-sm text-muted-foreground">
-              Duration: {course.duration} • Level: {course.level}
-            </p>
-            <div className="flex items-center justify-between mt-2">
-              <span className="text-sm text-muted-foreground">
-                {course.enrolledStudents.length}/{course.maxStudents} enrolled
-              </span>
-              <span className="text-lg font-bold text-primary">
-                ₹{course.price}
-              </span>
-            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -114,7 +103,6 @@ export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: Enrollmen
               <Button 
                 type="submit" 
                 className="flex-1 bg-gradient-primary hover:opacity-90 shadow-primary"
-                disabled={course.enrolledStudents.length >= course.maxStudents}
               >
                 <UserPlus className="h-4 w-4 mr-2" />
                 Enroll Student
