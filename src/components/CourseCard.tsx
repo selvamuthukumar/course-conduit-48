@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Course } from "@/types/course";
-import { Calendar, Clock, Users, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
+import { Users, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
 interface CourseCardProps {
   course: Course;
   onEnroll: (courseId: string) => void;
@@ -42,8 +42,8 @@ export const CourseCard = ({
         <div className="space-y-3">
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-1">
-              <Calendar className="h-4 w-4" />
-              {new Date(course.startDate).toLocaleDateString()}
+              <Users className="h-4 w-4" />
+              {course.instructor}
             </div>
           </div>
 
@@ -59,10 +59,6 @@ export const CourseCard = ({
           <p className="text-sm text-muted-foreground mb-3">
             {course.jobDescription || "Job description not available for this course."}
           </p>
-          <p className="text-sm text-muted-foreground mb-3">
-            Instructor: <span className="font-medium text-foreground">{course.instructor}</span>
-          </p>
-          
           <div className="space-y-2">
             <Button onClick={() => setShowDetails(!showDetails)} variant="outline" className="w-full" size="sm">
               {showDetails ? <>
