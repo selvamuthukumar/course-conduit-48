@@ -34,7 +34,7 @@ const AboutUs = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20">
+      <section className="container mx-auto px-4 py-12">
         <div className="text-center max-w-4xl mx-auto mb-20">
           <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-8 leading-tight">
             About{" "}
