@@ -9,8 +9,6 @@ import { Course, Student } from "@/types/course";
 import { Search, Plus, GraduationCap, BookOpen, Users, Home, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCourses } from "@/hooks/useCourses";
-import { useAuth } from "@/hooks/useAuth";
-import { Navigate } from "react-router-dom";
 const CourseManagement = () => {
   const {
     courses,
@@ -19,12 +17,6 @@ const CourseManagement = () => {
     enrollStudent,
     fetchEnrollments
   } = useCourses();
-  const {
-    user,
-    canManageCourses,
-    loading: authLoading,
-    signOut
-  } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
@@ -63,11 +55,6 @@ const CourseManagement = () => {
     setEnrollmentDetails(enrollments);
     setLoadingEnrollments(false);
   };
-  if (authLoading) {
-    return <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-      </div>;
-  }
   if (showForm) {
     return <CourseForm onSubmit={handleCreateCourse} onCancel={() => setShowForm(false)} />;
   }
@@ -83,7 +70,7 @@ const CourseManagement = () => {
                 <div>
                   <span className="text-2xl font-bold">SkillBridge</span>
                   <p className="text-primary-foreground/80 text-sm">
-                    {user ? 'Manage courses, track enrollments, and grow your learning platform' : 'Explore our comprehensive course catalog and start learning today'}
+                    Explore our comprehensive course catalog and start learning today
                   </p>
                 </div>
               </Link>
@@ -95,20 +82,6 @@ const CourseManagement = () => {
                   Home
                 </Button>
               </Link>
-              {user ? <>
-                  <Link to="/profile">
-                    <Button variant="outline" size="sm" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
-                      Profile
-                    </Button>
-                  </Link>
-                  <Button variant="outline" size="sm" onClick={signOut} className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
-                    Sign Out
-                  </Button>
-                </> : <Link to="/auth">
-                  <Button variant="outline" size="sm" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
-                    Sign In
-                  </Button>
-                </Link>}
             </nav>
           </div>
           
@@ -135,10 +108,6 @@ const CourseManagement = () => {
             
             
           </div>
-          {user && canManageCourses() && <Button onClick={() => setShowForm(true)} className="bg-gradient-primary hover:opacity-90 shadow-primary">
-              <Plus className="h-4 w-4 mr-2" />
-              Create Course
-            </Button>}
         </div>
 
         {/* Loading State */}
@@ -154,12 +123,8 @@ const CourseManagement = () => {
             <p className="text-muted-foreground mb-6">
               {searchTerm ? 'Try adjusting your search terms' : 'Create your first course to get started'}
             </p>
-            {!searchTerm && user && canManageCourses() && <Button onClick={() => setShowForm(true)} className="bg-gradient-primary hover:opacity-90 shadow-primary">
-                <Plus className="h-4 w-4 mr-2" />
-                Create Your First Course
-              </Button>}
           </div> : <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredCourses.map(course => <CourseCard key={course.id} course={course} onEnroll={handleEnrollClick} onViewEnrollments={canManageCourses() ? handleViewEnrollments : undefined} isAuthenticated={!!user} canManage={canManageCourses()} />)}
+            {filteredCourses.map(course => <CourseCard key={course.id} course={course} onEnroll={handleEnrollClick} />)}
           </div>}
 
         {/* Enrollment Modal */}

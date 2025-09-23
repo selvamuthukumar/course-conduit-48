@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Course, Student } from "@/types/course";
-import { UserPlus, Mail, User, Phone, LogIn } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
-import { Link } from "react-router-dom";
+import { UserPlus, Mail, User, Phone } from "lucide-react";
 
 interface EnrollmentModalProps {
   course: Course | null;
@@ -16,7 +14,7 @@ interface EnrollmentModalProps {
 }
 
 export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: EnrollmentModalProps) => {
-  const { user } = useAuth();
+  
   const [studentData, setStudentData] = useState({
     name: '',
     email: '',
@@ -66,32 +64,6 @@ export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: Enrollmen
               </span>
             </div>
           </div>
-
-          {!user ? (
-            <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 p-4 rounded-lg">
-              <div className="flex items-start gap-3">
-                <LogIn className="h-5 w-5 text-yellow-600 dark:text-yellow-400 mt-0.5" />
-                <div className="flex-1">
-                  <h4 className="font-medium text-yellow-800 dark:text-yellow-200">
-                    Sign In Required
-                  </h4>
-                  <p className="text-sm text-yellow-700 dark:text-yellow-300 mt-1">
-                    You need to sign in to enroll in this course. This helps us keep your enrollment secure and organized.
-                  </p>
-                  <div className="mt-3 flex gap-2">
-                    <Link to="/auth">
-                      <Button size="sm" className="bg-yellow-600 hover:bg-yellow-700 text-white">
-                        Sign In
-                      </Button>
-                    </Link>
-                    <Button size="sm" variant="outline" onClick={handleClose}>
-                      Cancel
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ) : (
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
@@ -152,7 +124,6 @@ export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: Enrollmen
               </Button>
             </div>
           </form>
-          )}
         </div>
       </DialogContent>
     </Dialog>

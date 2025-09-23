@@ -8,14 +8,12 @@ interface CourseCardProps {
   course: Course;
   onEnroll: (courseId: string) => void;
   onViewEnrollments?: (courseId: string) => void;
-  isAuthenticated?: boolean;
   canManage?: boolean;
 }
 export const CourseCard = ({
   course,
   onEnroll,
   onViewEnrollments,
-  isAuthenticated = false,
   canManage = false
 }: CourseCardProps) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -97,7 +95,7 @@ export const CourseCard = ({
               </div>}
             
             <Button onClick={() => onEnroll(course.id)} className="w-full bg-gradient-primary hover:opacity-90 shadow-primary" disabled={enrolledCount >= course.maxStudents}>
-              {enrolledCount >= course.maxStudents ? 'Course Full' : isAuthenticated ? 'Enroll Now' : 'Sign In to Enroll'}
+              {enrolledCount >= course.maxStudents ? 'Course Full' : 'Enroll Now'}
             </Button>
             
             {canManage && onViewEnrollments && <Button onClick={() => onViewEnrollments(course.id)} variant="outline" className="w-full" size="sm">
