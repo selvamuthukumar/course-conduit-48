@@ -157,8 +157,8 @@ export const useCourses = () => {
         name: enrollment.student_name,
         email: enrollment.student_email,
         phone: enrollment.student_phone || '',
-        schoolName: enrollment.school_name || '',
-        currentGrade: enrollment.current_grade || ''
+        schoolName: (enrollment as any).school_name || '',
+        currentGrade: (enrollment as any).current_grade || ''
       }));
     } catch (error) {
       console.error('Error fetching enrollments:', error);

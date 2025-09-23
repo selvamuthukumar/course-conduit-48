@@ -74,24 +74,30 @@ export type Database = {
       enrollments: {
         Row: {
           course_id: string
+          current_grade: string | null
           enrolled_at: string
           id: string
+          school_name: string | null
           student_email: string
           student_name: string
           student_phone: string | null
         }
         Insert: {
           course_id: string
+          current_grade?: string | null
           enrolled_at?: string
           id?: string
+          school_name?: string | null
           student_email: string
           student_name: string
           student_phone?: string | null
         }
         Update: {
           course_id?: string
+          current_grade?: string | null
           enrolled_at?: string
           id?: string
+          school_name?: string | null
           student_email?: string
           student_name?: string
           student_phone?: string | null
