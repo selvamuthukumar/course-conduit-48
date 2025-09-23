@@ -78,7 +78,7 @@ const AboutUs = () => {
                     <Users className="h-12 w-12 text-secondary-foreground" />
                   </div>
                   
-                  <p className="text-muted-foreground text-3xl">“Great opportunities almost never fit your schedule.”</p>
+                  <p className="text-3xl text-zinc-900 font-light">“Great opportunities almost never fit your schedule.”</p>
                   <div className="mt-6 pt-6 border-t border-border">
                     <p className="text-sm font-medium text-foreground">— Reid Hoffman</p>
                     <p className="text-sm text-muted-foreground">Founder, LinkedIn</p>
