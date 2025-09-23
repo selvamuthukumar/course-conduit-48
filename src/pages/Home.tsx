@@ -8,12 +8,7 @@ import mcetLogo from "@/assets/mcet-logo.png";
 import paceLogo from "@/assets/pace-logo-new.png";
 import chamberLogo from "@/assets/chamber-logo-new.png";
 import { Link } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
 const Home = () => {
-  const {
-    user,
-    profile
-  } = useAuth();
   const steps = [{
     icon: UserPlus,
     title: "Sign up via SkillBridge",
@@ -50,16 +45,6 @@ const Home = () => {
             <Link to="/courses" className="text-foreground hover:text-primary transition-colors">
               Courses
             </Link>
-            {user ? <div className="flex items-center gap-4">
-                <span className="text-sm text-muted-foreground">
-                  Welcome, {profile?.full_name || profile?.email}
-                </span>
-                <Link to="/profile">
-                  <Button variant="outline" size="sm">Profile</Button>
-                </Link>
-              </div> : <Link to="/auth">
-                <Button variant="outline" size="sm">Sign In</Button>
-              </Link>}
           </nav>
         </div>
       </header>
