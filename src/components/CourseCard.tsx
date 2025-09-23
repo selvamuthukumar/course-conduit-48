@@ -57,6 +57,9 @@ export const CourseCard = ({
 
         <div className="pt-2">
           <p className="text-sm text-muted-foreground mb-3">
+            {course.description}
+          </p>
+          <p className="text-sm text-muted-foreground mb-3">
             Instructor: <span className="font-medium text-foreground">{course.instructor}</span>
           </p>
           
@@ -70,13 +73,6 @@ export const CourseCard = ({
             </Button>
 
             {showDetails && <div className="bg-muted/50 rounded-lg p-4 space-y-3 text-sm">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Job Description</h4>
-                  <p className="text-muted-foreground">
-                    {course.jobDescription || "Job description not available for this course."}
-                  </p>
-                </div>
-                
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">Eligibility Criteria</h4>
                     {course.eligibilityCriteria && course.eligibilityCriteria.length > 0 ? <>
