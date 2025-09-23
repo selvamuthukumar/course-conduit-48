@@ -8,6 +8,7 @@ import mcetLogo from "@/assets/mcet-logo.png";
 import paceLogo from "@/assets/pace-logo-new.png";
 import chamberLogo from "@/assets/chamber-logo-new.png";
 import { Link } from "react-router-dom";
+import Navigation from "@/components/Navigation";
 const Home = () => {
   const steps = [{
     icon: UserPlus,
@@ -32,22 +33,7 @@ const Home = () => {
   }];
   return <div className="min-h-screen bg-gradient-bg">
       {/* Header */}
-      <header className="container mx-auto px-4 py-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <GraduationCap className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold text-foreground">SkillBridge</span>
-          </div>
-          <nav className="flex items-center gap-6">
-            <Link to="/about" className="text-foreground hover:text-primary transition-colors">
-              About Us
-            </Link>
-            <Link to="/courses" className="text-foreground hover:text-primary transition-colors">
-              Courses
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20">

@@ -9,6 +9,7 @@ import { Course, Student } from "@/types/course";
 import { Search, Plus, GraduationCap, BookOpen, Users, Home, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCourses } from "@/hooks/useCourses";
+import Navigation from "@/components/Navigation";
 const CourseManagement = () => {
   const {
     courses,
@@ -60,29 +61,22 @@ const CourseManagement = () => {
   }
   const totalStudents = courses.reduce((sum, course) => sum + (course.enrollmentCount || course.enrolledStudents.length), 0);
   return <div className="min-h-screen bg-gradient-bg">
+      {/* Navigation */}
+      <Navigation />
+      
       {/* Header */}
       <div className="bg-gradient-primary text-primary-foreground">
         <div className="container mx-auto px-6 py-12">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
-              <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                <GraduationCap className="h-8 w-8" />
-                <div>
-                  <span className="text-2xl font-bold">SkillBridge</span>
-                  <p className="text-primary-foreground/80 text-sm">
-                    Explore our comprehensive course catalog and start learning today
-                  </p>
-                </div>
-              </Link>
+              <GraduationCap className="h-8 w-8" />
+              <div>
+                <span className="text-2xl font-bold">SkillBridge Courses</span>
+                <p className="text-primary-foreground/80 text-sm">
+                  Explore our comprehensive course catalog and start learning today
+                </p>
+              </div>
             </div>
-            <nav className="flex items-center gap-4">
-              <Link to="/">
-                <Button variant="secondary" size="sm" className="gap-2">
-                  <Home className="h-4 w-4" />
-                  Home
-                </Button>
-              </Link>
-            </nav>
           </div>
           
           {/* Stats */}

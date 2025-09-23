@@ -2,25 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, Target, Heart, Users, MapPin, Zap, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import Navigation from "@/components/Navigation";
 const AboutUs = () => {
   return <div className="min-h-screen bg-gradient-bg">
       {/* Header */}
-      <header className="container mx-auto px-4 py-6">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <GraduationCap className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold text-foreground">SkillBridge</span>
-          </Link>
-          <nav className="flex items-center gap-6">
-            <Link to="/" className="text-foreground hover:text-primary transition-colors">
-              Home
-            </Link>
-            <Link to="/courses" className="text-foreground hover:text-primary transition-colors">
-              Courses
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-12">
