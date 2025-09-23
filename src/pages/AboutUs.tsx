@@ -62,6 +62,14 @@ const AboutUs = () => {
               
               <div className="prose prose-lg text-muted-foreground space-y-6">
                 <p className="text-lg leading-relaxed">
+                  Every student wonders what comes next after college — some dream of big companies, some want to work with technology, and many are simply unsure where to begin. That uncertainty can feel overwhelming, especially when the path from education to employment isn't always straightforward.
+                </p>
+                
+                <p className="text-lg leading-relaxed">
+                  SkillBridge was created to make the next step clearer. We guide students into structured, government-backed training programs that focus on real skills and real jobs. With practical courses and recognized certifications, SkillBridge helps turn questions about the future into confidence and direction.
+                </p>
+                
+                <p className="text-lg leading-relaxed">
                   I'm <span className="text-foreground font-semibold">Priyansh Agarwal</span>, a national-level tennis player and student from Gurugram, passionate about technology and community building.
                 </p>
                 
