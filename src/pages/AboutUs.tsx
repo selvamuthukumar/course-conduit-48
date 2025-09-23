@@ -18,7 +18,6 @@ const AboutUs = () => {
             <Link to="/courses" className="text-foreground hover:text-primary transition-colors">
               Courses
             </Link>
-            <Button variant="outline" size="sm">Sign In</Button>
           </nav>
         </div>
       </header>
