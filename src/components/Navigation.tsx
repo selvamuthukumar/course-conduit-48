@@ -11,6 +11,22 @@ const Navigation = () => {
     return false;
   };
 
+  const handleFAQsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      // Already on home page, just scroll to FAQ section
+      const faqSection = document.getElementById("faq-section");
+      faqSection?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to home page then scroll to FAQ section
+      navigate("/");
+      setTimeout(() => {
+        const faqSection = document.getElementById("faq-section");
+        faqSection?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname === "/") {
@@ -88,6 +104,12 @@ const Navigation = () => {
             className="text-foreground hover:text-primary transition-colors"
           >
             Partners
+          </button>
+          <button 
+            onClick={handleFAQsClick}
+            className="text-foreground hover:text-primary transition-colors"
+          >
+            FAQs
           </button>
           <button 
             onClick={handleContactClick}

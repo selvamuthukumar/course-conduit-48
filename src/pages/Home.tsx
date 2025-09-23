@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, Play, CheckCircle, Mail, ExternalLink } from "lucide-react";
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
@@ -224,6 +225,76 @@ const Home = () => {
             </div>
             <h3 className="font-semibold text-foreground text-sm">VVDN Technologies</h3>
           </div>
+        </div>
+      </section>
+
+      {/* FAQs Section */}
+      <section id="faq-section" className="container mx-auto px-4 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Find answers to common questions about our programs and enrollment process
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-4">
+            <AccordionItem value="item-1" className="bg-gradient-card border-0 rounded-lg px-6">
+              <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
+                How do I enroll in a course?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground pt-4">
+                Simply browse our course catalog, select the course you're interested in, and click the "Enroll Now" button. Fill out the enrollment form with your details including name, email, phone number, school/college name, and current grade/year of study. Our team will contact you with further instructions.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="bg-gradient-card border-0 rounded-lg px-6">
+              <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
+                Are the courses free?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground pt-4">
+                Yes! SkillBridge partners with government initiatives and industry leaders to provide free skill development training. Our courses are backed by programs like Naan Mudhalvan and supported by organizations like VVDN Technologies.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="bg-gradient-card border-0 rounded-lg px-6">
+              <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
+                What kind of certification will I receive?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground pt-4">
+                Upon successful completion of your course, you'll receive industry-recognized certificates that are valued by employers. Our certifications are backed by government initiatives and endorsed by our industry partners.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="bg-gradient-card border-0 rounded-lg px-6">
+              <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
+                Do you provide job placement assistance?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground pt-4">
+                Absolutely! We have an active Industry Connect Program that provides direct placement assistance and internship opportunities. With over 200 successful placements in the last year, we work closely with our industry partners to help you find relevant employment.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="bg-gradient-card border-0 rounded-lg px-6">
+              <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
+                What are the eligibility criteria?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground pt-4">
+                Our courses are designed for students and recent graduates looking to enhance their skills. Most programs are open to anyone with basic educational qualifications. Specific requirements may vary by course, and our team will guide you during the enrollment process.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-6" className="bg-gradient-card border-0 rounded-lg px-6">
+              <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
+                How long are the training programs?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground pt-4">
+                Training duration varies by course, typically ranging from 2 weeks to 3 months. Each course is designed to provide comprehensive skill development while being flexible enough to accommodate students' schedules. Detailed duration information is available on each course page.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 
