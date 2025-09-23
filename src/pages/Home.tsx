@@ -21,7 +21,7 @@ const Home = () => {
   }, {
     icon: BookOpen,
     title: "Opt for a course",
-    description: "Choose from our comprehensive range of skill-building courses"
+    description: "Choose from our comprehensive range of skill-building courses, with a strong focus on the electronics sector"
   }, {
     icon: GraduationCap,
     title: "Attend training",
