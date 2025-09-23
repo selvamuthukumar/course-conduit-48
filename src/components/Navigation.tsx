@@ -75,6 +75,14 @@ const Navigation = () => {
           >
             About Us
           </Link>
+          <Link 
+            to="/impact" 
+            className={`text-foreground hover:text-primary transition-colors ${
+              isActive("/impact") ? "text-primary font-medium" : ""
+            }`}
+          >
+            Our Impact
+          </Link>
           <button 
             onClick={handlePartnersClick}
             className="text-foreground hover:text-primary transition-colors"
