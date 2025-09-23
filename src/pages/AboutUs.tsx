@@ -70,7 +70,7 @@ const AboutUs = () => {
                 </p>
                 
                 <p className="text-lg leading-relaxed">
-                  I'm <span className="text-foreground">Priyansh Agarwal</span>, a national-level tennis player and student from Gurugram, passionate about technology and community building.
+                  I'm Priyansh Agarwal, a national-level tennis player and student from Gurugram, passionate about technology and community building.
                 </p>
                 
                 <p className="text-lg leading-relaxed">
