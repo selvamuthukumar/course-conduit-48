@@ -1,13 +1,30 @@
 import { GraduationCap } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   
   const isActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;
     if (path !== "/" && location.pathname.startsWith(path)) return true;
     return false;
+  };
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      // Already on home page, just scroll to contact section
+      const contactSection = document.getElementById("contact-section");
+      contactSection?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to home page then scroll to contact section
+      navigate("/");
+      setTimeout(() => {
+        const contactSection = document.getElementById("contact-section");
+        contactSection?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
   };
 
   return (
@@ -42,6 +59,12 @@ const Navigation = () => {
           >
             About Us
           </Link>
+          <button 
+            onClick={handleContactClick}
+            className="text-foreground hover:text-primary transition-colors"
+          >
+            Contact Us
+          </button>
         </nav>
       </div>
     </header>
