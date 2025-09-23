@@ -136,7 +136,7 @@ const AboutUs = () => {
                     <MapPin className="h-8 w-8 text-primary-foreground mb-4 mx-auto" />
                     <h3 className="text-lg font-semibold text-primary-foreground mb-3">Pan-India Vision</h3>
                     <p className="text-primary-foreground/90 text-sm">
-                      Starting in Tamil Nadu and expanding across India to maximize impact
+                      Piloted
                     </p>
                   </div>
                 </div>
