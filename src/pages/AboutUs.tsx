@@ -121,9 +121,7 @@ const AboutUs = () => {
                   <div className="bg-primary-foreground/10 rounded-xl p-6">
                     <GraduationCap className="h-8 w-8 text-primary-foreground mb-4 mx-auto" />
                     <h3 className="text-lg font-semibold text-primary-foreground mb-3">Job-Ready Skills</h3>
-                    <p className="text-primary-foreground/90 text-sm">
-                      Equipping students with practical, industry-relevant skills for immediate employment
-                    </p>
+                    <p className="text-primary-foreground/90 text-sm">Equipping students with practical, electronic industry-relevant skills for immediate employment</p>
                   </div>
                   
                   <div className="bg-primary-foreground/10 rounded-xl p-6">
