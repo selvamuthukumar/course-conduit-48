@@ -53,7 +53,7 @@ const AboutUs = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="bg-gradient-primary rounded-full p-3">
                   <Heart className="h-6 w-6 text-primary-foreground" />
                 </div>
