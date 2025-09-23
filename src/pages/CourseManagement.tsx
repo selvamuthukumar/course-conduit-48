@@ -40,7 +40,7 @@ const CourseManagement = () => {
   };
   const handleEnrollStudent = async (courseId: string, studentData: Omit<Student, 'id'>) => {
     try {
-      await enrollStudent(courseId, studentData.name, studentData.email, studentData.phone);
+      await enrollStudent(courseId, studentData.name, studentData.email, studentData.phone, studentData.schoolName, studentData.currentGrade);
       setShowEnrollmentModal(false);
     } catch (error) {
       // Error is handled in the hook

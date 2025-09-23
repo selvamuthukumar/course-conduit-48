@@ -18,19 +18,21 @@ export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: Enrollmen
   const [studentData, setStudentData] = useState({
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    schoolName: '',
+    currentGrade: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (course) {
       onEnroll(course.id, studentData);
-      setStudentData({ name: '', email: '', phone: '' });
+      setStudentData({ name: '', email: '', phone: '', schoolName: '', currentGrade: '' });
     }
   };
 
   const handleClose = () => {
-    setStudentData({ name: '', email: '', phone: '' });
+    setStudentData({ name: '', email: '', phone: '', schoolName: '', currentGrade: '' });
     onClose();
   };
 
@@ -95,6 +97,34 @@ export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: Enrollmen
                 value={studentData.phone}
                 onChange={(e) => setStudentData(prev => ({ ...prev, phone: e.target.value }))}
                 placeholder="+91 9876543210"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="schoolName" className="flex items-center gap-2">
+                <User className="h-4 w-4" />
+                School / College Name
+              </Label>
+              <Input
+                id="schoolName"
+                value={studentData.schoolName}
+                onChange={(e) => setStudentData(prev => ({ ...prev, schoolName: e.target.value }))}
+                placeholder="Enter school or college name"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="currentGrade" className="flex items-center gap-2">
+                <User className="h-4 w-4" />
+                Current Grade/Year of Study
+              </Label>
+              <Input
+                id="currentGrade"
+                value={studentData.currentGrade}
+                onChange={(e) => setStudentData(prev => ({ ...prev, currentGrade: e.target.value }))}
+                placeholder="e.g., 12th Grade, 2nd Year B.Tech"
                 required
               />
             </div>

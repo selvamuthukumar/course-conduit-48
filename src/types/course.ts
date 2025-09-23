@@ -22,4 +22,6 @@ export interface Student {
   name: string;
   email: string;
   phone: string;
+  schoolName: string;
+  currentGrade: string;
 }

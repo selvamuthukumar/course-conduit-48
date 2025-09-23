@@ -106,7 +106,7 @@ export const useCourses = () => {
     }
   };
 
-  const enrollStudent = async (courseId: string, studentName: string, studentEmail: string, studentPhone: string) => {
+  const enrollStudent = async (courseId: string, studentName: string, studentEmail: string, studentPhone: string, schoolName: string, currentGrade: string) => {
     try {
       const { data, error } = await supabase
         .from('enrollments')
@@ -114,7 +114,9 @@ export const useCourses = () => {
           course_id: courseId,
           student_name: studentName,
           student_email: studentEmail,
-          student_phone: studentPhone
+          student_phone: studentPhone,
+          school_name: schoolName,
+          current_grade: currentGrade
         })
         .select()
         .single();
@@ -154,7 +156,9 @@ export const useCourses = () => {
         id: enrollment.id,
         name: enrollment.student_name,
         email: enrollment.student_email,
-        phone: enrollment.student_phone || ''
+        phone: enrollment.student_phone || '',
+        schoolName: enrollment.school_name || '',
+        currentGrade: enrollment.current_grade || ''
       }));
     } catch (error) {
       console.error('Error fetching enrollments:', error);
