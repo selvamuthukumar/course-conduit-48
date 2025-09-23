@@ -21,7 +21,7 @@ const Home = () => {
   }, {
     icon: BookOpen,
     title: "Opt for a course",
-    description: "Choose from our comprehensive range of skill-building courses, with a strong focus on the electronics sector"
+    description: "Choose from our comprehensive range of skill-building courses"
   }, {
     icon: GraduationCap,
     title: "Attend training",
@@ -76,8 +76,8 @@ const Home = () => {
           </h1>
           
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Transform your career with specialized electronics sector skills training. 
-            From comprehensive skill development to job placement, we're with you at every milestone.
+            Transform your career journey with our comprehensive learning platform. 
+            From skill development to job placement, we're with you at every milestone.
           </p>
 
           {/* Video/Animation Placeholder */}
@@ -109,7 +109,7 @@ const Home = () => {
             Your Journey to Success
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Follow our proven 5-step process to master electronics sector skills and accelerate your career
+            Follow our proven 5-step process to transform your skills and accelerate your career
           </p>
         </div>
 
@@ -158,10 +158,8 @@ const Home = () => {
               <div className="bg-gradient-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6 shadow-primary">
                 <CheckCircle className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Certifications</h3>
-              <p className="text-muted-foreground">
-                Earn electronics industry certificates that employers value and trust, backed by our industry partnerships.
-              </p>
+              <h3 className="text-xl font-semibold text-foreground mb-4">Industry-Recognized Certificates</h3>
+              <p className="text-muted-foreground">Earn certificates that employers value and trust, backed by our industry partnerships.</p>
             </CardContent>
           </Card>
 
@@ -197,7 +195,7 @@ const Home = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
             Ready to Transform Your Career?
           </h2>
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">Join learners who have successfully mastered electronics sector skills and achieved their career goals.</p>
+          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">Join learners who have successfully bridged their skills gap and achieved their career goals.</p>
           <Link to="/courses">
             <Button size="lg" variant="secondary" className="text-lg px-8 py-6 hover:scale-105 transition-transform">
               Explore Courses
