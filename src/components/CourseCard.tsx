@@ -57,7 +57,7 @@ export const CourseCard = ({
 
         <div className="pt-2">
           <p className="text-sm text-muted-foreground mb-3">
-            {course.description}
+            {course.jobDescription || "Job description not available for this course."}
           </p>
           <p className="text-sm text-muted-foreground mb-3">
             Instructor: <span className="font-medium text-foreground">{course.instructor}</span>
