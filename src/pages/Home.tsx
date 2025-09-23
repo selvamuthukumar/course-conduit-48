@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, Play, CheckCircle } from "lucide-react";
+import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, Play, CheckCircle, Mail, ExternalLink } from "lucide-react";
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
 import essiLogo from "@/assets/logo_essi.png";
@@ -253,6 +253,52 @@ const Home = () => {
             </div>
             <h3 className="font-semibold text-foreground text-sm">VVDN Technologies</h3>
           </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+            Get in Touch
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Have questions or need support? We're here to help you on your learning journey.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
+            <CardContent className="p-8 text-center">
+              <div className="bg-gradient-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6 shadow-primary">
+                <ExternalLink className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-4">Contact Form</h3>
+              <p className="text-muted-foreground mb-6">Fill out our form for detailed inquiries and support</p>
+              <Button asChild className="bg-gradient-primary hover:shadow-primary">
+                <a href="https://forms.gle/uh86ujPGrAWVgbRx7" target="_blank" rel="noopener noreferrer">
+                  Open Form
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
+            <CardContent className="p-8 text-center">
+              <div className="bg-gradient-secondary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <Mail className="h-8 w-8 text-secondary-foreground" />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-4">Email Us</h3>
+              <p className="text-muted-foreground mb-6">Reach out directly for quick questions or support</p>
+              <Button asChild variant="secondary">
+                <a href="mailto:reachskillbridge@gmail.com">
+                  reachskillbridge@gmail.com
+                  <Mail className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
