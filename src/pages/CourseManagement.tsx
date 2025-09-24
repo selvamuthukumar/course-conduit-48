@@ -10,6 +10,7 @@ import { Search, Plus, GraduationCap, BookOpen, Users, Home, Loader2 } from "luc
 import { Link } from "react-router-dom";
 import { useCourses } from "@/hooks/useCourses";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 const CourseManagement = () => {
   const {
     courses,
@@ -130,6 +131,8 @@ const CourseManagement = () => {
         setEnrollmentDetails([]);
       }} loading={loadingEnrollments} />
       </div>
+      
+      <Footer />
     </div>;
 };
 export default CourseManagement;
