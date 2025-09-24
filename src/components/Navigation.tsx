@@ -40,18 +40,6 @@ const Navigation = () => {
     }
   };
 
-  const handleFAQsClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (location.pathname === "/") {
-      smoothScrollToSection("faq-section");
-    } else {
-      navigate("/");
-      setTimeout(() => {
-        smoothScrollToSection("faq-section");
-      }, 100);
-    }
-  };
-
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname === "/") {
@@ -122,12 +110,14 @@ const Navigation = () => {
           >
             Partners
           </button>
-          <button 
-            onClick={handleFAQsClick}
-            className="text-foreground hover:text-primary transition-colors"
+          <Link 
+            to="/faq" 
+            className={`text-foreground hover:text-primary transition-colors ${
+              isActive("/faq") ? "text-primary font-medium" : ""
+            }`}
           >
             FAQs
-          </button>
+          </Link>
           <button 
             onClick={handleContactClick}
             className="text-foreground hover:text-primary transition-colors"
