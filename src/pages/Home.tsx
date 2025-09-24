@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, Play, CheckCircle, Mail, ExternalLink } from "lucide-react";
+import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, Play, CheckCircle, Mail, ExternalLink, Linkedin } from "lucide-react";
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
 import essiLogo from "@/assets/logo_essi.png";
@@ -332,6 +332,23 @@ const Home = () => {
               </Button>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* LinkedIn Section */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="text-center">
+          <Button asChild className="bg-gradient-primary hover:shadow-primary">
+            <a 
+              href="https://www.linkedin.com/company/skill-bridge-initiative/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BRifq2tjiSWevfo0YmJS68w%3D%3D" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2"
+            >
+              <Linkedin className="h-4 w-4" />
+              Follow us on LinkedIn
+            </a>
+          </Button>
         </div>
       </section>
 
