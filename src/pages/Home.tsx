@@ -339,7 +339,7 @@ const Home = () => {
       <footer className="container mx-auto px-4 py-8 border-t border-border">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Button asChild size="sm" variant="outline" className="p-2">
+            <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 p-2">
               <a 
                 href="https://www.linkedin.com/company/skill-bridge-initiative/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BRifq2tjiSWevfo0YmJS68w%3D%3D" 
                 target="_blank" 
