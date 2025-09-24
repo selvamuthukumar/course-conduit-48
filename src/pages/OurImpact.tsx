@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, Users, TrendingUp, Award, Building, MapPin, ArrowRight, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const OurImpact = () => {
   const impactStats = [
@@ -216,18 +217,7 @@ const OurImpact = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="container mx-auto px-4 py-8 border-t border-border">
-        <div className="text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <GraduationCap className="h-6 w-6 text-primary" />
-            <span className="text-lg font-semibold text-foreground">SkillBridge</span>
-          </div>
-          <p className="text-muted-foreground">
-            Bridging the gap between skills and opportunities.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

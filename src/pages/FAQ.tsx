@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const FAQ = () => {
   return (
@@ -66,6 +67,8 @@ const FAQ = () => {
           </Accordion>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };

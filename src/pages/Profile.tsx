@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useAuth } from '@/hooks/useAuth';
+import Footer from '@/components/Footer';
 
 export default function Profile() {
   const { user, profile, userRoles, updateProfile, signOut, loading } = useAuth();
@@ -158,6 +159,8 @@ export default function Profile() {
           </CardContent>
         </Card>
       </div>
+      
+      <Footer />
     </div>
   );
 }
