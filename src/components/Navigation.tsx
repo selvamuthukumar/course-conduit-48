@@ -11,18 +11,43 @@ const Navigation = () => {
     return false;
   };
 
+  const smoothScrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const targetPosition = section.offsetTop - 80; // Offset for header
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 1500; // 1.5 seconds for slow, smooth scroll
+      let start: number | null = null;
+
+      const animation = (currentTime: number) => {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      };
+
+      // Easing function for smooth animation
+      const easeInOutQuad = (t: number, b: number, c: number, d: number) => {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+      };
+
+      requestAnimationFrame(animation);
+    }
+  };
+
   const handleFAQsClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname === "/") {
-      // Already on home page, just scroll to FAQ section
-      const faqSection = document.getElementById("faq-section");
-      faqSection?.scrollIntoView({ behavior: "smooth" });
+      smoothScrollToSection("faq-section");
     } else {
-      // Navigate to home page then scroll to FAQ section
       navigate("/");
       setTimeout(() => {
-        const faqSection = document.getElementById("faq-section");
-        faqSection?.scrollIntoView({ behavior: "smooth" });
+        smoothScrollToSection("faq-section");
       }, 100);
     }
   };
@@ -30,15 +55,11 @@ const Navigation = () => {
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname === "/") {
-      // Already on home page, just scroll to contact section
-      const contactSection = document.getElementById("contact-section");
-      contactSection?.scrollIntoView({ behavior: "smooth" });
+      smoothScrollToSection("contact-section");
     } else {
-      // Navigate to home page then scroll to contact section
       navigate("/");
       setTimeout(() => {
-        const contactSection = document.getElementById("contact-section");
-        contactSection?.scrollIntoView({ behavior: "smooth" });
+        smoothScrollToSection("contact-section");
       }, 100);
     }
   };
@@ -46,15 +67,11 @@ const Navigation = () => {
   const handlePartnersClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname === "/") {
-      // Already on home page, just scroll to partners section
-      const partnersSection = document.getElementById("partners-section");
-      partnersSection?.scrollIntoView({ behavior: "smooth" });
+      smoothScrollToSection("partners-section");
     } else {
-      // Navigate to home page then scroll to partners section
       navigate("/");
       setTimeout(() => {
-        const partnersSection = document.getElementById("partners-section");
-        partnersSection?.scrollIntoView({ behavior: "smooth" });
+        smoothScrollToSection("partners-section");
       }, 100);
     }
   };
