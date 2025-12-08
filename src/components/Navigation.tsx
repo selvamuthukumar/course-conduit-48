@@ -103,6 +103,14 @@ const Navigation = () => {
             Partners
           </button>
           <Link 
+            to="/gallery" 
+            className={`text-foreground hover:text-primary transition-colors ${
+              isActive("/gallery") ? "text-primary font-medium" : ""
+            }`}
+          >
+            Gallery
+          </Link>
+          <Link 
             to="/faq" 
             className={`text-foreground hover:text-primary transition-colors ${
               isActive("/faq") ? "text-primary font-medium" : ""
