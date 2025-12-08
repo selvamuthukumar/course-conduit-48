@@ -229,6 +229,45 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+            What Our Students Say
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Hear directly from learners who have transformed their careers with SkillBridge
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
+            <CardContent className="p-6">
+              <div className="aspect-video bg-muted rounded-xl flex items-center justify-center group cursor-pointer">
+                <div className="text-center">
+                  <div className="bg-primary/10 rounded-full p-4 mb-3 group-hover:bg-primary/20 transition-colors">
+                    <Play className="h-8 w-8 text-primary" />
+                  </div>
+                  <p className="text-sm text-muted-foreground">Testimonial Video 1</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
+            <CardContent className="p-6">
+              <div className="aspect-video bg-muted rounded-xl flex items-center justify-center group cursor-pointer">
+                <div className="text-center">
+                  <div className="bg-primary/10 rounded-full p-4 mb-3 group-hover:bg-primary/20 transition-colors">
+                    <Play className="h-8 w-8 text-primary" />
+                  </div>
+                  <p className="text-sm text-muted-foreground">Testimonial Video 2</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section id="contact-section" className="container mx-auto px-4 py-16">
