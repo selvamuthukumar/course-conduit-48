@@ -22,10 +22,10 @@ const FAQ = () => {
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem value="item-1" className="bg-gradient-card border-0 rounded-lg px-6">
               <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary">
-                Do the students need to pay for enrolling in the course?
+                Do the learners need to pay for enrolling in the course?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pt-4">
-                No. Students do not need to pay any fees as the training is fully supported under the government scheme. In fact, participants also receive a small stipend during their training period, making it easier to focus on learning without financial burden.
+                No. Learners do not need to pay any fees as the training is fully supported under the government scheme. In fact, participants also receive a small stipend during their training period, making it easier to focus on learning without financial burden.
               </AccordionContent>
             </AccordionItem>
 
@@ -52,7 +52,7 @@ const FAQ = () => {
                 What are the placement opportunities?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pt-4">
-                Students who train with dedication and successfully complete their certification will be supported by SkillBridge in connecting with reputed firms. While no program can guarantee a job, our focus is on preparing you for real industry needs and aiding you in securing strong placement opportunities.
+                Learners who train with dedication and successfully complete their certification will be supported by SkillBridge in connecting with reputed firms. While no program can guarantee a job, our focus is on preparing you for real industry needs and aiding you in securing strong placement opportunities.
               </AccordionContent>
             </AccordionItem>
 
@@ -61,7 +61,7 @@ const FAQ = () => {
                 What is the medium of the course?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pt-4">
-                Courses are delivered in English along with regional language support to ensure easy understanding. For example, in Tamil Nadu, sessions are conducted in both English and Tamil, so that every student can learn comfortably and confidently.
+                Courses are delivered in English along with regional language support to ensure easy understanding. For example, in Tamil Nadu, sessions are conducted in both English and Tamil, so that every learner can learn comfortably and confidently.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
