@@ -135,7 +135,7 @@ export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: Enrollmen
                 className="flex-1 bg-gradient-primary hover:opacity-90 shadow-primary"
               >
                 <UserPlus className="h-4 w-4 mr-2" />
-                Enroll Student
+                Enroll
               </Button>
               <Button type="button" variant="outline" onClick={handleClose}>
                 Cancel
