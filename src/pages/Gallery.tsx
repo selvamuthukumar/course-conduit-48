@@ -1,19 +1,24 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { Image } from "lucide-react";
+
+import gallery1 from "@/assets/gallery/gallery-1.png";
+import gallery2 from "@/assets/gallery/gallery-2.png";
+import gallery3 from "@/assets/gallery/gallery-3.png";
+import gallery4 from "@/assets/gallery/gallery-4.png";
+import gallery5 from "@/assets/gallery/gallery-5.png";
+import gallery6 from "@/assets/gallery/gallery-6.png";
+import gallery7 from "@/assets/gallery/gallery-7.png";
 
 const Gallery = () => {
-  // Placeholder for gallery images - you can add your images here
   const galleryImages = [
-    { id: 1, placeholder: true },
-    { id: 2, placeholder: true },
-    { id: 3, placeholder: true },
-    { id: 4, placeholder: true },
-    { id: 5, placeholder: true },
-    { id: 6, placeholder: true },
-    { id: 7, placeholder: true },
-    { id: 8, placeholder: true },
+    { id: 1, src: gallery1, alt: "SkillBridge presentation at seminar" },
+    { id: 2, src: gallery2, alt: "Learners participating in training session" },
+    { id: 3, src: gallery3, alt: "Speaker at SkillBridge workshop" },
+    { id: 4, src: gallery4, alt: "Interactive session in computer lab" },
+    { id: 5, src: gallery5, alt: "Training session with learners" },
+    { id: 6, src: gallery6, alt: "Presentation at SkillBridge event" },
+    { id: 7, src: gallery7, alt: "Team interaction at SkillBridge" },
   ];
 
   return (
@@ -37,11 +42,12 @@ const Gallery = () => {
               className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
               <CardContent className="p-0">
-                <div className="aspect-square bg-muted flex items-center justify-center">
-                  <div className="text-center p-4">
-                    <Image className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
-                    <p className="text-sm text-muted-foreground">Image {image.id}</p>
-                  </div>
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={image.src} 
+                    alt={image.alt}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
               </CardContent>
             </Card>
