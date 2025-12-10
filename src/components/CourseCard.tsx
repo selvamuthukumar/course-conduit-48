@@ -7,6 +7,7 @@ import { Users, BookOpen, ChevronDown, ChevronUp, MapPin } from "lucide-react";
 import smtLineImage from "@/assets/smt-line-course.png";
 import pcbCourseImage from "@/assets/pcb-course.png";
 import emsCourseImage from "@/assets/ems-course.png";
+import injectionMouldingImage from "@/assets/injection-moulding-course.png";
 interface CourseCardProps {
   course: Course;
   onEnroll: (courseId: string) => void;
@@ -30,6 +31,8 @@ export const CourseCard = ({
           <img src={pcbCourseImage} alt={course.title} className="w-full h-full object-cover" />
         ) : course.title.toLowerCase().includes("electronics manufacturing") ? (
           <img src={emsCourseImage} alt={course.title} className="w-full h-full object-cover" />
+        ) : course.title.toLowerCase().includes("machine operator") ? (
+          <img src={injectionMouldingImage} alt={course.title} className="w-full h-full object-cover" />
         ) : (
           <BookOpen className="h-12 w-12 text-primary-foreground" />
         )}
