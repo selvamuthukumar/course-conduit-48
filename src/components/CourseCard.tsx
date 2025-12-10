@@ -6,6 +6,7 @@ import { Course } from "@/types/course";
 import { Users, BookOpen, ChevronDown, ChevronUp, MapPin } from "lucide-react";
 import smtLineImage from "@/assets/smt-line-course.png";
 import pcbCourseImage from "@/assets/pcb-course.png";
+import emsCourseImage from "@/assets/ems-course.png";
 interface CourseCardProps {
   course: Course;
   onEnroll: (courseId: string) => void;
@@ -27,6 +28,8 @@ export const CourseCard = ({
           <img src={smtLineImage} alt={course.title} className="w-full h-full object-cover" />
         ) : course.title.toLowerCase().includes("printed circuit board") ? (
           <img src={pcbCourseImage} alt={course.title} className="w-full h-full object-cover" />
+        ) : course.title.toLowerCase().includes("electronics manufacturing") ? (
+          <img src={emsCourseImage} alt={course.title} className="w-full h-full object-cover" />
         ) : (
           <BookOpen className="h-12 w-12 text-primary-foreground" />
         )}
