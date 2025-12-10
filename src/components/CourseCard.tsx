@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Course } from "@/types/course";
 import { Users, BookOpen, ChevronDown, ChevronUp, MapPin } from "lucide-react";
+import smtLineImage from "@/assets/smt-line-course.png";
 interface CourseCardProps {
   course: Course;
   onEnroll: (courseId: string) => void;
@@ -20,8 +21,12 @@ export const CourseCard = ({
   const enrolledCount = course.enrollmentCount || course.enrolledStudents.length;
   const enrollmentPercentage = enrolledCount / course.maxStudents * 100;
   return <Card className="group relative overflow-hidden bg-gradient-card shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
-      <div className="aspect-video bg-gradient-primary p-6 flex items-center justify-center">
-        <BookOpen className="h-12 w-12 text-primary-foreground" />
+      <div className="aspect-video bg-gradient-primary flex items-center justify-center overflow-hidden">
+        {course.title.toLowerCase().includes("in-process") ? (
+          <img src={smtLineImage} alt={course.title} className="w-full h-full object-cover" />
+        ) : (
+          <BookOpen className="h-12 w-12 text-primary-foreground" />
+        )}
       </div>
       
       <div className="p-6 space-y-4">
