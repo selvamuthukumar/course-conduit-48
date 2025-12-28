@@ -53,18 +53,6 @@ const Home = () => {
             From skill development to job placement, we're with you at every milestone.
           </p>
 
-          {/* Video/Animation Placeholder */}
-          <div className="bg-gradient-card rounded-2xl p-8 mb-12 shadow-card hover:shadow-card-hover transition-all duration-300">
-            <div className="aspect-video bg-muted rounded-xl flex items-center justify-center group cursor-pointer">
-              <div className="text-center">
-                <div className="bg-primary/10 rounded-full p-6 mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Play className="h-12 w-12 text-primary" />
-                </div>
-                <p className="text-lg font-medium text-foreground">Watch how SkillBridge works</p>
-                <p className="text-muted-foreground">2 minute intro video</p>
-              </div>
-            </div>
-          </div>
 
           <Link to="/courses">
             <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:shadow-primary">
