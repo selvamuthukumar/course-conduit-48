@@ -53,7 +53,6 @@ const Home = () => {
             From skill development to job placement, we're with you at every milestone.
           </p>
 
-
           <Link to="/courses">
             <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:shadow-primary">
               Browse Courses
