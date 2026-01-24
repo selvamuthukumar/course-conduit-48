@@ -77,7 +77,7 @@ export const CourseCard = ({
 
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Course Curriculum</h4>
-                  <a href={course.curriculumUrl || "https://nqr.gov.in/qualifications"} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline transition-colors">
+                  <a href={course.curriculumUrl || "https://nqr.gov.in/qualification/document/EMS%20Technician%20-%20ELE_Q5315_v3.0.pdf"} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline transition-colors">
                     View NQR Qualification Details
                   </a>
                 </div>
