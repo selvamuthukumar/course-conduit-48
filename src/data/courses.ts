@@ -19,7 +19,7 @@ export const coursesData: Course[] = [
       'B.E/B.Tech in relevant discipline',
       'ITI with relevant trade certification'
     ],
-    curriculumUrl: 'https://nqr.gov.in/qualifications'
+    curriculumUrl: 'https://nqr.gov.in/qualifications/2740'
   },
   {
     id: '2',
@@ -39,7 +39,7 @@ export const coursesData: Course[] = [
       'ITI in Electronics or related trade',
       'Diploma in Electronics'
     ],
-    curriculumUrl: 'https://nqr.gov.in/qualifications'
+    curriculumUrl: 'https://nqr.gov.in/qualifications/2283'
   },
   {
     id: '3',
@@ -59,7 +59,7 @@ export const coursesData: Course[] = [
       'ITI in Electronics/Electrical',
       'Diploma in Electronics Engineering'
     ],
-    curriculumUrl: 'https://nqr.gov.in/qualifications'
+    curriculumUrl: 'https://nqr.gov.in/qualification/document/EMS%20Technician%20-%20ELE_Q5315_v3.0.pdf'
   },
   {
     id: '4',
@@ -79,6 +79,6 @@ export const coursesData: Course[] = [
       'ITI in Plastic Processing/Mechanical',
       'Any technical diploma'
     ],
-    curriculumUrl: 'https://nqr.gov.in/qualifications'
+    curriculumUrl: 'https://nqr.gov.in/qualifications/2058'
   }
 ];
