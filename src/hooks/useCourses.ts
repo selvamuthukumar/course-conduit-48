@@ -1,57 +1,57 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
-import { Course } from '@/types/course';
+import { Course, Student } from '@/types/course';
 import { useToast } from '@/hooks/use-toast';
+import { coursesData } from '@/data/courses';
+
+const ENROLLMENTS_KEY = 'course_enrollments';
+
+interface StoredEnrollment {
+  id: string;
+  courseId: string;
+  studentName: string;
+  studentEmail: string;
+  studentPhone: string;
+  schoolName: string;
+  currentGrade: string;
+  enrolledAt: string;
+}
+
+const getStoredEnrollments = (): StoredEnrollment[] => {
+  try {
+    const stored = localStorage.getItem(ENROLLMENTS_KEY);
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
+};
+
+const saveEnrollments = (enrollments: StoredEnrollment[]) => {
+  localStorage.setItem(ENROLLMENTS_KEY, JSON.stringify(enrollments));
+};
 
 export const useCourses = () => {
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
 
-  const fetchCourses = async () => {
+  const fetchCourses = () => {
     try {
       setLoading(true);
-      const { data: coursesData, error: coursesError } = await supabase
-        .from('courses')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (coursesError) throw coursesError;
-
-      // Get enrollment counts for each course
-      const { data: enrollmentsData, error: enrollmentsError } = await supabase
-        .from('enrollments')
-        .select('course_id');
-
-      if (enrollmentsError) throw enrollmentsError;
-
+      const enrollments = getStoredEnrollments();
+      
       // Count enrollments per course
-      const enrollmentCounts = enrollmentsData.reduce((acc, enrollment) => {
-        acc[enrollment.course_id] = (acc[enrollment.course_id] || 0) + 1;
+      const enrollmentCounts = enrollments.reduce((acc, enrollment) => {
+        acc[enrollment.courseId] = (acc[enrollment.courseId] || 0) + 1;
         return acc;
       }, {} as Record<string, number>);
 
-      // Transform database courses to match our Course interface
-      const transformedCourses: Course[] = coursesData.map(course => ({
-        id: course.id,
-        title: course.title,
-        description: course.description || '',
-        instructor: course.instructor,
-        duration: course.duration,
-        level: course.level as 'Beginner' | 'Intermediate' | 'Advanced',
-        category: course.category,
-        price: Number(course.price),
-        enrolledStudents: [], // We'll use enrollment count instead
-        maxStudents: course.max_students,
-        startDate: course.start_date,
-        imageUrl: course.image_url,
-        enrollmentCount: enrollmentCounts[course.id] || 0,
-        jobDescription: course.job_description,
-        eligibilityCriteria: course.eligibility_criteria,
-        curriculumUrl: course.curriculum_url
+      // Add enrollment counts to courses
+      const coursesWithCounts = coursesData.map(course => ({
+        ...course,
+        enrollmentCount: enrollmentCounts[course.id] || 0
       }));
 
-      setCourses(transformedCourses);
+      setCourses(coursesWithCounts);
     } catch (error) {
       console.error('Error fetching courses:', error);
       toast({
@@ -65,63 +65,52 @@ export const useCourses = () => {
   };
 
   const createCourse = async (courseData: Omit<Course, 'id' | 'enrolledStudents'>) => {
-    try {
-      const { data, error } = await supabase
-        .from('courses')
-        .insert({
-          title: courseData.title,
-          description: courseData.description,
-          instructor: courseData.instructor,
-          duration: courseData.duration,
-          level: courseData.level,
-          category: courseData.category,
-          price: courseData.price,
-          max_students: courseData.maxStudents,
-          start_date: courseData.startDate,
-          image_url: courseData.imageUrl,
-          job_description: courseData.jobDescription,
-          eligibility_criteria: courseData.eligibilityCriteria,
-          curriculum_url: courseData.curriculumUrl
-        })
-        .select()
-        .single();
-
-      if (error) throw error;
-
-      toast({
-        title: "Success",
-        description: "Course created successfully!"
-      });
-
-      fetchCourses(); // Refresh the list
-      return data;
-    } catch (error) {
-      console.error('Error creating course:', error);
-      toast({
-        title: "Error", 
-        description: "Failed to create course",
-        variant: "destructive"
-      });
-      throw error;
-    }
+    // Note: For local storage, courses are static. This is a no-op.
+    toast({
+      title: "Info",
+      description: "Course creation is not available in local mode"
+    });
+    return null;
   };
 
-  const enrollStudent = async (courseId: string, studentName: string, studentEmail: string, studentPhone: string, schoolName: string, currentGrade: string) => {
+  const enrollStudent = async (
+    courseId: string, 
+    studentName: string, 
+    studentEmail: string, 
+    studentPhone: string, 
+    schoolName: string, 
+    currentGrade: string
+  ) => {
     try {
-      const { data, error } = await supabase
-        .from('enrollments')
-        .insert({
-          course_id: courseId,
-          student_name: studentName,
-          student_email: studentEmail,
-          student_phone: studentPhone,
-          school_name: schoolName,
-          current_grade: currentGrade
-        })
-        .select()
-        .single();
+      const enrollments = getStoredEnrollments();
+      
+      // Check if already enrolled
+      const alreadyEnrolled = enrollments.some(
+        e => e.courseId === courseId && e.studentEmail === studentEmail
+      );
+      
+      if (alreadyEnrolled) {
+        toast({
+          title: "Error",
+          description: "This email is already enrolled in this course",
+          variant: "destructive"
+        });
+        throw new Error('Already enrolled');
+      }
 
-      if (error) throw error;
+      const newEnrollment: StoredEnrollment = {
+        id: crypto.randomUUID(),
+        courseId,
+        studentName,
+        studentEmail,
+        studentPhone,
+        schoolName,
+        currentGrade,
+        enrolledAt: new Date().toISOString()
+      };
+
+      enrollments.push(newEnrollment);
+      saveEnrollments(enrollments);
 
       toast({
         title: "Success",
@@ -129,36 +118,34 @@ export const useCourses = () => {
       });
 
       fetchCourses(); // Refresh to update enrollment counts
-      return data;
+      return newEnrollment;
     } catch (error) {
-      console.error('Error enrolling student:', error);
-      toast({
-        title: "Error",
-        description: "Failed to enroll student. They may already be enrolled.",
-        variant: "destructive"
-      });
+      if ((error as Error).message !== 'Already enrolled') {
+        console.error('Error enrolling student:', error);
+        toast({
+          title: "Error",
+          description: "Failed to enroll student",
+          variant: "destructive"
+        });
+      }
       throw error;
     }
   };
 
-  const fetchEnrollments = async (courseId: string) => {
+  const fetchEnrollments = async (courseId: string): Promise<Student[]> => {
     try {
-      const { data, error } = await supabase
-        .from('enrollments')
-        .select('*')
-        .eq('course_id', courseId)
-        .order('enrolled_at', { ascending: false });
+      const enrollments = getStoredEnrollments();
+      const courseEnrollments = enrollments
+        .filter(e => e.courseId === courseId)
+        .sort((a, b) => new Date(b.enrolledAt).getTime() - new Date(a.enrolledAt).getTime());
 
-      if (error) throw error;
-
-      // Transform to Student interface
-      return data.map(enrollment => ({
+      return courseEnrollments.map(enrollment => ({
         id: enrollment.id,
-        name: enrollment.student_name,
-        email: enrollment.student_email,
-        phone: enrollment.student_phone || '',
-        schoolName: (enrollment as any).school_name || '',
-        currentGrade: (enrollment as any).current_grade || ''
+        name: enrollment.studentName,
+        email: enrollment.studentEmail,
+        phone: enrollment.studentPhone,
+        schoolName: enrollment.schoolName,
+        currentGrade: enrollment.currentGrade
       }));
     } catch (error) {
       console.error('Error fetching enrollments:', error);
