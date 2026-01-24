@@ -1,13 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, Play, CheckCircle, Mail, ExternalLink, Linkedin } from "lucide-react";
+import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, CheckCircle, Mail, ExternalLink, Linkedin } from "lucide-react";
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
 import essiLogo from "@/assets/logo_essi.png";
 import mcetLogo from "@/assets/mcet-logo.png";
 import paceLogo from "@/assets/pace-logo-new.png";
 import chamberLogo from "@/assets/chamber-logo-new.png";
+import testimonialVideo1 from "@/assets/testimonial-video-1.mp4";
+import testimonialVideo2 from "@/assets/testimonial-video-2.mp4";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -230,27 +232,27 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
             <CardContent className="p-6">
-              <div className="aspect-video bg-muted rounded-xl flex items-center justify-center group cursor-pointer">
-                <div className="text-center">
-                  <div className="bg-primary/10 rounded-full p-4 mb-3 group-hover:bg-primary/20 transition-colors">
-                    <Play className="h-8 w-8 text-primary" />
-                  </div>
-                  <p className="text-sm text-muted-foreground">Testimonial Video 1</p>
-                </div>
-              </div>
+              <video 
+                className="aspect-video w-full rounded-xl object-cover"
+                controls
+                preload="metadata"
+              >
+                <source src={testimonialVideo1} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </CardContent>
           </Card>
 
           <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
             <CardContent className="p-6">
-              <div className="aspect-video bg-muted rounded-xl flex items-center justify-center group cursor-pointer">
-                <div className="text-center">
-                  <div className="bg-primary/10 rounded-full p-4 mb-3 group-hover:bg-primary/20 transition-colors">
-                    <Play className="h-8 w-8 text-primary" />
-                  </div>
-                  <p className="text-sm text-muted-foreground">Testimonial Video 2</p>
-                </div>
-              </div>
+              <video 
+                className="aspect-video w-full rounded-xl object-cover"
+                controls
+                preload="metadata"
+              >
+                <source src={testimonialVideo2} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </CardContent>
           </Card>
         </div>
