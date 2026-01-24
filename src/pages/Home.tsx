@@ -30,7 +30,7 @@ const Home = () => {
     description: "Receive industry-recognized certificates upon completion"
   }, {
     icon: Briefcase,
-    title: "Apply for jobs/internships",
+    title: "Apply for jobs / internships",
     description: "Leverage your new skills for career opportunities"
   }];
   return <div className="min-h-screen bg-gradient-bg">
