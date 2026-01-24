@@ -25,17 +25,7 @@ export const CourseCard = ({
   const enrollmentPercentage = enrolledCount / course.maxStudents * 100;
   return <Card className="group relative overflow-hidden bg-gradient-card shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
       <div className="aspect-video bg-gradient-primary flex items-center justify-center overflow-hidden">
-        {course.title.toLowerCase().includes("in-process") ? (
-          <img src={smtLineImage} alt={course.title} className="w-full h-full object-cover" />
-        ) : course.title.toLowerCase().includes("printed circuit board") ? (
-          <img src={pcbCourseImage} alt={course.title} className="w-full h-full object-cover" />
-        ) : course.title.toLowerCase().includes("electronics manufacturing") ? (
-          <img src={emsCourseImage} alt={course.title} className="w-full h-full object-cover" />
-        ) : course.title.toLowerCase().includes("machine operator") ? (
-          <img src={injectionMouldingImage} alt={course.title} className="w-full h-full object-cover" />
-        ) : (
-          <BookOpen className="h-12 w-12 text-primary-foreground" />
-        )}
+        {course.title.toLowerCase().includes("in-process") ? <img src={smtLineImage} alt={course.title} className="w-full h-full object-cover" /> : course.title.toLowerCase().includes("printed circuit board") ? <img src={pcbCourseImage} alt={course.title} className="w-full h-full object-cover" /> : course.title.toLowerCase().includes("electronics manufacturing") ? <img src={emsCourseImage} alt={course.title} className="w-full h-full object-cover" /> : course.title.toLowerCase().includes("machine operator") ? <img src={injectionMouldingImage} alt={course.title} className="w-full h-full object-cover" /> : <BookOpen className="h-12 w-12 text-primary-foreground" />}
       </div>
       
       <div className="p-6 space-y-4">
@@ -53,10 +43,7 @@ export const CourseCard = ({
 
         <div className="space-y-3">
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1">
-              <Users className="h-4 w-4" />
-              {course.instructor}
-            </div>
+            
             <div className="flex items-center gap-1">
               <MapPin className="h-4 w-4" />
               Pollachi, Tamil Nadu
@@ -90,12 +77,7 @@ export const CourseCard = ({
 
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Course Curriculum</h4>
-                  <a
-                    href={course.curriculumUrl || "https://nqr.gov.in/qualifications"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary/80 underline transition-colors"
-                  >
+                  <a href={course.curriculumUrl || "https://nqr.gov.in/qualifications"} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline transition-colors">
                     View NQR Qualification Details
                   </a>
                 </div>
