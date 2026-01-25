@@ -59,7 +59,7 @@ export const coursesData: Course[] = [
       'ITI in Electronics/Electrical',
       'Diploma in Electronics Engineering'
     ],
-    curriculumUrl: 'https://nqr.gov.in/qualification/document/EMS%20Technician%20-%20ELE_Q5315_v3.0.pdf'
+    curriculumUrl: 'https://www.nqr.gov.in/public/qualifications/2291'
   },
   {
     id: '4',
