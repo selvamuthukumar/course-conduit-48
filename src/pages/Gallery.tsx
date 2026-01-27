@@ -11,18 +11,22 @@ import gallery10 from "@/assets/gallery/gallery-10.jpg";
 import gallery11 from "@/assets/gallery/gallery-11.jpg";
 import gallery12 from "@/assets/gallery/gallery-12.jpg";
 import gallery13 from "@/assets/gallery/gallery-13.jpg";
+import gallery14 from "@/assets/gallery/gallery-14.jpg";
+import gallery15 from "@/assets/gallery/gallery-15.jpg";
 
 const Gallery = () => {
   const galleryImages = [
     { id: 1, src: gallery8, alt: "AI/ML walkthrough session" },
     { id: 2, src: gallery1, alt: "SkillBridge presentation at seminar" },
-    { id: 3, src: gallery11, alt: "Session at KIT Kalaignarkarunanidhi Institute" },
-    { id: 4, src: gallery2, alt: "Learners participating in training session" },
-    { id: 5, src: gallery12, alt: "Students in formal attire at workshop" },
-    { id: 6, src: gallery10, alt: "Interactive classroom training session" },
-    { id: 7, src: gallery4, alt: "Interactive session in computer lab" },
-    { id: 8, src: gallery9, alt: "Large hall presentation session" },
-    { id: 9, src: gallery13, alt: "Seminar room training with students" },
+    { id: 3, src: gallery14, alt: "Speaker addressing students in hall" },
+    { id: 4, src: gallery11, alt: "Session at KIT Kalaignarkarunanidhi Institute" },
+    { id: 5, src: gallery2, alt: "Learners participating in training session" },
+    { id: 6, src: gallery12, alt: "Students in formal attire at workshop" },
+    { id: 7, src: gallery15, alt: "Training session in computer lab" },
+    { id: 8, src: gallery10, alt: "Interactive classroom training session" },
+    { id: 9, src: gallery4, alt: "Interactive session in computer lab" },
+    { id: 10, src: gallery9, alt: "Large hall presentation session" },
+    { id: 11, src: gallery13, alt: "Seminar room training with students" },
   ];
 
   return (
