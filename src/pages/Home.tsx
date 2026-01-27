@@ -229,13 +229,14 @@ const Home = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <video 
                 className="aspect-video w-full rounded-xl object-cover"
                 controls
-                preload="metadata"
+                preload="auto"
+                controlsList=""
               >
                 <source src={testimonialVideo1} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -244,11 +245,12 @@ const Home = () => {
           </Card>
 
           <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <video 
                 className="aspect-video w-full rounded-xl object-cover"
                 controls
-                preload="metadata"
+                preload="auto"
+                controlsList=""
               >
                 <source src={testimonialVideo2} type="video/mp4" />
                 Your browser does not support the video tag.
