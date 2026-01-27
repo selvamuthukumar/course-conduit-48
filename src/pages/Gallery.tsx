@@ -4,21 +4,25 @@ import { Card, CardContent } from "@/components/ui/card";
 
 import gallery1 from "@/assets/gallery/gallery-1.png";
 import gallery2 from "@/assets/gallery/gallery-2.png";
-import gallery3 from "@/assets/gallery/gallery-3.png";
 import gallery4 from "@/assets/gallery/gallery-4.png";
-import gallery5 from "@/assets/gallery/gallery-5.png";
-import gallery6 from "@/assets/gallery/gallery-6.png";
-import gallery7 from "@/assets/gallery/gallery-7.png";
+import gallery8 from "@/assets/gallery/gallery-8.jpg";
+import gallery9 from "@/assets/gallery/gallery-9.jpg";
+import gallery10 from "@/assets/gallery/gallery-10.jpg";
+import gallery11 from "@/assets/gallery/gallery-11.jpg";
+import gallery12 from "@/assets/gallery/gallery-12.jpg";
+import gallery13 from "@/assets/gallery/gallery-13.jpg";
 
 const Gallery = () => {
   const galleryImages = [
-    { id: 1, src: gallery1, alt: "SkillBridge presentation at seminar" },
-    { id: 2, src: gallery2, alt: "Learners participating in training session" },
-    { id: 3, src: gallery3, alt: "Speaker at SkillBridge workshop" },
-    { id: 4, src: gallery4, alt: "Interactive session in computer lab" },
-    { id: 5, src: gallery5, alt: "Training session with learners" },
-    { id: 6, src: gallery6, alt: "Presentation at SkillBridge event" },
-    { id: 7, src: gallery7, alt: "Team interaction at SkillBridge" },
+    { id: 1, src: gallery8, alt: "AI/ML walkthrough session" },
+    { id: 2, src: gallery1, alt: "SkillBridge presentation at seminar" },
+    { id: 3, src: gallery11, alt: "Session at KIT Kalaignarkarunanidhi Institute" },
+    { id: 4, src: gallery2, alt: "Learners participating in training session" },
+    { id: 5, src: gallery12, alt: "Students in formal attire at workshop" },
+    { id: 6, src: gallery10, alt: "Interactive classroom training session" },
+    { id: 7, src: gallery4, alt: "Interactive session in computer lab" },
+    { id: 8, src: gallery9, alt: "Large hall presentation session" },
+    { id: 9, src: gallery13, alt: "Seminar room training with students" },
   ];
 
   return (
@@ -35,14 +39,14 @@ const Gallery = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {galleryImages.map((image) => (
             <Card 
               key={image.id} 
               className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
               <CardContent className="p-0">
-                <div className="aspect-square overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden">
                   <img 
                     src={image.src} 
                     alt={image.alt}
