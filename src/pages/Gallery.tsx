@@ -25,7 +25,7 @@ const Gallery = () => {
   const galleryImages = [
     { id: 1, src: gallery8, alt: "AI/ML walkthrough session" },
     { id: 2, src: gallery16, alt: "Manufacturing floor workshop" },
-    { id: 3, src: gallery1, alt: "SkillBridge presentation at seminar" },
+    { id: 3, src: gallery1, alt: "Skill Bridge presentation at seminar" },
     { id: 4, src: gallery22, alt: "Technician working with cables" },
     { id: 5, src: gallery14, alt: "Speaker addressing students in hall" },
     { id: 6, src: gallery17, alt: "Machine operation training" },

@@ -16,7 +16,7 @@ import Footer from "@/components/Footer";
 const Home = () => {
   const steps = [{
     icon: UserPlus,
-    title: "Sign up via SkillBridge",
+    title: "Sign up via Skill Bridge",
     description: "Create your account and join our learning community"
   }, {
     icon: BookOpen,
@@ -45,7 +45,7 @@ const Home = () => {
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-8 leading-tight">
             From awareness to employment -{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              SkillBridge
+              Skill Bridge
             </span>{" "}
             guides you every step of the way.
           </h1>
@@ -225,7 +225,7 @@ const Home = () => {
             What Our Learners Say
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Hear directly from learners who have transformed their careers with SkillBridge
+            Hear directly from learners who have transformed their careers with Skill Bridge
           </p>
         </div>
         

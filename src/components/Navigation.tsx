@@ -69,7 +69,7 @@ const Navigation = () => {
       <div className="flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <GraduationCap className="h-8 w-8 text-primary" />
-          <span className="text-2xl font-bold text-foreground">SkillBridge</span>
+          <span className="text-2xl font-bold text-foreground">Skill Bridge</span>
         </Link>
         <nav className="flex items-center gap-6">
           <Link 

@@ -15,7 +15,7 @@ const AboutUs = () => {
           <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-8 leading-tight">
             About{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              SkillBridge
+              Skill Bridge
             </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -42,7 +42,7 @@ const AboutUs = () => {
                 </p>
                 
                 <p className="text-lg leading-relaxed">
-                  SkillBridge was created to make the next step clearer. We guide students into structured, government-backed training programs that focus on real skills and real jobs. With practical courses and recognized certifications, SkillBridge helps turn questions about the future into confidence and direction.
+                  Skill Bridge was created to make the next step clearer. We guide students into structured, government-backed training programs that focus on real skills and real jobs. With practical courses and recognized certifications, Skill Bridge helps turn questions about the future into confidence and direction.
                 </p>
                 
                 <p className="text-lg leading-relaxed">
@@ -52,7 +52,7 @@ const AboutUs = () => {
                 
                 
                 <p className="text-lg leading-relaxed">
-                  SkillBridge raises awareness, simplifies enrollment, and helps students access government-backed training that's <span className="text-foreground font-medium">accessible, visible, and actionable</span>.
+                  Skill Bridge raises awareness, simplifies enrollment, and helps students access government-backed training that's <span className="text-foreground font-medium">accessible, visible, and actionable</span>.
                 </p>
               </div>
             </div>
@@ -92,7 +92,7 @@ const AboutUs = () => {
             <CardContent className="p-12">
               <div className="text-center">
                 <p className="text-xl md:text-2xl text-primary-foreground leading-relaxed mb-8">
-                  At SkillBridge, our mission is to make sure <span className="font-bold">no student is left behind</span> because of a lack of awareness or access.
+                  At Skill Bridge, our mission is to make sure <span className="font-bold">no student is left behind</span> because of a lack of awareness or access.
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">

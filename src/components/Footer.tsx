@@ -16,7 +16,7 @@ const Footer = () => {
             </a>
           </Button>
           <GraduationCap className="h-6 w-6 text-primary" />
-          <span className="text-lg font-semibold text-foreground">SkillBridge</span>
+          <span className="text-lg font-semibold text-foreground">Skill Bridge</span>
         </div>
         <p className="text-muted-foreground">
           Bridging the gap between skills and opportunities.
