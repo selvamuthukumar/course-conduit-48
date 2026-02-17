@@ -52,7 +52,7 @@ const FAQ = () => {
                 What are the placement opportunities?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pt-4">
-                Learners who train with dedication and successfully complete their certification will be supported by SkillBridge in connecting with reputed firms. While no program can guarantee a job, our focus is on preparing you for real industry needs and aiding you in securing strong placement opportunities.
+                Learners who train with dedication and successfully complete their certification will be supported by Skill Bridge in connecting with reputed firms. While no program can guarantee a job, our focus is on preparing you for real industry needs and aiding you in securing strong placement opportunities.
               </AccordionContent>
             </AccordionItem>
 

@@ -72,7 +72,7 @@ const CourseManagement = () => {
             <div className="flex items-center gap-4">
               <GraduationCap className="h-8 w-8" />
               <div>
-                <span className="text-2xl font-bold">SkillBridge Courses</span>
+                <span className="text-2xl font-bold">Skill Bridge Courses</span>
                 <p className="text-primary-foreground/80 text-sm">
                   Explore our comprehensive course catalog and start learning today
                 </p>
