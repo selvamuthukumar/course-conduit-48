@@ -1,5 +1,5 @@
-import { GraduationCap } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import skillbridgeLogo from "@/assets/skillbridge-logo.png";
 
 const Navigation = () => {
   const location = useLocation();
@@ -68,7 +68,7 @@ const Navigation = () => {
     <header className="container mx-auto px-4 py-6">
       <div className="flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <GraduationCap className="h-8 w-8 text-primary" />
+          <img src={skillbridgeLogo} alt="Skill Bridge logo" className="h-10 w-10 object-contain" />
           <span className="text-2xl font-bold text-foreground">Skill Bridge</span>
         </Link>
         <nav className="flex items-center gap-6">
