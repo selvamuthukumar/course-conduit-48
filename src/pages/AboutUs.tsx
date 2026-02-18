@@ -4,26 +4,21 @@ import { GraduationCap, Target, Heart, Users, MapPin, Zap, ArrowRight } from "lu
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 const AboutUs = () => {
-  const scrollRef = useScrollAnimation();
-
-  return (
-    <div className="min-h-screen bg-gradient-bg" ref={scrollRef}>
+  return <div className="min-h-screen bg-gradient-bg">
       {/* Header */}
       <Navigation />
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-12">
-        <div className="text-center max-w-4xl mx-auto mb-20 animate-on-scroll">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-8 leading-tight tracking-tight">
+        <div className="text-center max-w-4xl mx-auto mb-20">
+          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-8 leading-tight">
             About{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               Skill Bridge
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Connecting youth to opportunities, transforming potential into careers.
           </p>
         </div>
@@ -31,14 +26,14 @@ const AboutUs = () => {
 
       {/* Our Story Section */}
       <section className="container mx-auto px-4 pb-20">
-        <div className="max-w-6xl mx-auto animate-on-scroll">
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-gradient-primary rounded-full p-3">
                   <Heart className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Our Story</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">Our Story</h2>
               </div>
               
               <div className="prose prose-lg text-muted-foreground space-y-6">
@@ -54,20 +49,22 @@ const AboutUs = () => {
                   I'm Priyansh Agarwal, a national-level tennis player and student from Gurugram, passionate about technology and community building.
                 </p>
                 
+                
+                
                 <p className="text-lg leading-relaxed">
                   Skill Bridge raises awareness, simplifies enrollment, and helps students access government-backed training that's <span className="text-foreground font-medium">accessible, visible, and actionable</span>.
                 </p>
               </div>
             </div>
             
-            <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-500">
+            <Card className="bg-gradient-card border-0 shadow-card">
               <CardContent className="p-8">
                 <div className="text-center">
                   <div className="bg-gradient-secondary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
                     <Users className="h-12 w-12 text-secondary-foreground" />
                   </div>
                   
-                  <p className="text-3xl text-muted-foreground font-light italic">"Great opportunities almost never fit your schedule."</p>
+                  <p className="text-3xl text-zinc-900 font-light">“Great opportunities almost never fit your schedule.”</p>
                   <div className="mt-6 pt-6 border-t border-border">
                     <p className="text-sm font-medium text-foreground">— Reid Hoffman</p>
                     <p className="text-sm text-muted-foreground">Founder, LinkedIn</p>
@@ -82,24 +79,24 @@ const AboutUs = () => {
       {/* Mission Section */}
       <section className="container mx-auto px-4 py-20">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-on-scroll">
+          <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-8">
               <div className="bg-gradient-primary rounded-full p-3">
                 <Target className="h-6 w-6 text-primary-foreground" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">The Mission</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">The Mission</h2>
             </div>
           </div>
 
-          <Card className="bg-gradient-primary border-0 shadow-primary animate-on-scroll transition-all duration-500 hover:shadow-[0_12px_40px_-8px_hsl(210_85%_58%_/_0.5)]">
+          <Card className="bg-gradient-primary border-0 shadow-primary">
             <CardContent className="p-12">
               <div className="text-center">
                 <p className="text-xl md:text-2xl text-primary-foreground leading-relaxed mb-8">
                   At Skill Bridge, our mission is to make sure <span className="font-bold">no student is left behind</span> because of a lack of awareness or access.
                 </p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 stagger-children animate-on-scroll">
-                  <div className="bg-primary-foreground/10 rounded-xl p-6 transition-all duration-300 hover:bg-primary-foreground/15">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                  <div className="bg-primary-foreground/10 rounded-xl p-6">
                     <Zap className="h-8 w-8 text-primary-foreground mb-4 mx-auto" />
                     <h3 className="text-lg font-semibold text-primary-foreground mb-3">Building Movement</h3>
                     <p className="text-primary-foreground/90 text-sm">
@@ -107,13 +104,13 @@ const AboutUs = () => {
                     </p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 rounded-xl p-6 transition-all duration-300 hover:bg-primary-foreground/15">
+                  <div className="bg-primary-foreground/10 rounded-xl p-6">
                     <GraduationCap className="h-8 w-8 text-primary-foreground mb-4 mx-auto" />
                     <h3 className="text-lg font-semibold text-primary-foreground mb-3">Job-Ready Skills</h3>
                     <p className="text-primary-foreground/90 text-sm">Equipping students with practical, electronic industry-relevant skills for immediate employment</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 rounded-xl p-6 transition-all duration-300 hover:bg-primary-foreground/15">
+                  <div className="bg-primary-foreground/10 rounded-xl p-6">
                     <MapPin className="h-8 w-8 text-primary-foreground mb-4 mx-auto" />
                     <h3 className="text-lg font-semibold text-primary-foreground mb-3">Pan-India Vision</h3>
                     <p className="text-primary-foreground/90 text-sm">
@@ -129,8 +126,8 @@ const AboutUs = () => {
 
       {/* Impact Section */}
       <section className="container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto text-center animate-on-scroll">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 tracking-tight">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
             Transforming Potential into Impact
           </h2>
           
@@ -139,7 +136,7 @@ const AboutUs = () => {
           </p>
           
           <a href="https://forms.gle/vTmobjGSr2kWs3hs9" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:shadow-primary transition-all duration-300 hover:scale-105">
+            <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:shadow-primary">
               Join Our Mission
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -148,7 +145,6 @@ const AboutUs = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
 export default AboutUs;

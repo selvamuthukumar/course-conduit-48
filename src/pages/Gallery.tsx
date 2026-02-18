@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import gallery1 from "@/assets/gallery/gallery-1.png";
 import gallery2 from "@/assets/gallery/gallery-2.png";
@@ -23,8 +22,6 @@ import gallery21 from "@/assets/gallery/gallery-21.png";
 import gallery22 from "@/assets/gallery/gallery-22.png";
 
 const Gallery = () => {
-  const scrollRef = useScrollAnimation();
-
   const galleryImages = [
     { id: 1, src: gallery8, alt: "AI/ML walkthrough session" },
     { id: 2, src: gallery16, alt: "Manufacturing floor workshop" },
@@ -47,36 +44,32 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-bg" ref={scrollRef}>
+    <div className="min-h-screen bg-gradient-bg">
       <Navigation />
       
       <section className="container mx-auto px-4 py-20">
-        <div className="text-center mb-16 animate-on-scroll">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
+        <div className="text-center mb-16">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Gallery
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Glimpses from our training sessions, workshops, and events
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto stagger-children animate-on-scroll">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {galleryImages.map((image) => (
             <Card 
               key={image.id} 
-              className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 overflow-hidden image-reveal group"
+              className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
-              <CardContent className="p-0 relative">
+              <CardContent className="p-0">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img 
                     src={image.src} 
                     alt={image.alt}
-                    className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105"
-                    loading="lazy"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 pointer-events-none">
-                  <p className="text-white text-sm font-medium">{image.alt}</p>
                 </div>
               </CardContent>
             </Card>

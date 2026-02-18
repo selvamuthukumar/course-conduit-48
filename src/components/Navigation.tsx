@@ -65,62 +65,62 @@ const Navigation = () => {
   };
 
   return (
-    <header className="container mx-auto px-4 py-6 animate-fade-in">
+    <header className="container mx-auto px-4 py-6">
       <div className="flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
-          <img src={skillbridgeLogo} alt="Skill Bridge logo" className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-110" />
-          <span className="text-2xl font-bold text-foreground tracking-tight">Skill Bridge</span>
+        <Link to="/" className="flex items-center gap-3">
+          <img src={skillbridgeLogo} alt="Skill Bridge logo" className="h-10 w-10 object-contain" />
+          <span className="text-2xl font-bold text-foreground">Skill Bridge</span>
         </Link>
         <nav className="flex items-center gap-6">
           <Link 
             to="/" 
-            className={`relative text-foreground hover:text-primary transition-all duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
-              isActive("/") ? "text-primary font-medium after:scale-x-100" : ""
+            className={`text-foreground hover:text-primary transition-colors ${
+              isActive("/") ? "text-primary font-medium" : ""
             }`}
           >
             Home
           </Link>
           <Link 
             to="/courses" 
-            className={`relative text-foreground hover:text-primary transition-all duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
-              isActive("/courses") ? "text-primary font-medium after:scale-x-100" : ""
+            className={`text-foreground hover:text-primary transition-colors ${
+              isActive("/courses") ? "text-primary font-medium" : ""
             }`}
           >
             Courses
           </Link>
           <Link 
             to="/about" 
-            className={`relative text-foreground hover:text-primary transition-all duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
-              isActive("/about") ? "text-primary font-medium after:scale-x-100" : ""
+            className={`text-foreground hover:text-primary transition-colors ${
+              isActive("/about") ? "text-primary font-medium" : ""
             }`}
           >
             About Us
           </Link>
           <button 
             onClick={handlePartnersClick}
-            className="relative text-foreground hover:text-primary transition-all duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+            className="text-foreground hover:text-primary transition-colors"
           >
             Partners
           </button>
           <Link 
             to="/gallery" 
-            className={`relative text-foreground hover:text-primary transition-all duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
-              isActive("/gallery") ? "text-primary font-medium after:scale-x-100" : ""
+            className={`text-foreground hover:text-primary transition-colors ${
+              isActive("/gallery") ? "text-primary font-medium" : ""
             }`}
           >
             Gallery
           </Link>
           <Link 
             to="/faq" 
-            className={`relative text-foreground hover:text-primary transition-all duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
-              isActive("/faq") ? "text-primary font-medium after:scale-x-100" : ""
+            className={`text-foreground hover:text-primary transition-colors ${
+              isActive("/faq") ? "text-primary font-medium" : ""
             }`}
           >
             FAQs
           </Link>
           <button 
             onClick={handleContactClick}
-            className="relative text-foreground hover:text-primary transition-all duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+            className="text-foreground hover:text-primary transition-colors"
           >
             Contact
           </button>
