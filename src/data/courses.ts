@@ -15,9 +15,11 @@ export const coursesData: Course[] = [
     startDate: '2025-02-01',
     jobDescription: 'Responsible for ensuring product quality through in-process and final inspection procedures.',
     eligibilityCriteria: [
-      'Diploma in Electronics/Mechanical Engineering',
-      'B.E/B.Tech in relevant discipline',
-      'ITI with relevant trade certification'
+      'Diploma (after 10th) in Electrical, Electronics, or Mechanical Engineering with 1 year of relevant work experience',
+      '12th Grade Pass with 1 year of NTC/NAC and 1 year of relevant work experience',
+      '12th Grade Pass with 2 years of relevant work experience',
+      'NSQF Level 4 qualification in a relevant field with 3 years of relevant work experience',
+      '10th Grade Pass with 4 years of relevant work experience'
     ],
     curriculumUrl: 'https://nqr.gov.in/qualifications/2740'
   },
@@ -35,9 +37,10 @@ export const coursesData: Course[] = [
     startDate: '2025-02-01',
     jobDescription: 'Operate PCB assembly equipment and perform quality soldering of electronic components.',
     eligibilityCriteria: [
-      '10th Pass with basic technical aptitude',
-      'ITI in Electronics or related trade',
-      'Diploma in Electronics'
+      '8th Grade Pass with 2 years of NTC and an additional 2 years of NAC or relevant work experience',
+      '10th Grade Pass with 2 years of NTC, NAC, or relevant work experience',
+      '12th Class Pass',
+      'NSQF Level 3 Certificate in Maintenance Technician with 2 years of relevant work experience'
     ],
     curriculumUrl: 'https://nqr.gov.in/qualifications/2283'
   },
@@ -55,9 +58,10 @@ export const coursesData: Course[] = [
     startDate: '2025-02-01',
     jobDescription: 'Support electronics manufacturing operations as a junior technician with hands-on equipment experience.',
     eligibilityCriteria: [
-      '12th Pass with Science stream',
-      'ITI in Electronics/Electrical',
-      'Diploma in Electronics Engineering'
+      '8th Grade Pass with 2 years of NTC and 2 years of NAC or relevant work experience',
+      '10th Grade Pass with 2 years of NTC, NAC, or relevant work experience',
+      '12th Grade Pass',
+      'NSQF Level 3 Certificate in Maintenance Technician with 2 years of relevant work experience'
     ],
     curriculumUrl: 'https://www.nqr.gov.in/public/qualifications/2291'
   },
@@ -75,9 +79,11 @@ export const coursesData: Course[] = [
     startDate: '2025-02-01',
     jobDescription: 'Operate and maintain injection moulding machines for precision plastic manufacturing.',
     eligibilityCriteria: [
-      '10th Pass',
-      'ITI in Plastic Processing/Mechanical',
-      'Any technical diploma'
+      '3-Year Diploma after 10th',
+      '10th Pass with 1 year of NTC/NAC',
+      '10th Pass with 2 years of relevant experience',
+      '8th Pass with 2 years of NTC/NAC',
+      'Previous NSQF qualification with 2 years of relevant experience'
     ],
     curriculumUrl: 'https://nqr.gov.in/qualifications/2058'
   }
