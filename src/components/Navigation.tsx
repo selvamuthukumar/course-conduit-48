@@ -88,7 +88,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 shrink-0">
-            <img src={skillbridgeLogo} alt="Skill Bridge logo" className="h-9 w-9 object-contain" />
+            <img src={skillbridgeLogo} alt="Skill Bridge logo" className="h-12 w-auto object-contain rounded-sm bg-[hsl(var(--nav-foreground)/0.1)] p-1" />
             <span className="text-xl font-bold text-[hsl(var(--nav-foreground))]">Skill Bridge</span>
           </Link>
 
