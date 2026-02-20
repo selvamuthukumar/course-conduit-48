@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import skillbridgeLogo from "@/assets/skillbridge-logo.png";
 
 const Navigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [mobileOpen, setMobileOpen] = useState(false);
   
   const isActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;
@@ -14,10 +17,10 @@ const Navigation = () => {
   const smoothScrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const targetPosition = section.offsetTop - 80; // Offset for header
+      const targetPosition = section.offsetTop - 80;
       const startPosition = window.pageYOffset;
       const distance = targetPosition - startPosition;
-      const duration = 1500; // 1.5 seconds for slow, smooth scroll
+      const duration = 1500;
       let start: number | null = null;
 
       const animation = (currentTime: number) => {
@@ -28,7 +31,6 @@ const Navigation = () => {
         if (timeElapsed < duration) requestAnimationFrame(animation);
       };
 
-      // Easing function for smooth animation
       const easeInOutQuad = (t: number, b: number, c: number, d: number) => {
         t /= d / 2;
         if (t < 1) return c / 2 * t * t + b;
@@ -42,89 +44,103 @@ const Navigation = () => {
 
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
+    setMobileOpen(false);
     if (location.pathname === "/") {
       smoothScrollToSection("contact-section");
     } else {
       navigate("/");
-      setTimeout(() => {
-        smoothScrollToSection("contact-section");
-      }, 100);
+      setTimeout(() => smoothScrollToSection("contact-section"), 100);
     }
   };
 
   const handlePartnersClick = (e: React.MouseEvent) => {
     e.preventDefault();
+    setMobileOpen(false);
     if (location.pathname === "/") {
       smoothScrollToSection("partners-section");
     } else {
       navigate("/");
-      setTimeout(() => {
-        smoothScrollToSection("partners-section");
-      }, 100);
+      setTimeout(() => smoothScrollToSection("partners-section"), 100);
     }
   };
 
+  const navLinks = [
+    { label: "Home", path: "/" },
+    { label: "Courses", path: "/courses" },
+    { label: "About Us", path: "/about" },
+    { label: "Gallery", path: "/gallery" },
+    { label: "FAQs", path: "/faq" },
+  ];
+
+  const linkClasses = (path: string) =>
+    `relative px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+      isActive(path)
+        ? "bg-[hsl(var(--nav-accent)/0.15)] text-[hsl(var(--nav-accent))]"
+        : "text-[hsl(var(--nav-foreground)/0.8)] hover:text-[hsl(var(--nav-foreground))] hover:bg-[hsl(var(--nav-accent)/0.08)]"
+    }`;
+
+  const buttonClasses =
+    "relative px-3 py-2 text-sm font-medium transition-colors rounded-md text-[hsl(var(--nav-foreground)/0.8)] hover:text-[hsl(var(--nav-foreground))] hover:bg-[hsl(var(--nav-accent)/0.08)]";
+
   return (
-    <header className="container mx-auto px-4 py-6">
-      <div className="flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={skillbridgeLogo} alt="Skill Bridge logo" className="h-10 w-10 object-contain" />
-          <span className="text-2xl font-bold text-foreground">Skill Bridge</span>
-        </Link>
-        <nav className="flex items-center gap-6">
-          <Link 
-            to="/" 
-            className={`text-foreground hover:text-primary transition-colors ${
-              isActive("/") ? "text-primary font-medium" : ""
-            }`}
-          >
-            Home
+    <header className="sticky top-0 z-50 bg-[image:var(--gradient-nav)] shadow-[var(--shadow-nav)] backdrop-blur-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 shrink-0">
+            <img src={skillbridgeLogo} alt="Skill Bridge logo" className="h-9 w-9 object-contain" />
+            <span className="text-xl font-bold text-[hsl(var(--nav-foreground))]">Skill Bridge</span>
           </Link>
-          <Link 
-            to="/courses" 
-            className={`text-foreground hover:text-primary transition-colors ${
-              isActive("/courses") ? "text-primary font-medium" : ""
-            }`}
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={linkClasses(link.path)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <button onClick={handlePartnersClick} className={buttonClasses}>
+              Partners
+            </button>
+            <button onClick={handleContactClick} className={buttonClasses}>
+              Contact
+            </button>
+          </nav>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden p-2 rounded-md text-[hsl(var(--nav-foreground))] hover:bg-[hsl(var(--nav-accent)/0.1)]"
           >
-            Courses
-          </Link>
-          <Link 
-            to="/about" 
-            className={`text-foreground hover:text-primary transition-colors ${
-              isActive("/about") ? "text-primary font-medium" : ""
-            }`}
-          >
-            About Us
-          </Link>
-          <button 
-            onClick={handlePartnersClick}
-            className="text-foreground hover:text-primary transition-colors"
-          >
-            Partners
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-          <Link 
-            to="/gallery" 
-            className={`text-foreground hover:text-primary transition-colors ${
-              isActive("/gallery") ? "text-primary font-medium" : ""
-            }`}
-          >
-            Gallery
-          </Link>
-          <Link 
-            to="/faq" 
-            className={`text-foreground hover:text-primary transition-colors ${
-              isActive("/faq") ? "text-primary font-medium" : ""
-            }`}
-          >
-            FAQs
-          </Link>
-          <button 
-            onClick={handleContactClick}
-            className="text-foreground hover:text-primary transition-colors"
-          >
-            Contact
-          </button>
-        </nav>
+        </div>
+
+        {/* Mobile Nav */}
+        {mobileOpen && (
+          <nav className="md:hidden pb-4 flex flex-col gap-1 border-t border-[hsl(var(--nav-accent)/0.15)] pt-3">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setMobileOpen(false)}
+                className={linkClasses(link.path)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <button onClick={handlePartnersClick} className={buttonClasses + " text-left"}>
+              Partners
+            </button>
+            <button onClick={handleContactClick} className={buttonClasses + " text-left"}>
+              Contact
+            </button>
+          </nav>
+        )}
       </div>
     </header>
   );

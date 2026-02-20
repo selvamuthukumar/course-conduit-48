@@ -37,16 +37,23 @@ All colors MUST be HSL.
     --input: 220 15% 92%;
     --ring: 210 85% 58%;
 
+    /* Navigation */
+    --nav: 210 85% 25%;
+    --nav-foreground: 210 20% 95%;
+    --nav-accent: 210 100% 70%;
+
     /* Educational theme gradients */
     --gradient-primary: linear-gradient(135deg, hsl(210 85% 58%), hsl(210 100% 68%));
     --gradient-secondary: linear-gradient(135deg, hsl(155 60% 55%), hsl(155 70% 65%));
     --gradient-bg: linear-gradient(180deg, hsl(220 25% 98%), hsl(210 20% 96%));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 25% 98%));
+    --gradient-nav: linear-gradient(135deg, hsl(210 85% 22%), hsl(210 70% 30%));
     
     /* Shadows */
     --shadow-card: 0 4px 20px -2px hsl(210 40% 85%);
     --shadow-card-hover: 0 8px 30px -4px hsl(210 60% 75%);
     --shadow-primary: 0 8px 25px -8px hsl(210 85% 58% / 0.4);
+    --shadow-nav: 0 4px 20px -2px hsl(210 85% 15% / 0.3);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
