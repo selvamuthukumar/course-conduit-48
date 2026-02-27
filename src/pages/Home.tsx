@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, CheckCircle, Mail, ExternalLink, Linkedin } from "lucide-react";
+import { useRef } from "react";
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
 import essiLogo from "@/assets/logo_essi.png";
@@ -14,6 +15,15 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 const Home = () => {
+  const video1Ref = useRef<HTMLVideoElement>(null);
+  const video2Ref = useRef<HTMLVideoElement>(null);
+
+  const handlePlay = (currentRef: React.RefObject<HTMLVideoElement>, otherRef: React.RefObject<HTMLVideoElement>) => {
+    if (otherRef.current && !otherRef.current.paused) {
+      otherRef.current.pause();
+    }
+  };
+
   const steps = [{
     icon: UserPlus,
     title: "Sign up via Skill Bridge",
@@ -233,10 +243,11 @@ const Home = () => {
           <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
             <CardContent className="p-4 sm:p-6">
               <video 
+                ref={video1Ref}
                 className="aspect-video w-full rounded-xl object-cover"
                 controls
-                preload="auto"
-                controlsList=""
+                preload="metadata"
+                onPlay={() => handlePlay(video1Ref, video2Ref)}
               >
                 <source src={testimonialVideo1} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -247,10 +258,11 @@ const Home = () => {
           <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
             <CardContent className="p-4 sm:p-6">
               <video 
+                ref={video2Ref}
                 className="aspect-video w-full rounded-xl object-cover"
                 controls
-                preload="auto"
-                controlsList=""
+                preload="metadata"
+                onPlay={() => handlePlay(video2Ref, video1Ref)}
               >
                 <source src={testimonialVideo2} type="video/mp4" />
                 Your browser does not support the video tag.
