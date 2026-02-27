@@ -17,7 +17,7 @@ const Home = () => {
   const steps = [{
     icon: UserPlus,
     title: "Sign up via Skill Bridge",
-    description: "Create your account and join our learning community"
+    description: "Students register for Skill Bridge program through their college."
   }, {
     icon: BookOpen,
     title: "Opt for a course",
