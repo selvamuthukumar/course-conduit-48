@@ -240,11 +240,11 @@ const Home = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
-            <CardContent className="p-4 sm:p-6">
+          <Card className="bg-gradient-card border-0 shadow-card transition-all duration-300 overflow-visible">
+            <CardContent className="p-4 sm:p-6 relative">
               <video 
                 ref={video1Ref}
-                className="aspect-video w-full rounded-xl object-cover"
+                className="aspect-video w-full rounded-xl relative z-10"
                 controls
                 preload="metadata"
                 onPlay={() => handlePlay(video1Ref, video2Ref)}
@@ -255,11 +255,11 @@ const Home = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
-            <CardContent className="p-4 sm:p-6">
+          <Card className="bg-gradient-card border-0 shadow-card transition-all duration-300 overflow-visible">
+            <CardContent className="p-4 sm:p-6 relative">
               <video 
                 ref={video2Ref}
-                className="aspect-video w-full rounded-xl object-cover"
+                className="aspect-video w-full rounded-xl relative z-10"
                 controls
                 preload="metadata"
                 onPlay={() => handlePlay(video2Ref, video1Ref)}
