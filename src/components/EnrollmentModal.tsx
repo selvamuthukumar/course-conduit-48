@@ -23,12 +23,12 @@ interface EnrollmentModalProps {
  * The onEnroll callback is kept for backward compatibility
  * but the actual form submission is handled by Google Forms
  */
-export const EnrollmentModal = ({ 
-  course, 
-  isOpen, 
+export const EnrollmentModal = ({
+  course,
+  isOpen,
   onClose,
   onEnroll,
-  googleFormEmbedUrl 
+  googleFormEmbedUrl
 }: EnrollmentModalProps) => {
 
   if (!course) return null;
@@ -46,24 +46,24 @@ export const EnrollmentModal = ({
         <div className="space-y-4">
           <div className="bg-accent/50 p-4 rounded-lg">
             <h3 className="font-semibold text-foreground">{course.title}</h3>
-            <p className="text-sm text-muted-foreground">
-              Instructor: {course.instructor}
-            </p>
+            
+
+
           </div>
 
-          {googleFormEmbedUrl ? (
-            <div className="space-y-4">
+          {googleFormEmbedUrl ?
+          <div className="space-y-4">
               {/* Google Form embedded in iframe */}
               <iframe
-                src={googleFormEmbedUrl}
-                width="100%"
-                height="600"
-                frameBorder="0"
-                marginHeight={0}
-                marginWidth={0}
-                className="rounded-lg border border-border"
-                title="Enrollment Form"
-              >
+              src={googleFormEmbedUrl}
+              width="100%"
+              height="600"
+              frameBorder="0"
+              marginHeight={0}
+              marginWidth={0}
+              className="rounded-lg border border-border"
+              title="Enrollment Form">
+
                 Loading form...
               </iframe>
               
@@ -74,17 +74,17 @@ export const EnrollmentModal = ({
               </div>
 
               <div className="flex gap-3 pt-4">
-                <Button 
-                  onClick={onClose}
-                  className="flex-1 bg-gradient-primary hover:opacity-90 shadow-primary"
-                >
+                <Button
+                onClick={onClose}
+                className="flex-1 bg-gradient-primary hover:opacity-90 shadow-primary">
+
                   Done
                 </Button>
               </div>
-            </div>
-          ) : (
-            // Fallback if Google Form not configured
-            <div className="space-y-4">
+            </div> :
+
+          // Fallback if Google Form not configured
+          <div className="space-y-4">
               <div className="bg-yellow-50 dark:bg-yellow-950 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800">
                 <p className="text-sm text-yellow-900 dark:text-yellow-100 mb-4">
                   ⚠️ Google Forms enrollment not configured. 
@@ -100,31 +100,31 @@ export const EnrollmentModal = ({
               </div>
 
               <div className="flex gap-3 pt-4">
-                <Button 
-                  variant="outline"
-                  onClick={onClose}
-                  className="flex-1"
-                >
+                <Button
+                variant="outline"
+                onClick={onClose}
+                className="flex-1">
+
                   Close
                 </Button>
-                <Button 
-                  asChild
-                  className="flex-1 bg-gradient-primary hover:opacity-90 shadow-primary"
-                >
-                  <a 
-                    href="https://forms.google.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
+                <Button
+                asChild
+                className="flex-1 bg-gradient-primary hover:opacity-90 shadow-primary">
+
+                  <a
+                  href="https://forms.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Create Form
                   </a>
                 </Button>
               </div>
             </div>
-          )}
+          }
         </div>
       </DialogContent>
-    </Dialog>
-  );
+    </Dialog>);
+
 };
