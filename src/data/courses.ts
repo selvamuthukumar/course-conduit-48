@@ -21,7 +21,8 @@ export const coursesData: Course[] = [
       'NSQF Level 4 qualification in a relevant field with 3 years of relevant work experience',
       '10th Grade Pass with 4 years of relevant work experience'
     ],
-    curriculumUrl: 'https://nqr.gov.in/qualifications/2740'
+    curriculumUrl: 'https://nqr.gov.in/qualifications/2740',
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdcsdjJKv6HNnJ2hnIsozwpKQTkaLA9r486bdQzz1ttSf6_uA/viewform?embedded=true&usp=pp_url&entry.15991639=In-Process+and+Final+Quality+Engineer"
   },
   {
     id: '2',
@@ -42,7 +43,8 @@ export const coursesData: Course[] = [
       '12th Class Pass',
       'NSQF Level 3 Certificate in Maintenance Technician with 2 years of relevant work experience'
     ],
-    curriculumUrl: 'https://nqr.gov.in/qualifications/2283'
+    curriculumUrl: 'https://nqr.gov.in/qualifications/2283',
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdcsdjJKv6HNnJ2hnIsozwpKQTkaLA9r486bdQzz1ttSf6_uA/viewform?embedded=true&usp=pp_url&entry.15991639=Printed+Circuit+Board+-+Assembly+Operator"
   },
   {
     id: '3',
@@ -63,7 +65,8 @@ export const coursesData: Course[] = [
       '12th Grade Pass',
       'NSQF Level 3 Certificate in Maintenance Technician with 2 years of relevant work experience'
     ],
-    curriculumUrl: 'https://www.nqr.gov.in/public/qualifications/2291'
+    curriculumUrl: 'https://www.nqr.gov.in/public/qualifications/2291',
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdcsdjJKv6HNnJ2hnIsozwpKQTkaLA9r486bdQzz1ttSf6_uA/viewform?embedded=true&usp=pp_url&entry.15991639=Electronic+Manufacturing+Services+-+Junior+Technician"
   },
   {
     id: '4',
@@ -85,6 +88,7 @@ export const coursesData: Course[] = [
       '8th Pass with 2 years of NTC/NAC',
       'Previous NSQF qualification with 2 years of relevant experience'
     ],
-    curriculumUrl: 'https://nqr.gov.in/qualifications/2058'
+    curriculumUrl: 'https://nqr.gov.in/qualifications/2058',
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdcsdjJKv6HNnJ2hnIsozwpKQTkaLA9r486bdQzz1ttSf6_uA/viewform?embedded=true&usp=pp_url&entry.15991639=Injection+Moulding+Machine+Operator"
   }
 ];
