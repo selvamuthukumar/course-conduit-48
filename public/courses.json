@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "title": "In-Process And Final Quality Engineer",
+    "description": "Learn quality engineering processes including in-process and final quality inspection techniques.",
+    "instructor": "VVDN Technologies",
+    "duration": "6 months",
+    "level": "Intermediate",
+    "category": "Quality Engineering",
+    "price": 0,
+    "enrolledStudents": [],
+    "maxStudents": 50,
+    "startDate": "2025-02-01",
+    "jobDescription": "Responsible for ensuring product quality through in-process and final inspection procedures.",
+    "eligibilityCriteria": [
+      "Diploma (after 10th) in Electrical, Electronics, or Mechanical Engineering with 1 year of relevant work experience",
+      "12th Grade Pass with 1 year of NTC/NAC and 1 year of relevant work experience",
+      "12th Grade Pass with 2 years of relevant work experience",
+      "NSQF Level 4 qualification in a relevant field with 3 years of relevant work experience",
+      "10th Grade Pass with 4 years of relevant work experience"
+    ],
+    "curriculumUrl": "https://nqr.gov.in/qualifications/2740",
+    "googleFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdcsdjJKv6HNnJ2hnIsozwpKQTkaLA9r486bdQzz1ttSf6_uA/viewform?embedded=true&usp=pp_url&entry.15991639=In-Process+and+Final+Quality+Engineer"
+  },
+  {
+    "id": "2",
+    "title": "Printed Circuit Board - Assembly Operator",
+    "description": "Hands-on training for PCB assembly operations including soldering and component placement.",
+    "instructor": "VVDN Technologies",
+    "duration": "4 months",
+    "level": "Beginner",
+    "category": "Electronics Manufacturing",
+    "price": 0,
+    "enrolledStudents": [],
+    "maxStudents": 50,
+    "startDate": "2025-02-01",
+    "jobDescription": "Operate PCB assembly equipment and perform quality soldering of electronic components.",
+    "eligibilityCriteria": [
+      "8th Grade Pass with 2 years of NTC and an additional 2 years of NAC or relevant work experience",
+      "10th Grade Pass with 2 years of NTC, NAC, or relevant work experience",
+      "12th Class Pass",
+      "NSQF Level 3 Certificate in Maintenance Technician with 2 years of relevant work experience"
+    ],
+    "curriculumUrl": "https://nqr.gov.in/qualifications/2283",
+    "googleFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdcsdjJKv6HNnJ2hnIsozwpKQTkaLA9r486bdQzz1ttSf6_uA/viewform?embedded=true&usp=pp_url&entry.15991639=Printed+Circuit+Board+-+Assembly+Operator"
+  },
+  {
+    "id": "3",
+    "title": "Electronics Manufacturing Services - Junior Technician",
+    "description": "Comprehensive training on electronics manufacturing processes and equipment operation.",
+    "instructor": "VVDN Technologies",
+    "duration": "5 months",
+    "level": "Beginner",
+    "category": "Electronics Manufacturing",
+    "price": 0,
+    "enrolledStudents": [],
+    "maxStudents": 50,
+    "startDate": "2025-02-01",
+    "jobDescription": "Support electronics manufacturing operations as a junior technician with hands-on equipment experience.",
+    "eligibilityCriteria": [
+      "8th Grade Pass with 2 years of NTC and 2 years of NAC or relevant work experience",
+      "10th Grade Pass with 2 years of NTC, NAC, or relevant work experience",
+      "12th Grade Pass",
+      "NSQF Level 3 Certificate in Maintenance Technician with 2 years of relevant work experience"
+    ],
+    "curriculumUrl": "https://www.nqr.gov.in/public/qualifications/2291",
+    "googleFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdcsdjJKv6HNnJ2hnIsozwpKQTkaLA9r486bdQzz1ttSf6_uA/viewform?embedded=true&usp=pp_url&entry.15991639=Electronic+Manufacturing+Services+-+Junior+Technician"
+  },
+  {
+    "id": "4",
+    "title": "Injection Moulding Machine Operator",
+    "description": "Learn to operate injection moulding machines for plastic component manufacturing.",
+    "instructor": "VVDN Technologies",
+    "duration": "4 months",
+    "level": "Beginner",
+    "category": "Manufacturing",
+    "price": 0,
+    "enrolledStudents": [],
+    "maxStudents": 50,
+    "startDate": "2025-02-01",
+    "jobDescription": "Operate and maintain injection moulding machines for precision plastic manufacturing.",
+    "eligibilityCriteria": [
+      "3-Year Diploma after 10th",
+      "10th Pass with 1 year of NTC/NAC",
+      "10th Pass with 2 years of relevant experience",
+      "8th Pass with 2 years of NTC/NAC",
+      "Previous NSQF qualification with 2 years of relevant experience"
+    ],
+    "curriculumUrl": "https://nqr.gov.in/qualifications/2058",
+    "googleFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdcsdjJKv6HNnJ2hnIsozwpKQTkaLA9r486bdQzz1ttSf6_uA/viewform?embedded=true&usp=pp_url&entry.15991639=Injection+Moulding+Machine+Operator"
+  }
+]
