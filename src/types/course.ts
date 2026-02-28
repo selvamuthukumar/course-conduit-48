@@ -15,6 +15,7 @@ export interface Course {
   jobDescription?: string;
   eligibilityCriteria?: string[];
   curriculumUrl?: string;
+  googleFormUrl?: string;
 }
 
 export interface Student {
