@@ -17,7 +17,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/course-conduit-48">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<CourseManagement />} />
