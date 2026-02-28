@@ -2,27 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, CheckCircle, Mail, ExternalLink, Linkedin } from "lucide-react";
-import { useRef } from "react";
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
 import essiLogo from "@/assets/logo_essi.png";
 import mcetLogo from "@/assets/mcet-logo.png";
 import paceLogo from "@/assets/pace-logo-new.png";
 import chamberLogo from "@/assets/chamber-logo-new.png";
-import testimonialVideo1 from "@/assets/testimonial-video-1.mp4";
-import testimonialVideo2 from "@/assets/testimonial-video-2.mp4";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 const Home = () => {
-  const video1Ref = useRef<HTMLVideoElement>(null);
-  const video2Ref = useRef<HTMLVideoElement>(null);
-
-  const handlePlay = (currentRef: React.RefObject<HTMLVideoElement>, otherRef: React.RefObject<HTMLVideoElement>) => {
-    if (otherRef.current && !otherRef.current.paused) {
-      otherRef.current.pause();
-    }
-  };
 
   const steps = [{
     icon: UserPlus,
@@ -242,31 +231,29 @@ const Home = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           <Card className="bg-gradient-card border-0 shadow-card transition-all duration-300 overflow-visible">
             <CardContent className="p-4 sm:p-6 relative">
-              <video 
-                ref={video1Ref}
+              <iframe
                 className="aspect-video w-full rounded-xl relative z-10"
-                controls
-                preload="metadata"
-                onPlay={() => handlePlay(video1Ref, video2Ref)}
-              >
-                <source src={testimonialVideo1} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+                src="https://www.youtube.com/embed/MVxgm3Ia3kE?si=Vsr5kCiOD2Yk_w-T"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
             </CardContent>
           </Card>
 
           <Card className="bg-gradient-card border-0 shadow-card transition-all duration-300 overflow-visible">
             <CardContent className="p-4 sm:p-6 relative">
-              <video 
-                ref={video2Ref}
+              <iframe
                 className="aspect-video w-full rounded-xl relative z-10"
-                controls
-                preload="metadata"
-                onPlay={() => handlePlay(video2Ref, video1Ref)}
-              >
-                <source src={testimonialVideo2} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+                src="https://www.youtube.com/embed/zg-sVZZviMg?si=lKATm3UuTzHAVXMF"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
             </CardContent>
           </Card>
         </div>
