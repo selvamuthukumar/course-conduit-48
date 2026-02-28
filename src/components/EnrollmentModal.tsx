@@ -1,46 +1,41 @@
-import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Course, Student } from "@/types/course";
-import { UserPlus, Mail, User, Phone } from "lucide-react";
+import { UserPlus, ExternalLink } from "lucide-react";
 
 interface EnrollmentModalProps {
   course: Course | null;
   isOpen: boolean;
   onClose: () => void;
   onEnroll: (courseId: string, student: Omit<Student, 'id'>) => void;
+  googleFormEmbedUrl?: string;
 }
 
-export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: EnrollmentModalProps) => {
-  
-  const [studentData, setStudentData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    schoolName: '',
-    currentGrade: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (course) {
-      onEnroll(course.id, studentData);
-      setStudentData({ name: '', email: '', phone: '', schoolName: '', currentGrade: '' });
-    }
-  };
-
-  const handleClose = () => {
-    setStudentData({ name: '', email: '', phone: '', schoolName: '', currentGrade: '' });
-    onClose();
-  };
+/**
+ * EnrollmentModal with Google Forms Integration
+ * 
+ * Usage:
+ * 1. Create a Google Form for enrollment
+ * 2. Get the embed URL from Google Forms (Send > </> icon)
+ * 3. Pass googleFormEmbedUrl prop to this component
+ * 4. Form will be embedded in an iframe within the modal
+ * 
+ * The onEnroll callback is kept for backward compatibility
+ * but the actual form submission is handled by Google Forms
+ */
+export const EnrollmentModal = ({ 
+  course, 
+  isOpen, 
+  onClose,
+  onEnroll,
+  googleFormEmbedUrl 
+}: EnrollmentModalProps) => {
 
   if (!course) return null;
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-md bg-gradient-card">
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="sm:max-w-2xl bg-gradient-card max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-xl">
             <UserPlus className="h-5 w-5 text-primary" />
@@ -56,92 +51,78 @@ export const EnrollmentModal = ({ course, isOpen, onClose, onEnroll }: Enrollmen
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="studentName" className="flex items-center gap-2">
-                <User className="h-4 w-4" />
-                Student Name
-              </Label>
-              <Input
-                id="studentName"
-                value={studentData.name}
-                onChange={(e) => setStudentData(prev => ({ ...prev, name: e.target.value }))}
-                placeholder="Enter student name"
-                required
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="studentEmail" className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                Email Address
-              </Label>
-              <Input
-                id="studentEmail"
-                type="email"
-                value={studentData.email}
-                onChange={(e) => setStudentData(prev => ({ ...prev, email: e.target.value }))}
-                placeholder="student@example.com"
-                required
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="studentPhone" className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                Phone Number
-              </Label>
-              <Input
-                id="studentPhone"
-                type="tel"
-                value={studentData.phone}
-                onChange={(e) => setStudentData(prev => ({ ...prev, phone: e.target.value }))}
-                placeholder="+91 9876543210"
-                required
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="schoolName" className="flex items-center gap-2">
-                <User className="h-4 w-4" />
-                School / College Name
-              </Label>
-              <Input
-                id="schoolName"
-                value={studentData.schoolName}
-                onChange={(e) => setStudentData(prev => ({ ...prev, schoolName: e.target.value }))}
-                placeholder="Enter school or college name"
-                required
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="currentGrade" className="flex items-center gap-2">
-                <User className="h-4 w-4" />
-                Current Grade/Year of Study
-              </Label>
-              <Input
-                id="currentGrade"
-                value={studentData.currentGrade}
-                onChange={(e) => setStudentData(prev => ({ ...prev, currentGrade: e.target.value }))}
-                placeholder="e.g., 12th Grade, 2nd Year B.Tech"
-                required
-              />
-            </div>
-
-            <div className="flex gap-3 pt-4">
-              <Button 
-                type="submit" 
-                className="flex-1 bg-gradient-primary hover:opacity-90 shadow-primary"
+          {googleFormEmbedUrl ? (
+            <div className="space-y-4">
+              {/* Google Form embedded in iframe */}
+              <iframe
+                src={googleFormEmbedUrl}
+                width="100%"
+                height="600"
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
+                className="rounded-lg border border-border"
+                title="Enrollment Form"
               >
-                <UserPlus className="h-4 w-4 mr-2" />
-                Enroll
-              </Button>
-              <Button type="button" variant="outline" onClick={handleClose}>
-                Cancel
-              </Button>
+                Loading form...
+              </iframe>
+              
+              <div className="bg-blue-50 dark:bg-blue-950 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                <p className="text-sm text-blue-900 dark:text-blue-100">
+                  ℹ️ Fill out the form above to enroll in this course. Your response will be recorded automatically.
+                </p>
+              </div>
+
+              <div className="flex gap-3 pt-4">
+                <Button 
+                  onClick={onClose}
+                  className="flex-1 bg-gradient-primary hover:opacity-90 shadow-primary"
+                >
+                  Done
+                </Button>
+              </div>
             </div>
-          </form>
+          ) : (
+            // Fallback if Google Form not configured
+            <div className="space-y-4">
+              <div className="bg-yellow-50 dark:bg-yellow-950 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800">
+                <p className="text-sm text-yellow-900 dark:text-yellow-100 mb-4">
+                  ⚠️ Google Forms enrollment not configured. 
+                </p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  To enable Google Forms enrollment:
+                </p>
+                <ol className="text-sm text-muted-foreground space-y-2 list-decimal list-inside">
+                  <li>Create a Google Form with your enrollment questions</li>
+                  <li>Click "Send" and then the "&lt;&gt;" icon to get the embed URL</li>
+                  <li>Pass the googleFormEmbedUrl prop to this component</li>
+                </ol>
+              </div>
+
+              <div className="flex gap-3 pt-4">
+                <Button 
+                  variant="outline"
+                  onClick={onClose}
+                  className="flex-1"
+                >
+                  Close
+                </Button>
+                <Button 
+                  asChild
+                  className="flex-1 bg-gradient-primary hover:opacity-90 shadow-primary"
+                >
+                  <a 
+                    href="https://forms.google.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Create Form
+                  </a>
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
       </DialogContent>
     </Dialog>

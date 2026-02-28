@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Course, Student } from '@/types/course';
 import { useToast } from '@/hooks/use-toast';
 import { coursesData } from '@/data/courses';
+import { loadCourses, type DataFormat } from '@/lib/courseLoader';
 
 const ENROLLMENTS_KEY = 'course_enrollments';
 
@@ -29,14 +30,35 @@ const saveEnrollments = (enrollments: StoredEnrollment[]) => {
   localStorage.setItem(ENROLLMENTS_KEY, JSON.stringify(enrollments));
 };
 
-export const useCourses = () => {
+interface UseCourcesOptions {
+  source?: 'static' | 'json' | 'csv';
+  filePath?: string;
+}
+
+export const useCourses = (options?: UseCourcesOptions) => {
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
+  const source = options?.source || 'json';
+  const filePath = options?.filePath;
 
-  const fetchCourses = () => {
+  const fetchCourses = async () => {
     try {
       setLoading(true);
+      
+      let coursesToUse = coursesData;
+      
+      // Load from external source if specified
+      if (source === 'json' || source === 'csv') {
+        try {
+          const format = source === 'json' ? 'json' : 'csv';
+          coursesToUse = await loadCourses(format, filePath);
+        } catch (error) {
+          console.warn(`Failed to load from ${source}, falling back to static data:`, error);
+          coursesToUse = coursesData;
+        }
+      }
+
       const enrollments = getStoredEnrollments();
       
       // Count enrollments per course
@@ -46,7 +68,7 @@ export const useCourses = () => {
       }, {} as Record<string, number>);
 
       // Add enrollment counts to courses
-      const coursesWithCounts = coursesData.map(course => ({
+      const coursesWithCounts = coursesToUse.map(course => ({
         ...course,
         enrollmentCount: enrollmentCounts[course.id] || 0
       }));

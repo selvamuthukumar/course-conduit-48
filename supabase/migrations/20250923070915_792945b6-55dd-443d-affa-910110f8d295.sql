@@ -1,3 +1,0 @@
-UPDATE courses 
-SET job_description = 'Electronics Manufacturing Services Technician in this job works on Surface Mount Technology (SMT) machines, circuit boards and soldering equipment. The individual is responsible for the maintenance and troubleshooting of SMT equipment and also assists in the assembly and programming of SMT equipment.'
-WHERE title = 'Electronics Manufacturing Services Technician';

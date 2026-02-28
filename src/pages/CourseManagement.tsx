@@ -9,6 +9,7 @@ import { Course, Student } from "@/types/course";
 import { Search, Plus, GraduationCap, BookOpen, Users, Home, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCourses } from "@/hooks/useCourses";
+import { getEnrollmentConfig } from "@/config/enrollment";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 const CourseManagement = () => {
@@ -123,7 +124,13 @@ const CourseManagement = () => {
           </div>}
 
         {/* Enrollment Modal */}
-        <EnrollmentModal course={selectedCourse} isOpen={showEnrollmentModal} onClose={() => setShowEnrollmentModal(false)} onEnroll={handleEnrollStudent} />
+        <EnrollmentModal 
+          course={selectedCourse} 
+          isOpen={showEnrollmentModal} 
+          onClose={() => setShowEnrollmentModal(false)} 
+          onEnroll={handleEnrollStudent}
+          googleFormEmbedUrl={selectedCourse ? getEnrollmentConfig(selectedCourse.id, selectedCourse).googleFormUrl : undefined}
+        />
 
         {/* Enrollment Details Modal */}
         <EnrollmentDetailsModal course={selectedCourse} enrollments={enrollmentDetails} isOpen={showEnrollmentDetails} onClose={() => {
