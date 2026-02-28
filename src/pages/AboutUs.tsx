@@ -95,7 +95,15 @@ const AboutUs = () => {
                   At Skill Bridge, our mission is to make sure <span className="font-bold">no student is left behind</span> because of a lack of awareness or access.
                 </p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mt-12">
+                  <div className="bg-primary-foreground/10 rounded-xl p-6">
+                    <Users className="h-8 w-8 text-primary-foreground mb-4 mx-auto" />
+                    <h3 className="text-lg font-semibold text-primary-foreground mb-3">200+ Students</h3>
+                    <p className="text-primary-foreground/90 text-sm">
+                      Successfully enrolled 200+ students in government funded electronic courses through partnerships.
+                    </p>
+                  </div>
+
                   <div className="bg-primary-foreground/10 rounded-xl p-6">
                     <Zap className="h-8 w-8 text-primary-foreground mb-4 mx-auto" />
                     <h3 className="text-lg font-semibold text-primary-foreground mb-3">Building Movement</h3>
@@ -115,6 +123,14 @@ const AboutUs = () => {
                     <h3 className="text-lg font-semibold text-primary-foreground mb-3">Pan-India Vision</h3>
                     <p className="text-primary-foreground/90 text-sm">
                       Piloted in Tamil Nadu and expanding across India to maximize impact
+                    </p>
+                  </div>
+
+                  <div className="bg-primary-foreground/10 rounded-xl p-6">
+                    <Users className="h-8 w-8 text-primary-foreground mb-4 mx-auto" />
+                    <h3 className="text-lg font-semibold text-primary-foreground mb-3">2200+ Students</h3>
+                    <p className="text-primary-foreground/90 text-sm">
+                      Mobilized 2,200+ students through skilling outreach sessions.
                     </p>
                   </div>
                 </div>
