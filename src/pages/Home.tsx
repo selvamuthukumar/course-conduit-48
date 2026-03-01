@@ -260,11 +260,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Meet our Founder Section */}
+      {/* Meet the Founder Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-            Meet our Founder
+            Meet the Founder
           </h2>
         </div>
         
