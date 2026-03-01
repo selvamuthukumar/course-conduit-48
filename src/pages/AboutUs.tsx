@@ -45,9 +45,9 @@ const AboutUs = () => {
                   Skill Bridge was created to make the next step clearer. We guide students into structured, government-backed training programs that focus on real skills and real jobs. With practical courses and recognized certifications, Skill Bridge helps turn questions about the future into confidence and direction.
                 </p>
                 
-                <p className="text-lg leading-relaxed">
-                  I'm Priyansh Agarwal, a national-level tennis player and student from Gurugram, passionate about technology and community building.
-                </p>
+                
+
+
                 
                 
                 
