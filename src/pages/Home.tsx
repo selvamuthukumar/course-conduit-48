@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, CheckCircle, Mail, ExternalLink, Linkedin } from "lucide-react";
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
+import founderPhoto from "@/assets/founder-photo.png";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
 import essiLogo from "@/assets/logo_essi.png";
 import mcetLogo from "@/assets/mcet-logo.png";
@@ -256,6 +257,35 @@ const Home = () => {
               />
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Meet our Founder Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+            Meet our Founder
+          </h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto items-center">
+          <div>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Hi, I am <span className="font-semibold text-foreground">Priyansh Agarwal</span>, a national tennis player and a student based in Gurugram who is passionate about technology and community building. Through this initiative, I aim to bridge the gap between students and the Naan Mudhalvan scheme, helping students in Tamil Nadu gain industry skills and improve their chances of meaningful employment.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              My goal is to raise awareness and simplify enrolment, making government-backed training more accessible for every student.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-card">
+              <img
+                src={founderPhoto}
+                alt="Priyansh Agarwal - Founder"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
