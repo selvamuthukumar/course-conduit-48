@@ -17,7 +17,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, CheckCircle, Mail, ExternalLink, Linkedin, Newspaper } from "lucide-react";
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
-import founderPhoto from "@/assets/founder-photo.png";
+import founderPhoto from "@/assets/d88b640a-4ae2-4d5a-a03e-14c28f7e1508.png";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
 import essiLogo from "@/assets/logo_essi.png";
 import mcetLogo from "@/assets/mcet-logo.png";
