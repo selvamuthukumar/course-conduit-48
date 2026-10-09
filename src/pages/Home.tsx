@@ -9,9 +9,9 @@ import gallery15 from "@/assets/gallery/gallery-15.jpg";
 import gallery13 from "@/assets/gallery/gallery-13.jpg";
 import toiArticle from "@/assets/media/toi-article.jpg";
 import etEdgeArticle from "@/assets/media/et-edge.jpg";
-import tribuneArticle from "@/assets/media/tribune.png.asset.json";
-import newsbytesArticle from "@/assets/media/newsbytes.png.asset.json";
-import educationExpressArticle from "@/assets/media/education-express.png.asset.json";
+import tribuneArticle from "@/assets/media/tribune.jpg";
+import newsbytesArticle from "@/assets/media/newsbytes.jpg";
+import educationExpressArticle from "@/assets/media/education-express.jpg";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
