@@ -98,9 +98,9 @@ const AboutUs = () => {
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mt-12">
                   <div className="bg-primary-foreground/10 rounded-xl p-6">
                     <Users className="h-8 w-8 text-primary-foreground mb-4 mx-auto" />
-                    <h3 className="text-lg font-semibold text-primary-foreground mb-3">200+ Students</h3>
+                    <h3 className="text-lg font-semibold text-primary-foreground mb-3">500+ Students</h3>
                     <p className="text-primary-foreground/90 text-sm">
-                      Successfully enrolled 200+ students in government funded electronic courses through partnerships.
+                      Successfully enrolled 500+ students in government funded electronic courses through partnerships.
                     </p>
                   </div>
 
@@ -128,9 +128,9 @@ const AboutUs = () => {
 
                   <div className="bg-primary-foreground/10 rounded-xl p-6">
                     <Users className="h-8 w-8 text-primary-foreground mb-4 mx-auto" />
-                    <h3 className="text-lg font-semibold text-primary-foreground mb-3">2200+ Students</h3>
+                    <h3 className="text-lg font-semibold text-primary-foreground mb-3">15000+ Students</h3>
                     <p className="text-primary-foreground/90 text-sm">
-                      Mobilized 2,200+ students through skilling outreach sessions.
+                      Mobilized 15000+ students through skilling outreach sessions.
                     </p>
                   </div>
                 </div>

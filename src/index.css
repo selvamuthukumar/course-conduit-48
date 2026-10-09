@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -125,4 +126,69 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Intro loader animations */
+@keyframes intro-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-line-grow {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.intro-item {
+  opacity: 0;
+  animation: intro-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.intro-line {
+  transform-origin: center;
+  transform: scaleX(0);
+  animation: intro-line-grow 1s ease-out 0.3s forwards;
+}
+@layer base {
+  :root {
+    --gradient-hero: radial-gradient(ellipse at top, hsl(210 85% 30%), hsl(220 70% 12%) 70%);
+    --gradient-text-hero: linear-gradient(90deg, hsl(200 100% 75%), hsl(155 70% 65%));
+    --shadow-glow: 0 10px 40px -8px hsl(210 100% 60% / 0.6);
+  }
+  body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+  h1, h2, h3 { letter-spacing: -0.02em; }
+  section h2 { font-weight: 800; }
+}
+
+@layer utilities {
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .text-gradient-hero { background: var(--gradient-text-hero); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .hero-grid {
+    background-image: linear-gradient(hsl(var(--nav-foreground) / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--nav-foreground) / 0.08) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .glass-card {
+    background: hsl(var(--nav-foreground) / 0.08);
+    border: 1px solid hsl(var(--nav-foreground) / 0.15);
+    backdrop-filter: blur(12px);
+  }
+  .animate-float { animation: float 9s ease-in-out infinite; }
+  .animate-float-slow { animation: float 13s ease-in-out infinite reverse; }
+  @keyframes float { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,30px); } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-track { animation: marquee 45s linear infinite; }
+  .marquee-track:hover { animation-play-state: paused; }
 }

@@ -1,7 +1,21 @@
+import gallery16 from "@/assets/gallery/gallery-16.png";
+import gallery1 from "@/assets/gallery/gallery-1.png";
+import gallery22 from "@/assets/gallery/gallery-22.png";
+import gallery17 from "@/assets/gallery/gallery-17.png";
+import gallery11 from "@/assets/gallery/gallery-11.jpg";
+import gallery20 from "@/assets/gallery/gallery-20.png";
+import gallery19 from "@/assets/gallery/gallery-19.png";
+import gallery15 from "@/assets/gallery/gallery-15.jpg";
+import gallery13 from "@/assets/gallery/gallery-13.jpg";
+import toiArticle from "@/assets/media/toi-article.jpg";
+import etEdgeArticle from "@/assets/media/et-edge.jpg";
+import tribuneArticle from "@/assets/media/tribune.png.asset.json";
+import newsbytesArticle from "@/assets/media/newsbytes.png.asset.json";
+import educationExpressArticle from "@/assets/media/education-express.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, CheckCircle, Mail, ExternalLink, Linkedin } from "lucide-react";
+import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, CheckCircle, Mail, ExternalLink, Linkedin, Newspaper } from "lucide-react";
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
 import founderPhoto from "@/assets/founder-photo.png";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
@@ -12,6 +26,21 @@ import chamberLogo from "@/assets/chamber-logo-new.png";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import IntroLoader from "@/components/IntroLoader";
+
+const marqueeImages = [gallery16, gallery1, gallery22, gallery17, gallery11, gallery20, gallery19, gallery15, gallery13];
+
+// Media coverage slots. Drop an image import above and set `image` to it,
+// then fill `outlet` (publication name) and `url` (article link).
+type MediaItem = { outlet: string; image: string | null; url: string };
+const mediaCoverage: MediaItem[] = [
+  { outlet: "The Times of India", image: toiArticle, url: "https://timesofindia.indiatimes.com/education/news/he-is-in-class-12-and-plays-tennis-at-the-national-level-now-gurugram-student-priyansh-agarwal-has-built-ai-technology-to-analyse-his-game/articleshow/133752485.cms" },
+  { outlet: "ET Edge", image: etEdgeArticle, url: "https://etedge-insights.com/" },
+  { outlet: "The Tribune", image: tribuneArticle.url, url: "https://www.tribuneindia.com/news/delhi/from-tennis-court-to-ai-class-12-tennis-player-builds-tool-to-decode-his-game/" },
+  { outlet: "NewsBytes", image: newsbytesArticle.url, url: "https://www.newsbytesapp.com/news/science/gurugram-12th-grader-priyansh-agarwal-builds-tennedge-ai-system/tldr" },
+  { outlet: "The Education Express", image: educationExpressArticle.url, url: "https://www.theeducationexpress.in/2026/09/04/priyansh-agarwal-tennedge-ai-class-12-student-builds-tennis-tech/" },
+];
+
 const Home = () => {
 
   const steps = [{
@@ -36,31 +65,111 @@ const Home = () => {
     description: "Leverage your new skills for career opportunities"
   }];
   return <div className="min-h-screen bg-gradient-bg">
+      {/* Intro loader */}
+      <IntroLoader />
+
       {/* Header */}
       <Navigation />
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 pt-24 pb-20">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-8 leading-tight">
-            From awareness to employment -{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Skill Bridge
-            </span>{" "}
-            guides you every step of the way.
-          </h1>
-          
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Transform your career journey with our comprehensive learning platform. 
-            From skill development to job placement, we're with you at every milestone.
-          </p>
+      <section className="relative overflow-hidden bg-gradient-hero text-nav-foreground">
+        <div className="absolute inset-0 hero-grid opacity-40" />
+        <div className="absolute -top-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-primary/40 blur-3xl animate-float" />
+        <div className="absolute -bottom-40 -right-24 w-[32rem] h-[32rem] rounded-full bg-secondary/30 blur-3xl animate-float-slow" />
+        <div className="relative container mx-auto px-4 pt-24 pb-28">
+          <div className="text-center max-w-4xl mx-auto animate-fade-in">
+            <span className="inline-flex items-center gap-2 rounded-full border border-nav-foreground/20 bg-nav-foreground/10 px-4 py-1.5 text-sm font-medium backdrop-blur mb-8">
+              <span className="h-2 w-2 rounded-full bg-secondary animate-pulse" />
+              Government-backed electronics skilling
+            </span>
+            <h1 className="text-5xl md:text-7xl font-extrabold mb-8 leading-[1.05] tracking-tight">
+              From awareness to employment —{" "}
+              <span className="text-gradient-hero">Skill Bridge</span>{" "}
+              guides you every step of the way.
+            </h1>
+            <p className="text-xl text-nav-foreground/75 mb-12 max-w-2xl mx-auto">
+              Transform your career journey with our comprehensive learning platform.
+              From skill development to job placement, we're with you at every milestone.
+            </p>
+            <Link to="/courses">
+              <Button size="lg" className="text-lg px-10 py-7 rounded-full bg-gradient-primary shadow-glow hover:scale-105 transition-transform">
+                Browse Courses
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
 
-          <Link to="/courses">
-            <Button size="lg" className="text-lg px-8 py-6 bg-gradient-primary hover:shadow-primary">
-              Browse Courses
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
+          <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[
+              { icon: GraduationCap, value: "500+ Trainees", label: "Built training-to-employment pipeline reaching 500+ students in electronics manufacturing sector" },
+              { icon: Award, value: "Govt. of India", label: "Appreciated by the Ministry of Skill Development, Government of India and Chambers of Commerce" },
+              { icon: UserPlus, value: " Mobilised 15000+ Students", label: "Mobilised 15,000+ students across NCR and Tamil Nadu for government-backed electronics skills training" },
+              { icon: Briefcase, value: "70% Trainees", label: "Secured jobs after completing our government-backed training programs" },
+            ].map((s, i) => (
+              <div key={i} className="glass-card rounded-2xl p-6 text-center hover:-translate-y-1 transition-transform animate-fade-in" style={{ animationDelay: `${0.2 + i * 0.15}s`, animationFillMode: "both" }}>
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary shadow-glow">
+                  <s.icon className="h-6 w-6 text-primary-foreground" />
+                </div>
+                <div className="text-3xl md:text-4xl font-extrabold text-gradient-hero">{s.value}</div>
+                <div className="mt-2 text-nav-foreground/75">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-background" />
+
+      {/* Scrolling gallery strip */}
+      <section className="relative overflow-hidden bg-gradient-hero text-nav-foreground py-10 border-b border-nav-foreground/10">
+        <div className="w-full overflow-hidden marquee-track" style={{ width: "max-content" }}>
+          <div className="flex gap-6 px-3">
+            {[...marqueeImages, ...marqueeImages].map((img, i) => (
+              <img key={i} src={img} alt="Skill Bridge training session" className="h-52 w-80 object-cover rounded-2xl shadow-glow border border-nav-foreground/15" />
+            ))}
+          </div>
+        </div>
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+      </section>
+      </section>
+
+      {/* Media Coverage */}
+      <section className="container mx-auto px-4 py-20">
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
+            In the Media
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Coverage of our work across newspapers and media publications
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          {mediaCoverage.map((item, i) => (
+            <div key={i} className="flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-gradient-card shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
+              <div className="flex aspect-[4/3] w-full items-center justify-center bg-muted/50">
+                {item.image ? (
+                  <img src={item.image} alt={item.outlet || "Media coverage"} className="h-full w-full object-contain" />
+                ) : (
+                  <div className="flex flex-col items-center gap-2 px-4 text-center text-muted-foreground">
+                    <Newspaper className="h-8 w-8 opacity-50" />
+                    <span className="text-xs font-medium">Add screenshot</span>
+                  </div>
+                )}
+              </div>
+              <div className="mt-auto border-t border-border/60 p-4">
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+                    {item.outlet || "Read the article"}
+                    <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+                  </a>
+                ) : (
+                  <div className="rounded-lg border border-dashed border-border px-3 py-2 text-center text-xs text-muted-foreground">
+                    {"\n"}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -19,6 +19,7 @@ export default {
 		},
 		extend: {
 			colors: {
+				nav: { DEFAULT: 'hsl(var(--nav))', foreground: 'hsl(var(--nav-foreground))', accent: 'hsl(var(--nav-accent))' },
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
