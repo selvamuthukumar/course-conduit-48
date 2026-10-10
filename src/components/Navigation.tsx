@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import skillbridgeLogo from "@/assets/skillbridge-logo.png";
+import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
   const location = useLocation();
@@ -83,7 +84,7 @@ const Navigation = () => {
     "relative px-3 py-2 text-sm font-medium transition-colors rounded-md text-[hsl(var(--nav-foreground)/0.8)] hover:text-[hsl(var(--nav-foreground))] hover:bg-[hsl(var(--nav-accent)/0.08)]";
 
   return (
-    <header className="sticky top-0 z-50 bg-[image:var(--gradient-nav)] shadow-[var(--shadow-nav)] backdrop-blur-sm">
+    <header className="site-navigation sticky top-0 z-50 bg-[image:var(--gradient-nav)] shadow-[var(--shadow-nav)] backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -103,21 +104,21 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <button onClick={handlePartnersClick} className={buttonClasses}>
+            <Button variant="ghost" onClick={handlePartnersClick} className={buttonClasses}>
               Partners
-            </button>
-            <button onClick={handleContactClick} className={buttonClasses}>
+            </Button>
+            <Button variant="ghost" onClick={handleContactClick} className={buttonClasses}>
               Contact
-            </button>
+            </Button>
           </nav>
 
           {/* Mobile toggle */}
-          <button
+          <Button variant="ghost" size="icon" aria-label={mobileOpen ? "Close menu" : "Open menu"} aria-expanded={mobileOpen}
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 rounded-md text-[hsl(var(--nav-foreground))] hover:bg-[hsl(var(--nav-accent)/0.1)]"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          </Button>
         </div>
 
         {/* Mobile Nav */}
@@ -133,12 +134,12 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <button onClick={handlePartnersClick} className={buttonClasses + " text-left"}>
+            <Button variant="ghost" onClick={handlePartnersClick} className={buttonClasses + " text-left justify-start"}>
               Partners
-            </button>
-            <button onClick={handleContactClick} className={buttonClasses + " text-left"}>
+            </Button>
+            <Button variant="ghost" onClick={handleContactClick} className={buttonClasses + " text-left justify-start"}>
               Contact
-            </button>
+            </Button>
           </nav>
         )}
       </div>

@@ -14,8 +14,10 @@ import newsbytesArticle from "@/assets/media/newsbytes.jpg";
 import educationExpressArticle from "@/assets/media/education-express.jpg";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
-import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, CheckCircle, Mail, ExternalLink, Linkedin, Newspaper } from "lucide-react";
+import { GraduationCap, UserPlus, BookOpen, Award, Briefcase, ArrowRight, CheckCircle, Mail, ExternalLink, Linkedin, Newspaper, Maximize2 } from "lucide-react";
 import vvdnLogo from "@/assets/vvdn_site_logo.svg";
 import founderPhoto from "@/assets/d88b640a-4ae2-4d5a-a03e-14c28f7e1508.png";
 import naanMudhalvanLogo from "@/assets/logo_naan_mudhalvan.svg";
@@ -43,6 +45,7 @@ const mediaCoverage: MediaItem[] = [
 ];
 
 const Home = () => {
+  const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
 
   const steps = [{
     icon: UserPlus,
@@ -65,7 +68,7 @@ const Home = () => {
     title: "Apply for jobs / internships",
     description: "Leverage your new skills for career opportunities"
   }];
-  return <div className="min-h-screen bg-gradient-bg">
+  return <div className="home-page min-h-screen bg-gradient-bg">
       {/* Intro loader */}
       <IntroLoader />
 
@@ -73,10 +76,8 @@ const Home = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-hero text-nav-foreground">
+      <section className="home-hero relative overflow-hidden bg-gradient-hero text-nav-foreground">
         <div className="absolute inset-0 hero-grid opacity-40" />
-        <div className="absolute -top-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-primary/40 blur-3xl animate-float" />
-        <div className="absolute -bottom-40 -right-24 w-[32rem] h-[32rem] rounded-full bg-secondary/30 blur-3xl animate-float-slow" />
         <div className="relative container mx-auto px-4 pt-24 pb-28">
           <div className="text-center max-w-4xl mx-auto animate-fade-in">
             <span className="inline-flex items-center gap-2 rounded-full border border-nav-foreground/20 bg-nav-foreground/10 px-4 py-1.5 text-sm font-medium backdrop-blur mb-8">
@@ -100,7 +101,7 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="impact-grid mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {[
               { icon: GraduationCap, value: "500+ Trainees", label: "Built training-to-employment pipeline reaching 500+ students in electronics manufacturing sector" },
               { icon: Award, value: "Govt. of India", label: "Appreciated by the Ministry of Skill Development, Government of India and Chambers of Commerce" },
@@ -134,7 +135,7 @@ const Home = () => {
       </section>
 
       {/* Media Coverage */}
-      <section className="container mx-auto px-4 py-20">
+      <section className="media-section container mx-auto px-4 py-20">
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-foreground mb-4">
             In the Media
@@ -144,10 +145,10 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+        <div className="media-grid grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {mediaCoverage.map((item, i) => (
-            <div key={i} className="flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-gradient-card shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
-              <div className="flex aspect-[4/3] w-full items-center justify-center bg-muted/50">
+            <div key={i} className="media-card flex flex-col overflow-hidden rounded-lg border border-border/70 bg-gradient-card shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
+              <div className="media-image relative flex aspect-[16/10] w-full items-center justify-center bg-muted/50">
                 {item.image ? (
                   <img src={item.image} alt={item.outlet || "Media coverage"} className="h-full w-full object-contain" />
                 ) : (
@@ -156,8 +157,9 @@ const Home = () => {
                     <span className="text-xs font-medium">Add screenshot</span>
                   </div>
                 )}
+                {item.image && <Button variant="outline" size="icon" className="absolute bottom-3 right-3 bg-card shadow-card" onClick={() => setSelectedMedia(item)} aria-label={`Enlarge ${item.outlet} screenshot`} title={`Enlarge ${item.outlet} screenshot`}><Maximize2 className="h-4 w-4" /></Button>}
               </div>
-              <div className="mt-auto border-t border-border/60 p-4">
+              <div className="mt-auto border-t border-border/60 p-6">
                 {item.url ? (
                   <a href={item.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
                     {item.outlet || "Read the article"}
@@ -172,10 +174,16 @@ const Home = () => {
             </div>
           ))}
         </div>
+        <Dialog open={selectedMedia !== null} onOpenChange={(open) => { if (!open) setSelectedMedia(null); }}>
+          <DialogContent className="media-dialog w-[calc(100%-2rem)] max-w-6xl p-4 sm:p-6">
+            <DialogTitle className="pr-8">{selectedMedia?.outlet}</DialogTitle>
+            {selectedMedia?.image && <img src={selectedMedia.image} alt={selectedMedia.outlet} className="max-h-[78vh] w-full object-contain" />}
+          </DialogContent>
+        </Dialog>
       </section>
 
       {/* Step-by-Step Process */}
-      <section className="container mx-auto px-4 py-20">
+      <section className="journey-section container mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
             Your Journey to Success
@@ -223,7 +231,7 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 py-20">
+      <section className="features-section container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Card className="bg-gradient-card border-0 shadow-card hover:shadow-card-hover transition-all duration-300">
             <CardContent className="p-8 text-center">
@@ -262,7 +270,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="container mx-auto px-4 py-20">
+      <section className="career-section container mx-auto px-4 py-20">
         <div className="bg-gradient-primary rounded-3xl p-12 text-center shadow-primary">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
             Ready to Transform Your Career?
@@ -329,7 +337,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="testimonials-section container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             What Our Learners Say
@@ -371,7 +379,7 @@ const Home = () => {
       </section>
 
       {/* Meet the Founder Section */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="founder-section container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             Meet the Founder
