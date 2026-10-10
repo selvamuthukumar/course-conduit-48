@@ -1,2 +1,5 @@
 - [x] Intro loader animation on home page with 500+ students trained, appreciated by Govt of India
 - [x] Add third stat: 7000+ students mobilized of electronic courses to intro loader
+- [x] Enlarge media coverage screenshots without cropping.
+- [x] Polish site presentation without changing colours or content.
+- [x] Verify pages, navigation, and image display.
