@@ -37,10 +37,10 @@ const marqueeImages = [gallery16, gallery1, gallery22, gallery17, gallery11, gal
 type MediaItem = { outlet: string; image: string | null; url: string };
 const mediaCoverage: MediaItem[] = [
   { outlet: "The Times of India", image: toiArticle, url: "https://timesofindia.indiatimes.com/education/news/he-is-in-class-12-and-plays-tennis-at-the-national-level-now-gurugram-student-priyansh-agarwal-has-built-ai-technology-to-analyse-his-game/articleshow/133752485.cms" },
-  { outlet: "ET Edge", image: etEdgeArticle, url: "https://etedge-insights.com/" },
-  { outlet: "The Tribune", image: tribuneArticle, url: "..." },
-{ outlet: "NewsBytes", image: newsbytesArticle, url: "..." },
-{ outlet: "The Education Express", image: educationExpressArticle, url: "..." },
+  { outlet: "ET Edge", image: etEdgeArticle, url: "https://www.cioandleader.com/the-young-innovator-bridging-sports-tech-and-skills/" },
+  { outlet: "The Tribune", image: tribuneArticle, url: "https://www.tribuneindia.com/news/delhi/from-tennis-court-to-ai-class-12-tennis-player-builds-tool-to-decode-his-game/" },
+{ outlet: "NewsBytes", image: newsbytesArticle, url: "https://www.newsbytesapp.com/news/science/gurugram-12th-grader-priyansh-agarwal-builds-tennedge-ai-system/tldr" },
+{ outlet: "The Education Express", image: educationExpressArticle, url: "https://www.theeducationexpress.in/2026/09/04/priyansh-agarwal-tennedge-ai-class-12-student-builds-tennis-tech/" },
 
 ];
 
