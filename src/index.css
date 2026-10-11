@@ -312,3 +312,8 @@ All colors MUST be HSL.
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Scroll reveal */
+.sr { opacity: 0; transform: translateY(28px); }
+.sr.sr-in { opacity: 1; transform: none; transition: opacity .7s ease-out, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--sr-delay, 0ms); }
+@media (prefers-reduced-motion: reduce) { .sr { opacity: 1; transform: none; } }
