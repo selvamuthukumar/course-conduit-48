@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { GraduationCap, Award, Users } from "lucide-react";
+import CountUp from "@/components/CountUp";
 
 const IntroLoader = () => {
   const [phase, setPhase] = useState<"loading" | "fading" | "done">(
@@ -16,6 +17,12 @@ const IntroLoader = () => {
       clearTimeout(doneTimer);
     };
   }, []);
+
+  useEffect(() => {
+    if (phase !== "done") return;
+    (window as any).__introDone = true;
+    window.dispatchEvent(new Event("intro-done"));
+  }, [phase]);
 
   if (phase === "done") return null;
 
@@ -39,7 +46,7 @@ const IntroLoader = () => {
         <div className="intro-item flex items-center justify-center gap-3 mb-6" style={{ animationDelay: "0.6s" }}>
           <GraduationCap className="h-6 w-6 text-[hsl(var(--nav-accent))] shrink-0" />
           <span className="text-xl md:text-2xl font-semibold text-[hsl(var(--nav-foreground))]">
-            500+ students trained across India
+            <CountUp target={500} duration={900} delay={600} />+ students trained across India
           </span>
         </div>
 
@@ -55,7 +62,7 @@ const IntroLoader = () => {
         <div className="intro-item flex items-center justify-center gap-3" style={{ animationDelay: "1.8s" }}>
           <Users className="h-6 w-6 text-[hsl(var(--nav-accent))] shrink-0" />
           <span className="text-xl md:text-2xl font-semibold text-[hsl(var(--nav-foreground))]">
-            15000+ students mobilized of electronic courses
+            <CountUp target={15000} duration={900} delay={1800} />+ students mobilized of electronic courses
           </span>
         </div>
       </div>

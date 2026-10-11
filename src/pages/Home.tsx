@@ -29,6 +29,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import IntroLoader from "@/components/IntroLoader";
+import CountUp from "@/components/CountUp";
 
 const marqueeImages = [gallery16, gallery1, gallery22, gallery17, gallery11, gallery20, gallery19, gallery15, gallery13];
 
@@ -42,6 +43,22 @@ const mediaCoverage: MediaItem[] = [
 { outlet: "NewsBytes", image: newsbytesArticle, url: "https://www.newsbytesapp.com/news/science/gurugram-12th-grader-priyansh-agarwal-builds-tennedge-ai-system/tldr" },
 { outlet: "The Education Express", image: educationExpressArticle, url: "https://www.theeducationexpress.in/2026/09/04/priyansh-agarwal-tennedge-ai-class-12-student-builds-tennis-tech/" },
 
+];
+
+type ImpactStat = {
+  icon: typeof GraduationCap;
+  value?: number;
+  prefix?: string;
+  suffix?: string;
+  text?: string;
+  label: string;
+};
+
+const impactStats: ImpactStat[] = [
+  { icon: GraduationCap, value: 500, suffix: "+ Trainees", label: "Built training-to-employment pipeline reaching 500+ students in electronics manufacturing sector" },
+  { icon: Award, text: "Govt. of India", label: "Appreciated by the Ministry of Skill Development, Government of India and Chambers of Commerce" },
+  { icon: UserPlus, prefix: "Mobilised ", value: 15000, suffix: "+ Students", label: "Mobilised 15,000+ students across NCR and Tamil Nadu for government-backed electronics skills training" },
+  { icon: Briefcase, value: 70, suffix: "% Trainees", label: "Secured jobs after completing our government-backed training programs" },
 ];
 
 const Home = () => {
@@ -102,17 +119,18 @@ const Home = () => {
           </div>
 
           <div className="impact-grid mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {[
-              { icon: GraduationCap, value: "500+ Trainees", label: "Built training-to-employment pipeline reaching 500+ students in electronics manufacturing sector" },
-              { icon: Award, value: "Govt. of India", label: "Appreciated by the Ministry of Skill Development, Government of India and Chambers of Commerce" },
-              { icon: UserPlus, value: " Mobilised 15000+ Students", label: "Mobilised 15,000+ students across NCR and Tamil Nadu for government-backed electronics skills training" },
-              { icon: Briefcase, value: "70% Trainees", label: "Secured jobs after completing our government-backed training programs" },
-            ].map((s, i) => (
+            {impactStats.map((s, i) => (
               <div key={i} className="glass-card rounded-2xl p-6 text-center hover:-translate-y-1 transition-transform animate-fade-in" style={{ animationDelay: `${0.2 + i * 0.15}s`, animationFillMode: "both" }}>
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary shadow-glow">
                   <s.icon className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <div className="text-3xl md:text-4xl font-extrabold text-gradient-hero">{s.value}</div>
+                <div className="text-3xl md:text-4xl font-extrabold text-gradient-hero">
+                  {s.value !== undefined ? (
+                    <>{s.prefix || ""}<CountUp target={s.value} waitForView waitForIntro />{s.suffix}</>
+                  ) : (
+                    s.text
+                  )}
+                </div>
                 <div className="mt-2 text-nav-foreground/75">{s.label}</div>
               </div>
             ))}
