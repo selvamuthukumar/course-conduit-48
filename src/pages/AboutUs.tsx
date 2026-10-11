@@ -38,7 +38,7 @@ const AboutUs = () => {
               
               <div className="prose prose-lg text-muted-foreground space-y-6">
                 <p className="text-lg leading-relaxed">
-                  Every student wonders what comes next after college — some dream of big companies, some want to work with technology, and many are simply unsure where to begin. That uncertainty can feel overwhelming, especially when the path from education to employment isn't always straightforward.
+                  In many low-income communities, students grow up with ambition but limited access to career guidance, skill development, and employment opportunities. Despite their potential, many remain unaware of the training programs and resources available to help them build a better future. Bridging this gap requires more than opportunity alone; it requires making opportunities reach the communities that need them most.
                 </p>
                 
                 <p className="text-lg leading-relaxed">
