@@ -9,6 +9,7 @@ import AboutUs from "./pages/AboutUs";
 import FAQ from "./pages/FAQ";
 import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
+import ScrollReveal from "./components/ScrollReveal";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <div className="professional-site"><BrowserRouter>
+        <ScrollReveal />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<CourseManagement />} />
