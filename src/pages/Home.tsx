@@ -407,7 +407,7 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto items-center">
           <div>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Hi, I am <span className="font-semibold text-foreground">Priyansh Agarwal</span>, a national tennis player and a student based in Gurugram who is passionate about technology and community building. Through this initiative, I aim to bridge the gap between students and the Naan Mudhalvan scheme, helping students in Tamil Nadu gain industry skills and improve their chances of meaningful employment.
+              Hi, I am <span className="font-semibold text-foreground">Priyansh Agarwal</span>, a national tennis player and a student based in Gurugram who is passionate about technology and community building. Through this initiative, I aim to bridge the gap between students and government initatives like the Naan Mudhalvan scheme, helping students in India gain industry skills and improve their chances of meaningful employment.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               My goal is to raise awareness and simplify enrolment, making government-backed training more accessible for every student.
