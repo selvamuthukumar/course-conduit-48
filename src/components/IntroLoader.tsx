@@ -10,8 +10,8 @@ const IntroLoader = () => {
   useEffect(() => {
     if (phase === "done") return;
     (window as any).__introShown = true;
-    const fadeTimer = setTimeout(() => setPhase("fading"), 2600);
-    const doneTimer = setTimeout(() => setPhase("done"), 3200);
+    const fadeTimer = setTimeout(() => setPhase("fading"), 4400);
+    const doneTimer = setTimeout(() => setPhase("done"), 5100);
     return () => {
       clearTimeout(fadeTimer);
       clearTimeout(doneTimer);
@@ -43,15 +43,15 @@ const IntroLoader = () => {
         <div className="h-px w-24 mx-auto my-10 bg-[hsl(var(--nav-accent)/0.4)] intro-line" />
 
         {/* Stat 1 */}
-        <div className="intro-item flex items-center justify-center gap-3 mb-6" style={{ animationDelay: "0.6s" }}>
+        <div className="intro-item flex items-center justify-center gap-3 mb-6" style={{ animationDelay: "1.1s" }}>
           <GraduationCap className="h-6 w-6 text-[hsl(var(--nav-accent))] shrink-0" />
           <span className="text-xl md:text-2xl font-semibold text-[hsl(var(--nav-foreground))]">
-            <CountUp target={500} duration={900} delay={600} />+ students trained across India
+            <CountUp target={500} duration={1200} delay={1100} />+ students trained across India
           </span>
         </div>
 
         {/* Stat 2 */}
-        <div className="intro-item flex items-center justify-center gap-3 mb-6" style={{ animationDelay: "1.2s" }}>
+        <div className="intro-item flex items-center justify-center gap-3 mb-6" style={{ animationDelay: "2.1s" }}>
           <Award className="h-6 w-6 text-[hsl(var(--nav-accent))] shrink-0" />
           <span className="text-xl md:text-2xl font-semibold text-[hsl(var(--nav-foreground))]">
             Appreciated by Government of India
@@ -59,10 +59,10 @@ const IntroLoader = () => {
         </div>
 
         {/* Stat 3 */}
-        <div className="intro-item flex items-center justify-center gap-3" style={{ animationDelay: "1.8s" }}>
+        <div className="intro-item flex items-center justify-center gap-3" style={{ animationDelay: "3.1s" }}>
           <Users className="h-6 w-6 text-[hsl(var(--nav-accent))] shrink-0" />
           <span className="text-xl md:text-2xl font-semibold text-[hsl(var(--nav-foreground))]">
-            <CountUp target={15000} duration={900} delay={1800} />+ students mobilized of electronic courses
+            <CountUp target={15000} duration={1400} delay={3100} />+ students mobilized of electronic courses
           </span>
         </div>
       </div>
