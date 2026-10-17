@@ -10,8 +10,8 @@ const IntroLoader = () => {
   useEffect(() => {
     if (phase === "done") return;
     (window as any).__introShown = true;
-    const fadeTimer = setTimeout(() => setPhase("fading"), 4400);
-    const doneTimer = setTimeout(() => setPhase("done"), 5100);
+    const fadeTimer = setTimeout(() => setPhase("fading"), 7000);
+    const doneTimer = setTimeout(() => setPhase("done"), 7700);
     return () => {
       clearTimeout(fadeTimer);
       clearTimeout(doneTimer);
@@ -62,7 +62,7 @@ const IntroLoader = () => {
         <div className="intro-item flex items-center justify-center gap-3" style={{ animationDelay: "3.1s" }}>
           <Users className="h-6 w-6 text-[hsl(var(--nav-accent))] shrink-0" />
           <span className="text-xl md:text-2xl font-semibold text-[hsl(var(--nav-foreground))]">
-            <CountUp target={15000} duration={1400} delay={3100} />+ students mobilized of electronic courses
+            <CountUp target={15000} duration={1600} delay={3300} />+ students mobilized of electronic courses
           </span>
         </div>
       </div>
